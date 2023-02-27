@@ -1,3 +1,33 @@
+<script>
+	import { Button } from "$lib";
+</script>
+
 <h1>Welcome to your library project</h1>
-<p>Create your package using @sveltejs/package and preview/showcase your work with SvelteKit</p>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+
+<div>
+  <Button type={'success'} size={'s'}>click</Button>
+  <Button type={'warning'} size={'s'}>click</Button>
+  <Button type={'info'} size={'s'}>click</Button>
+  <Button type={'danger'} size={'s'}>click</Button>
+  <Button type={'neutral'} size={'s'}>click</Button>
+</div>
+<div>
+  <Button type={'success'}>click</Button>
+  <Button type={'warning'}>click</Button>
+  <Button type={'info'}>click</Button>
+  <Button type={'danger'}>click</Button>
+  <Button type={'neutral'} width={'200px'}>click</Button>
+</div>
+<div>
+  <Button type={'success'} size={'l'}>click</Button>
+  <Button type={'warning'} size={'l'}>click</Button>
+  <Button type={'info'} size={'l'}>click</Button>
+  <Button type={'danger'} size={'l'}>click</Button>
+  <Button type={'neutral'} size={'l'}>click</Button>
+</div>
+
+
+<div class="flex">
+  <Button type={'warning'} width={'50%'}>click</Button>
+  <Button type={'success'} width={'50%'}>click</Button>
+</div>
