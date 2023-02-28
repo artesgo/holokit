@@ -13,6 +13,7 @@
     <Link underline={true} href={"/modals"}>Modal</Link>
     <Link underline={true} href={"/popover"}>Popover</Link>
     <Link underline={true} href={"/checkbox"}>Checkbox</Link>
+    <Link underline={true} href={"/radios"}>Radios</Link>
   </ul>
 </header>
 
