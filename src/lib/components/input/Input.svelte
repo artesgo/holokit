@@ -38,14 +38,14 @@
 <style lang="scss">
   input {
     border: var(--control-border);
-    border-left: var(--border-size-m);
+    border-left: var(--border-width-m);
     border-color: var(--control-border-color);
     border-radius: var(--control-border-radius);
     min-width: var(--control-min-width);
     transition: var(--transition);
     &:focus {
-      outline: 1px solid var(--outline);
-      outline-offset: 1px;
+      outline: 1px solid var(--outline-color);
+      outline-offset: var(--outline-offset);
     }
   }
   .holo-success {

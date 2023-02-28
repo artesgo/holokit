@@ -2,12 +2,22 @@
   export let href = '';
   export let target: string | undefined = undefined;
   export let underline = false;
+  let focused = false;
+  function focus() {
+    focused = true;
+  }
+  function blur() {
+    focused = false;
+  }
 </script>
 
 <a 
   class="holo-link"
-  class:holo-link-under={underline}
+  class:underline
+  class:focused
+  {...$$restProps}
   {href} {target}
+  on:mouseover={focus} on:focus={focus} on:blur={blur} on:mouseout={blur}
 >
   <slot />
 </a>
@@ -16,8 +26,12 @@
   .holo-link {
     color: var(--color);
     text-decoration: none;
-    &-under {
-      text-decoration: underline;
-    }
+  }
+  .underline {
+    text-decoration: underline;
+  }
+  .focused {
+    outline: 1px solid var(--outline-color);
+    outline-offset: var(--outline-offset);
   }
 </style>

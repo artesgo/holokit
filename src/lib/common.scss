@@ -36,9 +36,8 @@
   --border: 1px solid;
   --border-radius: 2px;
   --border-color: #333333;
-  --border-size: 1px solid;
-  --border-size-m: 2px solid;
-  --border-size-l: 4px solid;
+  --border-width-m: 2px;
+  --border-width-l: 4px;
 
   // input control variables
   --control-width: 250px;
@@ -47,7 +46,8 @@
   --control-border: 1px solid;
   --control-border-radius: 2px;
   --control-border-color: #333333;
-  --outline: transparent;
+  --outline-color: white;
+  --outline-offset: 1px;
 
   // misc
   --transition: 100ms;
@@ -69,4 +69,14 @@ h2, h3 {
 
 h4, h5, h6 {
   margin-bottom: var(--margin-v-s);
+}
+
+.sr-only {
+  clip: rect(0 0 0 0);
+	clip-path: inset(50%);
+	height: 1px;
+	overflow: hidden;
+	position: absolute;
+	white-space: nowrap;
+	width: 1px;
 }
