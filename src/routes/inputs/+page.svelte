@@ -3,6 +3,8 @@
   let value = 'test';
 </script>
 
+<h1>Inputs</h1>
+
 <div>
   <Input bind:value type="success" /><Button type="success">Submit</Button>
 </div>

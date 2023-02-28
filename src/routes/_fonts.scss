@@ -7,15 +7,11 @@
 	src: local('QuicksandBold'), url('/font/static/Quicksand-Bold.ttf');
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-nav,
 main {
 	margin: 0 auto;
-	font-family: 'Quicksand' !important;
 	box-sizing: border-box;
+}
+
+* {
+	font-family: 'Quicksand' !important;
 }

@@ -4,21 +4,23 @@
 	let open2 = false;
 </script>
 
+<h1>Modal Demo</h1>
+
 <div class='modal-demo'>
   <Button on:click={() => (open = !open)}>Open Modal</Button>
   <Button on:click={() => (open2 = !open2)}>Open Non-Esc Modal</Button>
   <Modal bind:open>
     <span slot="header">Modal Header</span>
-    Modal Content
+    Modal Content With Close Button
   </Modal>
   
   <Modal bind:open={open2} escapeable={false}>
     <span slot="header">Modal Header</span>
     Modal Content
     <div slot="footer" class="flex">
-      <Button type="success" width={'100%'}>Click</Button>
-      <Button type="info" width={'100%'}>Click</Button>
-      <Button type="neutral" width={'100%'}>Click</Button>
+      <Button on:click={() => open2 = false} type="success" width={'100%'}>Click</Button>
+      <Button on:click={() => open2 = false} type="info" width={'100%'}>Click</Button>
+      <Button on:click={() => open2 = false} type="neutral" width={'100%'}>Click</Button>
     </div>
   </Modal>
 </div>

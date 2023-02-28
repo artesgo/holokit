@@ -41,8 +41,7 @@
   <!-- svelte-ignore a11y-click-events-have-key-events -->
   <div class="overlay" on:click={() => show = false}></div>
   <div class="popover" {style} bind:this={popper} transition:fade={{duration: 100}}>
-    <slot name="popover-content" />
-    {placement}
+    <slot name="content" />
   </div>
 {/if}
 
@@ -62,8 +61,10 @@
 
   .popover {
     position: absolute;
-    background-color: var(--primary-background);
-    border: 1px solid lightgray;
+    background-color: var(--background-color-alt);
+    color: var(--color);
+    border: var(--border);
+    border-color: var(--border-color);
     padding: 10px;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
     box-sizing: border-box;

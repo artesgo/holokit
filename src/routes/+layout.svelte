@@ -7,9 +7,11 @@
 
 <header>
   <ul>
-    <Link href={"/"}>Buttons</Link>
-    <Link href={"/inputs"}>Input</Link>
-    <Link href={"/modals"}>Modal</Link>
+    <Link underline={true} href={"/"}>Home</Link>
+    <Link underline={true} href={"/buttons"}>Buttons</Link>
+    <Link underline={true} href={"/inputs"}>Input</Link>
+    <Link underline={true} href={"/modals"}>Modal</Link>
+    <Link underline={true} href={"/popover"}>Popover</Link>
   </ul>
 </header>
 

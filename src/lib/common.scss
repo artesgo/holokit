@@ -58,3 +58,15 @@
   padding: 0;
   margin: 0;
 }
+
+h1 {
+  margin-bottom: var(--margin-v-l);
+}
+
+h2, h3 {
+  margin-bottom: var(--margin-v-m);
+}
+
+h4, h5, h6 {
+  margin-bottom: var(--margin-v-s);
+}

@@ -61,8 +61,8 @@
 		transform: translate(-50%, -50%);
 		background-color: var(--background-color-alt);
 		color: var(--color);
-		border-radius: var(--border-radius__elements);
-		box-shadow: 0px 1px 2px var(--info), 0px 1px 8px var(--warning);
+		border-radius: var(--border-radius);
+		box-shadow: 0px 0px 4px var(--color);
 		width: 80%;
 		max-width: var(--modal-width);
 		z-index: 1000;
