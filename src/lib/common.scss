@@ -1,78 +1,81 @@
 @forward './flex';
 
 :root {
-  // background and foreground
-  --color: #fef3fe;
-  --color-alt: #dfdfdf;
-  --background-color: #333333;
-  --background-color-alt: #434343;
+	// background and foreground
+	--color: #fef3fe;
+	--color-alt: #dfdfdf;
+	--background-color: #333333;
+	--background-color-alt: #434343;
 
-  // font variables
-  --font-size-s: 0.8rem;
-  --font-size-m: 0.9rem;
-  --font-size-l: 1rem;
+	// font variables
+	--font-size-s: 0.8rem;
+	--font-size-m: 0.9rem;
+	--font-size-l: 1rem;
 
-  --font-weight-s: 300;
-  --font-weight-m: 700;
-  --font-weight-l: 900;
+	--font-weight-s: 300;
+	--font-weight-m: 700;
+	--font-weight-l: 900;
 
-  // padding variables
-  --padding-h-s: 12px;
-  --padding-h-m: 16px;
-  --padding-h-l: 20px;
-  --padding-v-s: 4px;
-  --padding-v-m: 8px;
-  --padding-v-l: 12px;
+	// padding variables
+	--padding-h-s: 12px;
+	--padding-h-m: 16px;
+	--padding-h-l: 20px;
+	--padding-v-s: 4px;
+	--padding-v-m: 8px;
+	--padding-v-l: 12px;
 
-  // margin variables
-  --margin-h-s: 12px;
-  --margin-h-m: 16px;
-  --margin-h-l: 20px;
-  --margin-v-s: 12px;
-  --margin-v-m: 20px;
-  --margin-v-l: 32px;
+	// margin variables
+	--margin-h-s: 12px;
+	--margin-h-m: 16px;
+	--margin-h-l: 20px;
+	--margin-v-s: 12px;
+	--margin-v-m: 20px;
+	--margin-v-l: 32px;
 
-  // general border variables
-  --border: 1px solid;
-  --border-radius: 2px;
-  --border-color: #333333;
-  --border-width-m: 2px;
-  --border-width-l: 4px;
+	// general border variables
+	--border: 1px solid;
+	--border-radius: 2px;
+	--border-color: #333333;
+	--border-width-m: 2px;
+	--border-width-l: 4px;
 
-  // input control variables
-  --control-width: 250px;
-  --control-min-width: 250px;
-  --control-max-width: 750px;
-  --control-border: 1px solid;
-  --control-border-radius: 2px;
-  --control-border-color: #333333;
-  --outline-color: white;
-  --outline-offset: 1px;
+	// input control variables
+	--control-width: 250px;
+	--control-min-width: 250px;
+	--control-max-width: 750px;
+	--control-border: 1px solid;
+	--control-border-radius: 2px;
+	--control-border-color: #333333;
+	--outline-color: white;
+	--outline-offset: 1px;
 
-  // misc
-  --transition: 100ms;
+	// misc
+	--transition: 100ms;
 }
 
 * {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
 }
 
 h1 {
-  margin-bottom: var(--margin-v-l);
+	margin-bottom: var(--margin-v-l);
 }
 
-h2, h3 {
-  margin-bottom: var(--margin-v-m);
+h2,
+h3 {
+	margin-bottom: var(--margin-v-m);
 }
 
-h4, h5, h6 {
-  margin-bottom: var(--margin-v-s);
+h4,
+h5,
+h6 {
+	margin-bottom: var(--margin-v-s);
 }
 
 .sr-only {
-  clip: rect(0 0 0 0);
+	clip: rect(0 0 0 0);
 	clip-path: inset(50%);
 	height: 1px;
 	overflow: hidden;

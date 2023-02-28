@@ -2,7 +2,7 @@
 	import { getContext } from 'svelte';
 	import type { Writable } from 'svelte/store';
 	export let value = '';
-  export let apart = false;
+	export let apart = false;
 	const { selectedValue, name } = getContext<{ selectedValue: Writable<string>; name: string }>(
 		'RadioGroup'
 	);
@@ -10,11 +10,13 @@
 
 <label>
 	<slot />
-	<span class="spacer" class:apart/>
-	<input type="radio" {name}
-    checked={$selectedValue === value}
-    on:click={() => $selectedValue = value}
-  />
+	<span class="spacer" class:apart />
+	<input
+		type="radio"
+		{name}
+		checked={$selectedValue === value}
+		on:click={() => ($selectedValue = value)}
+	/>
 </label>
 
 <style>

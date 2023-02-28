@@ -1,20 +1,20 @@
 <script lang="ts">
 	import { onDestroy, setContext } from 'svelte';
-  import { writable } from 'svelte/store';
+	import { writable } from 'svelte/store';
 
 	export let name;
 	export let label = '';
-  export let value = '';
+	export let value = '';
 
-  const selectedValue = writable(value);
-  setContext("RadioGroup", {
-    selectedValue,
-    name
-  });
-  const unsub = selectedValue.subscribe(val => {
-    value = val;
-  })
-  onDestroy(unsub)
+	const selectedValue = writable(value);
+	setContext('RadioGroup', {
+		selectedValue,
+		name
+	});
+	const unsub = selectedValue.subscribe((val) => {
+		value = val;
+	});
+	onDestroy(unsub);
 </script>
 
 <fieldset>

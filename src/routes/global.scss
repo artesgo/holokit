@@ -1,22 +1,27 @@
 @import './fonts';
 
 div {
-  margin-bottom: var(--margin-v-s);
+	margin-bottom: var(--margin-v-s);
 }
 
 * {
-  outline: var(--danger-darker);
+	outline: var(--danger-darker);
 }
 
 body {
-  background: var(--background-color);
+	background: var(--background-color);
 }
 
 body.light {
-  --background-color: #Fefefe;
+	--background-color: #fefefe;
 }
 
-h1, h2, h3, h4, h5, h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
 p {
-  color: var(--color);
+	color: var(--color);
 }

@@ -71,8 +71,8 @@
 
 	.holo-modal-header {
 		margin-bottom: var(--margin-v-m);
-    font-weight: var(--font-weight-m);
-    font-size: var(--font-size-l);
+		font-weight: var(--font-weight-m);
+		font-size: var(--font-size-l);
 	}
 
 	.holo-modal-footer {
