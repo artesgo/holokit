@@ -1,0 +1,1 @@
+<button on:click on:click={() => console.log('template')}><slot /></button>

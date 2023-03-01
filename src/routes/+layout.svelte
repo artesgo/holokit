@@ -15,6 +15,7 @@
 		<Link underline={true} href={'/checkbox'}>Checkbox</Link>
 		<Link underline={true} href={'/radios'}>Radios</Link>
 		<Link underline={true} href={'/theme'}>Theme</Link>
+		<Link underline={true} href={'/table'}>Table</Link>
 	</ul>
 </header>
 

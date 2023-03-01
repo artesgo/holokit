@@ -5,11 +5,13 @@
 
 # Done (Initial)
 
-- Input
 - Button
-- Modal
-- Popover
-- Link
 - Card
 - Checkbox
+- Input
+- Link
+- Modal
+- Popover
+- Radios
+- Table
 - Theme

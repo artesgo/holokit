@@ -1,8 +1,10 @@
 <script lang="ts">
 	export let grow = false;
+	export let flex = false;
+	export let between = false;
 </script>
 
-<section class:grow>
+<section class:grow class:flex class:justify-between={between}>
 	<slot />
 </section>
 
