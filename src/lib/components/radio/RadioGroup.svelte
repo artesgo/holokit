@@ -21,3 +21,9 @@
 	<legend>{label}</legend>
 	<slot />
 </fieldset>
+
+<style>
+	fieldset {
+		border: none;
+	}
+</style>

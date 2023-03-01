@@ -7,3 +7,4 @@ export { Link } from './components/link';
 export { Checkbox } from './components/checkbox';
 export { Card } from './components/card';
 export { Radio, RadioGroup } from './components/radio';
+export { Theme } from './components/theme';

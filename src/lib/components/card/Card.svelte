@@ -1,7 +1,8 @@
 <script lang="ts">
+	export let grow = false;
 </script>
 
-<section>
+<section class:grow>
 	<slot />
 </section>
 
@@ -11,9 +12,13 @@
 		padding-right: var(--padding-h-l);
 		padding-top: var(--padding-v-l);
 		padding-bottom: var(--padding-v-l);
+		color: var(--color);
 		background-color: var(--background-color-alt);
 		border: var(--border);
 		border-color: var(--border-color-alt);
 		border-radius: calc(var(--border-radius) * 2);
+	}
+	.grow {
+		flex-grow: 1;
 	}
 </style>
