@@ -1,8 +1,11 @@
 <script lang="ts">
 	import type { ITheme } from "./theme";
 
-  export let theme: ITheme;
+  export let override: ITheme = {};
   export let stretch = false;
+  export let full = false;
+
+  export let theme: 'light' | 'void' = 'light';
   let props: {bound: string, prop: keyof ITheme }[] = [
     { bound: '--color: ', prop: 'color' }, 
 	  { bound: '--color-alt: ', prop: 'colorAlt' }, 
@@ -42,19 +45,29 @@
     { bound: '--transition: ', prop: 'transition' }, 
   ]
 
+  $: light = theme === 'light';
+  $: dark = theme === 'void';
   // get defined props from consumer
   $: style = JSON.stringify(props
-    .filter(prop => theme[prop.prop] !== undefined)
-    .map(prop => prop.bound + theme[prop.prop])
-  ).slice(2, -2).replace('","', ';');
+    .filter(prop => override[prop.prop] !== undefined)
+    .map(prop => prop.bound + override[prop.prop])
+  ).slice(2, -2).replace(/","/g, ';');
 </script>
 
-<section {style} class:stretch>
+<section {style} class:stretch class:full class:light class:dark>
   <slot />
 </section>
 
-<style>
+<style lang="scss">
+  section {
+		color: var(--color);
+		background-color: var(--background-color);
+  }
   .stretch {
     height: 100%;
+  }
+  .full,
+  .full.stretch {
+    height: 100vh;
   }
 </style>

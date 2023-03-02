@@ -1,0 +1,20 @@
+.light {
+  // background and foreground
+  --color: #333333;
+  --color-alt: #434343;
+  --background-color: #fef3fe;
+  --background-color-alt: #efefef;
+  --control-border-color: #332a49;
+  --outline-color: #333333;
+  --border-color: #332a49;
+}
+.dark {
+  // background and foreground
+  --color: #fef3fe;
+  --color-alt: #dfdfdf;
+  --background-color: #332a49;
+  --background-color-alt: #4a4064;
+  --control-border-color: #332a49;
+  --outline-color: #dfdfdf;
+  --border-color: #332a49;
+}

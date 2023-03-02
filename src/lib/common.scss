@@ -1,12 +1,7 @@
 @forward './flex';
+@forward './theme';
 
 :root {
-	// background and foreground
-	--color: #fef3fe;
-	--color-alt: #dfdfdf;
-	--background-color: #333333;
-	--background-color-alt: #434343;
-
 	// font variables
 	--font-size-s: 0.8rem;
 	--font-size-m: 0.9rem;
@@ -36,7 +31,6 @@
 	--border: 1px solid;
 	--border-radius: 2px;
 	--border-radius-rounded: 50%;
-	--border-color: #333333;
 	--border-width-m: 2px;
 	--border-width-l: 4px;
 
@@ -46,8 +40,6 @@
 	--control-max-width: 750px;
 	--control-border: 1px solid;
 	--control-border-radius: 2px;
-	--control-border-color: #333333;
-	--outline-color: white;
 	--outline-offset: 1px;
 
 	// misc

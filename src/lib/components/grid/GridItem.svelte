@@ -22,8 +22,6 @@
 
 <style>
 	section {
-    border: var(--border);
-    border-color: var(--border-color);
 		background-color: var(--background-color-alt);
 	}
 </style>

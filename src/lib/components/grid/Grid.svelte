@@ -4,16 +4,18 @@
 	export let borderless = false;
 	export let unpadded = false;
 	export let stretch = false;
+	export let full = false;
 	$: style =
 		'grid-template-columns: ' + columnTemplate + ';' + 'grid-template-rows: ' + rowTemplate + ';';
 </script>
 
-<section class="grid" class:borderless class:unpadded class:stretch {style}>
+<section class="grid" class:borderless class:unpadded class:full-height={full} class:stretch {style}>
 	<slot />
 </section>
 
 <style>
 	.grid {
+		width: 100%;
 		display: grid;
     color: var(--color);
     border: var(--border);
@@ -24,7 +26,7 @@
 		padding-top: var(--padding-v-s);
 		padding-bottom: var(--padding-v-s);
 	}
-	.borderless {
+	.grid.borderless {
 		border: none;
 	}
 	.unpadded {
@@ -32,5 +34,9 @@
 	}
 	.stretch {
 		height: 100%;
+	}
+	.full-height,
+	.stretch.full-height {
+		height: 100vh;
 	}
 </style>
