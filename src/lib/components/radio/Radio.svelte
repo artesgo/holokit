@@ -3,6 +3,7 @@
 	import type { Writable } from 'svelte/store';
 	import { fade } from 'svelte/transition';
 	export let value = '';
+	export let reverse = false;
 	export let apart = false;
 	const { selectedValue, name } = getContext<{ selectedValue: Writable<string>; name: string }>(
 		'RadioGroup'
@@ -16,7 +17,7 @@
 	}
 </script>
 
-<label>
+<label class:reverse>
 	<slot />
 	<span class="spacer" class:apart />
 	<svg

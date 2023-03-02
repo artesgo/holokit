@@ -16,6 +16,7 @@
 		<Link underline={true} href={'/radios'}>Radios</Link>
 		<Link underline={true} href={'/theme'}>Theme</Link>
 		<Link underline={true} href={'/table'}>Table</Link>
+		<Link underline={true} href={'/grid'}>Grid</Link>
 	</ul>
 </header>
 

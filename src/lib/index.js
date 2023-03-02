@@ -9,3 +9,4 @@ export { Card } from './components/card';
 export { Radio, RadioGroup } from './components/radio';
 export { Theme } from './components/theme';
 export { Table } from './components/table';
+export { Grid, GridItem } from './components/grid';

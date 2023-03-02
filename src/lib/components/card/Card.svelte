@@ -1,10 +1,11 @@
 <script lang="ts">
 	export let grow = false;
 	export let flex = false;
+	export let stretch = false;
 	export let between = false;
 </script>
 
-<section class:grow class:flex class:justify-between={between}>
+<section class:grow class:flex class:stretch class:justify-between={between}>
 	<slot />
 </section>
 
@@ -22,5 +23,8 @@
 	}
 	.grow {
 		flex-grow: 1;
+	}
+	.stretch {
+		height: 100%;
 	}
 </style>

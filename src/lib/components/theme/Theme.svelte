@@ -2,6 +2,7 @@
 	import type { ITheme } from "./theme";
 
   export let theme: ITheme;
+  export let stretch = false;
   let props: {bound: string, prop: keyof ITheme }[] = [
     { bound: '--color: ', prop: 'color' }, 
 	  { bound: '--color-alt: ', prop: 'colorAlt' }, 
@@ -48,6 +49,12 @@
   ).slice(2, -2).replace('","', ';');
 </script>
 
-<section {style}>
+<section {style} class:stretch>
   <slot />
 </section>
+
+<style>
+  .stretch {
+    height: 100%;
+  }
+</style>

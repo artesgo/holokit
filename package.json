@@ -1,6 +1,6 @@
 {
-	"name": "holokit",
-	"version": "0.0.1",
+	"name": "artesgo-holokit",
+	"version": "1.0.0",
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build && npm run package",

@@ -7,6 +7,7 @@
 	export let value = '';
 
 	const selectedValue = writable(value);
+	$: $selectedValue = value;
 	setContext('RadioGroup', {
 		selectedValue,
 		name
