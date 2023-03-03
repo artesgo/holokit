@@ -22,6 +22,21 @@
 	on:focus={focus}
 	on:blur={blur}
 	on:mouseout={blur}
+	on:blur
+	on:click
+	on:contextmenu
+	on:dblclick
+	on:focus
+	on:mousedown
+	on:mouseenter
+	on:mouseleave
+	on:mouseup
+	on:mousemove
+	on:mouseout
+	on:mouseover
+	on:keydown
+	on:keyup
+	on:keypress
 >
 	<slot />
 </a>

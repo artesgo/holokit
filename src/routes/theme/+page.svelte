@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { Card, Table, Theme } from "$lib";
 	import type { ICell } from '$lib/components/table';
-	import Button from "$lib/components/button/Button.svelte";
 
   let data: ICell[][] = [
     [{ value: 'data 1' }, { value: 'data 2' }, { value: 'data 3' }, { value: 'data 4' }],

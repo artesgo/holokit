@@ -18,6 +18,7 @@
 			<Link underline={true} href={'/theme'}>Theme</Link>
 			<Link underline={true} href={'/table'}>Table</Link>
 			<Link underline={true} href={'/grid'}>Grid</Link>
+			<Link underline={true} href={'/select'}>Select</Link>
 		</ul>
 	</header>
 	
