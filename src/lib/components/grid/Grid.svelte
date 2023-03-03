@@ -17,10 +17,6 @@
 	.grid {
 		width: 100%;
 		display: grid;
-    color: var(--color);
-    border: var(--border);
-    border-color: var(--border-color);
-		background-color: var(--background-color);
 		padding-left: var(--padding-h-s);
 		padding-right: var(--padding-h-s);
 		padding-top: var(--padding-v-s);
