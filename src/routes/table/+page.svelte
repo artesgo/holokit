@@ -31,6 +31,8 @@
   let caption = 'Tehble';
 </script>
 
+<h1>Table</h1>
+
 <Card flex between>
   <div>
     <h2>Plain</h2>

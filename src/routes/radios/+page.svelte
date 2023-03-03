@@ -3,7 +3,7 @@
 	let value = 'item 1';
 </script>
 
-<h1>Checkbox</h1>
+<h1>Radio</h1>
 
 <Grid columnTemplate="1fr 1fr 1fr 1fr" unpadded>
 	<GridItem col={1} row={1}>

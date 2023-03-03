@@ -1,9 +1,36 @@
-<script>
-	import { Card, Theme } from "$lib";
+<script lang="ts">
+	import { Card, Table, Theme } from "$lib";
+	import type { ICell } from '$lib/components/table';
 	import Button from "$lib/components/button/Button.svelte";
+
+  let data: ICell[][] = [
+    [{ value: 'data 1' }, { value: 'data 2' }, { value: 'data 3' }, { value: 'data 4' }],
+    [{ value: 'data 1' }, { value: 'data 2' }, { value: 'data 3' }, { value: 'data 4' }],
+    [{ value: 'data 1' }, { value: 'data 2' }, { value: 'data 3' }, { value: 'data 4' }],
+    [{ value: 'data 1' }, { value: 'data 2' }, { value: 'data 3' }, { value: 'data 4' }],
+  ];
+  let headers: ICell[] = [{
+    header: { scope: 'col' },
+    span: { colspan: 1, rowspan: 1 },
+    hasTemplate: false,
+    value: 'Name',
+  },{
+    header: { scope: 'col' },
+    span: { colspan: 1, rowspan: 1 },
+    hasTemplate: false,
+    value: 'Email',
+  },{
+    span: { colspan: 2, rowspan: 1 },
+    header: { scope: 'col' },
+    hasTemplate: true,
+    value: 'Actions',
+  }];
+  let caption = 'Tehble';
 </script>
 
+<h1>Theme</h1>
 
+<h2>Overrides</h2>
 <Theme theme='void' override={{ color: '#F00', paddingHL: '64px', backgroundColorAlt: '#333' }}>
   <Card>Hi</Card>
 </Theme>
@@ -32,16 +59,15 @@
   <Card>!</Card>
 </Theme>
 
-
+<h2>Invalid Theme</h2>
 <Theme theme='void' override={{ color: 'something wrong', paddingHL: '64px' }}>
   <Card>Bad Props, doesn't break, but also doesn't default back to working variable</Card>
 </Theme>
 
-
-
+<h2>Named Themes</h2>
 <Theme theme="light">
   <Card>
     Use The Other Theme
-    <Button>Test</Button>
+    <Table {headers} {data} {caption} />
   </Card>
 </Theme>
