@@ -57,6 +57,10 @@
 		border-radius: var(--control-border-radius);
 		box-sizing: border-box;
 		transition: var(--transition);
+		&:focus {
+			outline: 1px solid var(--outline-color);
+			outline-offset: var(--outline-offset);
+		}
 	}
 	.holo-success {
 		background: var(--success);
