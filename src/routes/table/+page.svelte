@@ -1,7 +1,8 @@
 <script lang="ts">
 	import type { ICell } from '$lib/components/table';
-	import { Table, Card } from '$lib';
+	import { Table, Card, Prism } from '$lib';
   import Template from './cell-template.svelte';
+	import { Flex } from '$lib/components/flex';
 
   let data: ICell[][] = [
     [{ value: 'data 1' }, { value: 'data 2' }, { value: 'data 3' }, { value: 'data 4' }],
@@ -37,10 +38,12 @@
   <div>
     <h2>Plain</h2>
     <Table {headers} {data} {caption} />
+    <Prism language="html" code={'<Table {headers} {data} {caption} />'}></Prism>
   </div>
   <div>
     <h2>Plain Borderless</h2>
     <Table {headers} {data} {caption} borderless />
+    <Prism language="html" code={'<Table {headers} {data} {caption} borderless />'}></Prism>
   </div>
 </Card>
 <br />
@@ -60,8 +63,8 @@
     <h2>Hidden Caption</h2>
     <Table {headers} {data} {caption} alternate hideCaption />
   </div>
-  <div>
-    <h2>Hidden Caption Striped Borderless</h2>
+  <Flex justifyEnd>
+    <h2>Hidden Cap. Striped Borderless</h2>
     <Table {headers} {data} {caption} alternate borderless hideCaption />
-  </div>
+  </Flex>
 </Card>

@@ -45,6 +45,10 @@
 	.holo-link {
 		color: var(--color);
 		text-decoration: none;
+		white-space: nowrap;
+	}
+	.holo-wrap {
+		white-space: wrap;
 	}
 	.underline {
 		text-decoration: underline;

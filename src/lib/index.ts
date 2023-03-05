@@ -11,3 +11,5 @@ export { Theme } from './components/theme';
 export { Table } from './components/table';
 export { Grid, GridItem } from './components/grid';
 export { Dropdown, DropdownItem } from './components/select';
+export { Prism } from './components/prism';
+export { Flex } from './components/flex';

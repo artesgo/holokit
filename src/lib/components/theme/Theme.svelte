@@ -4,8 +4,9 @@
   export let override: ITheme = {};
   export let stretch = false;
   export let full = false;
+  export let padded = false;
 
-  export let theme: 'light' | 'void' = 'light';
+  export let theme: 'light' | 'void' | string = 'light';
   let props: {bound: string, prop: keyof ITheme }[] = [
     { bound: '--color: ', prop: 'color' }, 
 	  { bound: '--color-alt: ', prop: 'colorAlt' }, 
@@ -54,7 +55,7 @@
   ).slice(2, -2).replace(/","/g, ';');
 </script>
 
-<section {style} class:stretch class:full class:light class:dark>
+<section {style} class:stretch class:full class:light class:dark class:padded>
   <slot />
 </section>
 
@@ -68,6 +69,13 @@
   }
   .full,
   .full.stretch {
-    height: 100vh;
+    min-height: 100vh;
+  }
+
+  .padded {
+    padding-left: var(--padding-h-m);
+    padding-right: var(--padding-h-m);
+    padding-top: var(--padding-v-m);
+    padding-bottom: var(--padding-v-m);
   }
 </style>

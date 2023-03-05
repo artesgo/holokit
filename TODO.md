@@ -1,7 +1,7 @@
 # Todos
 
-- Select / Option
 - Slider
+- Select (Navigate via Arrows)
 
 # Done (Initial)
 
@@ -15,3 +15,7 @@
 - Radios
 - Table
 - Theme
+  - named themes
+  - overrides
+- Select / Option
+  - Escape to close while in menu

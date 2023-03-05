@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Button from '../button/Button.svelte';
-	import { fade } from 'svelte/transition';
+	import { scale } from 'svelte/transition';
 
 	export let open = false;
 	export let escapeable = true;
@@ -26,7 +26,10 @@
 {#if open}
 	<!-- ignore a11y, add keyboard controls for achieving the same -->
 	<!-- svelte-ignore a11y-click-events-have-key-events -->
-	<div class="holo-modal-overlay" on:click={closeModal} transition:fade={{ duration: 100 }}>
+	<div class="holo-modal-overlay" on:click={closeModal} transition:scale={{
+		duration: 100,
+		start: 2
+	}}>
 		<div class="holo-modal" on:click|stopPropagation>
 			<header class="holo-modal-header">
 				<slot name="header">Default header</slot>

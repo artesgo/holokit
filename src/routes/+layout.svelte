@@ -1,11 +1,14 @@
-<script>
+<script lang="ts">
 	import '$lib/myth.scss';
 	import '$lib/common.scss';
 	import './global.scss';
 	import { Link, Theme } from '$lib';
+	import { setContext } from 'svelte';
+	import { theme } from './store';
+	setContext('theme', theme);
 </script>
 
-<Theme full theme='void'>
+<Theme full theme={$theme}>
 	<header>
 		<ul>
 			<Link underline={true} href={'/'}>Home</Link>

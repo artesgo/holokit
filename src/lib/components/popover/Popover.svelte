@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { fade } from 'svelte/transition';
+	import { scale } from 'svelte/transition';
 	export let show: boolean = false;
 	export let placement: 'top' | 'bottom' | 'left' | 'right' = 'top';
 	export let offset = 5;
@@ -40,7 +40,10 @@
 {#if show}
 	<!-- svelte-ignore a11y-click-events-have-key-events -->
 	<div class="overlay" on:click={() => (show = false)} />
-	<div class="popover" {style} bind:this={popper} transition:fade={{ duration: 100 }}>
+	<div class="popover" {style} bind:this={popper} transition:scale={{
+		duration: 100,
+		start: 2,
+	}}>
 		<slot name="content" />
 	</div>
 {/if}

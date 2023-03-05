@@ -6,6 +6,7 @@
 	export let size: $$props['size'] = 'm';
 	export let width: string | undefined = undefined;
 	export let align: string | undefined = undefined;
+	export let wrap = false;
 	$: style = () => {
 		let styles = '';
 		if (width !== undefined) {
@@ -29,6 +30,7 @@
 	class:holo-padding-s={size === 's'}
 	class:holo-padding-m={size === 'm'}
 	class:holo-padding-l={size === 'l'}
+	class:holo-wrap={wrap}
 	{...$$restProps}
 	on:blur
 	on:click
@@ -57,10 +59,15 @@
 		border-radius: var(--control-border-radius);
 		box-sizing: border-box;
 		transition: var(--transition);
+		white-space: nowrap;
+
 		&:focus {
 			outline: 1px solid var(--outline-color);
 			outline-offset: var(--outline-offset);
 		}
+	}
+	.holo-wrap {
+		white-space: wrap;
 	}
 	.holo-success {
 		background: var(--success);
