@@ -13,8 +13,7 @@
 </script>
 
 <h1>Checkbox</h1>
-<Flex justifyBetween row={true} gap={1}>
-
+<Flex justifyContent='between' row={true} gap={1}>
 	<Card grow>
     <h2>Props</h2>
 		<Checkbox id={'chk-1'} reverse bind:checked={reverse}>reverse</Checkbox>

@@ -88,7 +88,7 @@ let data: ICell[][] = [
   </Card>
 
   <Card grow>
-    <Flex justifyStart>
+    <Flex justifyContent="start">
       <h2>{description}</h2>
       <Table {headers} {data} {caption} {alternate} {borderless} {hideCaption}/>
     </Flex>
