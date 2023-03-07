@@ -19,6 +19,7 @@
 			closeModal(event);
 		}
 	}
+	// TODO: cursor trap so it does not leave the modal
 </script>
 
 <svelte:window on:keydown={escapeHandler} />

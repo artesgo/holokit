@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Card, Table, Theme, Prism } from "$lib";
+	import { Card, Table, Theme, Prism, Flex, Checkbox } from "$lib";
 	import type { ICell } from '$lib/components/table';
   import { theme } from '../store';
   let data: ICell[][] = [
@@ -36,47 +36,64 @@
 
 <h1>Theme</h1>
 
-<h2>Overrides</h2>
-<Theme theme={$theme} override={{ color: '#F00', paddingHL: '64px' }}>
-  <Card>Hi</Card>
-</Theme>
-<Theme theme={$theme} override={{ color: '#FF3D00', paddingHL: '32px' }}>
-  <Card>Hello</Card>
-</Theme>
-<Theme theme={$theme} override={{ color: '#FF0', paddingHL: '16px' }}>
-  <Card>Welcome</Card>
-</Theme>
-<Theme theme={$theme} override={{ color: '#CF0', paddingHL: '8px' }}>
-  <Card>To</Card>
-</Theme>
-<Theme theme={$theme} override={{ color: '#0F0', paddingHL: '4px' }}>
-  <Card>The</Card>
-</Theme>
-<Theme theme={$theme} override={{ color: '#0FC', paddingHL: '8px' }}>
-  <Card>Rainbow</Card>
-</Theme>
-<Theme theme={$theme} override={{ color: '#0FF', paddingHL: '16px' }}>
-  <Card>Road</Card>
-</Theme>
-<Theme theme={$theme} override={{ color: '#0CF', paddingHL: '32px' }}>
-  <Card>Show</Card>
-</Theme>
-<Theme theme={$theme} override={{ color: '#00F', paddingHL: '64px' }}>
-  <Card>!</Card>
-</Theme>
-
-<h2>Invalid Theme</h2>
-<Theme theme={$theme} override={{ color: 'something wrong', paddingHL: '64px' }}>
-  <Card>Bad Props, doesn't break, but also doesn't default back to working variable</Card>
-</Theme>
-
-<h2>Named Themes</h2>
-<Theme theme={alternate} padded>
+<Flex row gap={1}>
   <Card>
-    Use The Other Theme
-    <Table {headers} {data} {caption} />
+    <h2>Theme Props</h2>
+    <Checkbox id={'chk-1'} reverse>theme</Checkbox>
+    <Checkbox id={'chk-2'} reverse>override</Checkbox>
+    <Checkbox id={'chk-2'} reverse>padded</Checkbox>
   </Card>
-</Theme>
+  <Flex gap={2}>
+    <Card><h2>Named Themes</h2>
+      <Theme theme={$theme} padded>
+        <Card>
+          Current Theme
+          <Table {headers} {data} {caption} />
+        </Card>
+      </Theme>
+      <Theme theme={alternate} padded>
+        <Card>
+          Use The Other Theme
+          <Table {headers} {data} {caption} />
+        </Card>
+      </Theme>
+    </Card>
+    <Card><h2>Overrides</h2>
+      <Theme theme={$theme} override={{ color: '#F00', paddingHL: '64px' }}>
+        <Card>Hi</Card>
+      </Theme>
+      <Theme theme={$theme} override={{ color: '#FF3D00', paddingHL: '32px' }}>
+        <Card>Hello</Card>
+      </Theme>
+      <Theme theme={$theme} override={{ color: '#FF0', paddingHL: '16px' }}>
+        <Card>Welcome</Card>
+      </Theme>
+      <Theme theme={$theme} override={{ color: '#CF0', paddingHL: '8px' }}>
+        <Card>To</Card>
+      </Theme>
+      <Theme theme={$theme} override={{ color: '#0F0', paddingHL: '4px' }}>
+        <Card>The</Card>
+      </Theme>
+      <Theme theme={$theme} override={{ color: '#0FC', paddingHL: '8px' }}>
+        <Card>Rainbow</Card>
+      </Theme>
+      <Theme theme={$theme} override={{ color: '#0FF', paddingHL: '16px' }}>
+        <Card>Road</Card>
+      </Theme>
+      <Theme theme={$theme} override={{ color: '#0CF', paddingHL: '32px' }}>
+        <Card>Show</Card>
+      </Theme>
+      <Theme theme={$theme} override={{ color: '#00F', paddingHL: '64px' }}>
+        <Card>!</Card>
+      </Theme>
+      
+      <h2>Invalid Override Props</h2>
+      <Theme theme={$theme} override={{ color: 'something wrong', paddingHL: '64px' }}>
+        <Card>Bad Props, doesn't break, but also doesn't default back to working variable</Card>
+      </Theme>
+    </Card>
+  </Flex>
+</Flex>
 <br />
 <Card>
   <Prism language="html" {code}></Prism>

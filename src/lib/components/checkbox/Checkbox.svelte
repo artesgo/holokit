@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { fade } from 'svelte/transition';
 	export let checked: boolean | undefined = undefined;
-	export let id = '';
+	export let id: string;
 	// tricks, defaulting boolean props to false, so that when you consume,
 	// you just have to provide "reverse" (implied true), instead of "reverse={false}"
 	export let reverse = false;
@@ -92,6 +92,7 @@
 	label {
 		color: var(--color);
 		display: flex;
+		margin-bottom: var(--margin-v-s);
 	}
 	.reverse {
 		flex-direction: row-reverse;

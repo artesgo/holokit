@@ -10,6 +10,7 @@
   export let triggerProps = {};
   export let backdrop = false;
   export let position: 'top' | 'bottom' | 'left' | 'right' = 'bottom';
+
   function toggle(event: Event) {
     show = !show;
     $open = show;

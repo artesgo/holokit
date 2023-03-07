@@ -5,35 +5,40 @@
 	export let value: string = '';
 	export let size: $$props['size'] = 'm';
 	export let type: $$props['type'] = 'success';
+	export let placeholder: $$props['placeholder'] = '';
 </script>
 
-<input
-	class="holo-input"
-	class:holo-success={type === 'success'}
-	class:holo-warning={type === 'warning'}
-	class:holo-info={type === 'info'}
-	class:holo-danger={type === 'danger'}
-	class:holo-neutral={type === 'neutral'}
-	class:holo-padding-s={size === 's'}
-	class:holo-padding-m={size === 'm'}
-	class:holo-padding-l={size === 'l'}
-	on:blur
-	on:click
-	on:contextmenu
-	on:dblclick
-	on:focus
-	on:mousedown
-	on:mouseenter
-	on:mouseleave
-	on:mouseup
-	on:mousemove
-	on:mouseout
-	on:mouseover
-	on:keydown
-	on:keyup
-	on:keypress
-	bind:value
-/>
+<label>
+	<slot />
+	<input
+		class="holo-input"
+		class:holo-success={type === 'success'}
+		class:holo-warning={type === 'warning'}
+		class:holo-info={type === 'info'}
+		class:holo-danger={type === 'danger'}
+		class:holo-neutral={type === 'neutral'}
+		class:holo-padding-s={size === 's'}
+		class:holo-padding-m={size === 'm'}
+		class:holo-padding-l={size === 'l'}
+		on:blur
+		on:click
+		on:contextmenu
+		on:dblclick
+		on:focus
+		on:mousedown
+		on:mouseenter
+		on:mouseleave
+		on:mouseup
+		on:mousemove
+		on:mouseout
+		on:mouseover
+		on:keydown
+		on:keyup
+		on:keypress
+		bind:value
+		{placeholder}
+	/>
+</label>
 
 <style lang="scss">
 	input {

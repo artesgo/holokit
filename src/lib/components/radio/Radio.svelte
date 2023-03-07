@@ -86,6 +86,7 @@
 	label {
 		color: var(--color);
 		display: flex;
+		margin-bottom: var(--margin-v-s);
 	}
 	.reverse {
 		flex-direction: row-reverse;

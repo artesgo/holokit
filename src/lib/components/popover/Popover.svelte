@@ -8,11 +8,12 @@
 	let style = '';
 	$: if (hostElement && popper) {
 		const hostRect = hostElement.getBoundingClientRect();
-		const popperRect = popper.getBoundingClientRect();
+		// may want to use this to center the popover later on
+		// const popperRect = popper.getBoundingClientRect();
 		let top, left;
 		switch (placement) {
 			case 'top':
-				top = hostRect.top - popperRect.height - offset + 'px';
+				top = hostRect.top - hostRect.height - (offset * 2) + 'px';
 				left = hostRect.left + 'px';
 				break;
 			case 'bottom':
@@ -21,7 +22,7 @@
 				break;
 			case 'left':
 				top = hostRect.top + 'px';
-				left = hostRect.left - popperRect.width - offset + 'px';
+				left = hostRect.left - hostRect.width - offset + 'px';
 				break;
 			case 'right':
 				top = hostRect.top + 'px';
@@ -33,19 +34,19 @@
 	}
 </script>
 
-<div class="host" bind:this={hostElement}>
+<section class="host" bind:this={hostElement}>
 	<slot />
-</div>
+</section>
 
 {#if show}
 	<!-- svelte-ignore a11y-click-events-have-key-events -->
-	<div class="overlay" on:click={() => (show = false)} />
-	<div class="popover" {style} bind:this={popper} transition:scale={{
+	<section class="overlay" on:click={() => (show = false)} />
+	<section class="popover" {style} bind:this={popper} transition:scale={{
 		duration: 100,
 		start: 2,
 	}}>
 		<slot name="content" />
-	</div>
+	</section>
 {/if}
 
 <style>
@@ -68,7 +69,7 @@
 		color: var(--color);
 		border: var(--border);
 		border-color: var(--border-color);
-		padding: 10px;
+		padding: var(--padding-v-m);
 		box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
 		box-sizing: border-box;
 	}

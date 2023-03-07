@@ -2,6 +2,7 @@
   export let row = false;
   export let reverse = false;
   export let wrap = false;
+  export let gap: string | number = 0;
   // justify content
   export let justifyStart = false;
   export let justifyBetween = false;
@@ -25,9 +26,11 @@
   export let contentBetween = false;
   export let contentAround = false;
   export let contentEnd = false;
+
+  $: gap_ = `flex gap-${gap}`;
 </script>
 
-<section class="flex"
+<section class={gap_}
   class:flex-row={row && !reverse}
   class:flex-col={!row && !reverse}
   class:flex-row-reverse={row && reverse}

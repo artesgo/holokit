@@ -1,15 +1,10 @@
 <script lang="ts">
 	import type { ICell } from '$lib/components/table';
-	import { Table, Card, Prism } from '$lib';
+	import { Table, Card, Prism, Checkbox } from '$lib';
   import Template from './cell-template.svelte';
 	import { Flex } from '$lib/components/flex';
 
-  let data: ICell[][] = [
-    [{ value: 'data 1' }, { value: 'data 2' }, { value: 'data 3' }, { value: 'data 4' }],
-    [{ value: 'data 1' }, { value: 'data 2' }, { value: 'data 3' }, { value: 'data 4' }],
-    [{ value: 'data 1' }, { value: 'data 2' }, { value: 'data 3' }, { value: 'data 4' }],
-    [{ value: 'data 1' }, { value: 'data 2' }, { value: 'data 3' }, { value: 'data 4' }],
-  ];
+  let caption = 'Tehble';
   let headers: ICell[] = [{
     header: { scope: 'col' },
     span: { colspan: 1, rowspan: 1 },
@@ -29,42 +24,77 @@
     template: Template,
     action: () => console.log('hi')
   }];
-  let caption = 'Tehble';
+  let data: ICell[][] = [
+    [{ value: 'data 1' }, { value: 'data 2' }, { value: 'data 3' }, { value: 'data 4' }],
+    [{ value: 'data 1' }, { value: 'data 2' }, { value: 'data 3' }, { value: 'data 4' }],
+    [{ value: 'data 1' }, { value: 'data 2' }, { value: 'data 3' }, { value: 'data 4' }],
+    [{ value: 'data 1' }, { value: 'data 2' }, { value: 'data 3' }, { value: 'data 4' }],
+  ];
+
+  let borderless = false;
+  let alternate = false;
+  let hideCaption = false;
+
+  $: description = `${borderless ? 'Borderless ' : 'Normal '}${alternate ? 'striped ' : ''}${hideCaption ? 'caption hidden' : ''}`;
+  $: code = `<Table
+  {headers}
+  {data}
+  {caption}
+  ${borderless ? 'borderless' : ''}
+  ${alternate ? 'alternate' : ''}
+  ${hideCaption ? 'hideCaption' : ''}
+/>`;
+
+$:tsCode = `let caption = 'Tehble';
+let headers: ICell[] = [{
+  header: { scope: 'col' },
+  span: { colspan: 1, rowspan: 1 },
+  hasTemplate: false,
+  value: 'Name',
+},{
+  header: { scope: 'col' },
+  span: { colspan: 1, rowspan: 1 },
+  hasTemplate: false,
+  value: 'Email',
+},{
+  span: { colspan: 2, rowspan: 1 },
+  header: { scope: 'col' },
+  hasTemplate: true,
+  value: 'Actions',
+  // TIP: Consume custom template in table
+  template: Template,
+  action: () => console.log('hi')
+}];
+let data: ICell[][] = [
+  [{ value: 'data 1' }, { value: 'data 2' }, { value: 'data 3' }, { value: 'data 4' }],
+  [{ value: 'data 1' }, { value: 'data 2' }, { value: 'data 3' }, { value: 'data 4' }],
+  [{ value: 'data 1' }, { value: 'data 2' }, { value: 'data 3' }, { value: 'data 4' }],
+  [{ value: 'data 1' }, { value: 'data 2' }, { value: 'data 3' }, { value: 'data 4' }],
+];`
 </script>
 
 <h1>Table</h1>
 
-<Card flex between>
-  <div>
-    <h2>Plain</h2>
-    <Table {headers} {data} {caption} />
-    <Prism language="html" code={'<Table {headers} {data} {caption} />'}></Prism>
-  </div>
-  <div>
-    <h2>Plain Borderless</h2>
-    <Table {headers} {data} {caption} borderless />
-    <Prism language="html" code={'<Table {headers} {data} {caption} borderless />'}></Prism>
-  </div>
-</Card>
+<Flex row gap={1}>
+  <Card grow>
+    <h2>Table Props</h2>
+    <Flex>
+      <Checkbox id={'borderless'} reverse bind:checked={borderless}>Borderless</Checkbox>
+      <Checkbox id={'stripes'} reverse bind:checked={alternate}>Striped</Checkbox>
+      <Checkbox id={'captioned'} reverse bind:checked={hideCaption}>Hide Caption</Checkbox>
+      <br />
+      <Prism language="html" {code}></Prism>
+    </Flex>
+  </Card>
+
+  <Card grow>
+    <Flex justifyStart>
+      <h2>{description}</h2>
+      <Table {headers} {data} {caption} {alternate} {borderless} {hideCaption}/>
+    </Flex>
+  </Card>
+</Flex>
 <br />
-<Card flex between>
-  <div>
-    <h2>Striped</h2>
-    <Table {headers} {data} {caption} alternate />
-  </div>
-  <div>
-    <h2>Striped Borderless</h2>
-    <Table {headers} {data} {caption} alternate borderless/>
-  </div>
-</Card>
-<br />
-<Card flex between>
-  <div>
-    <h2>Hidden Caption</h2>
-    <Table {headers} {data} {caption} alternate hideCaption />
-  </div>
-  <Flex justifyEnd>
-    <h2>Hidden Cap. Striped Borderless</h2>
-    <Table {headers} {data} {caption} alternate borderless hideCaption />
-  </Flex>
+<Card>
+  <Prism language="javascript" code={tsCode}></Prism>
 </Card>
