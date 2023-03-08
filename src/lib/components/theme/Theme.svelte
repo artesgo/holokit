@@ -3,6 +3,7 @@
 
   export let override: ITheme = {};
   export let grow = false;
+  export let stretch = false;
   export let full = false;
   export let padded = false;
 
@@ -55,7 +56,7 @@
   ).slice(2, -2).replace(/","/g, ';');
 </script>
 
-<section {style} class:grow class:full class:light class:dark class:padded>
+<section {style} class:grow class:stretch class:full class:light class:dark class:padded>
   <slot />
 </section>
 
@@ -67,7 +68,11 @@
 	.grow {
 		flex-grow: 1;
 	}
-  .full {
+  .stretch {
+    min-height: 100%;
+  }
+  .full,
+  .full.stretch {
     min-height: 100vh;
   }
 

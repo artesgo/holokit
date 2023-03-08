@@ -7,7 +7,6 @@
   export let title: $$props['title'] = 'Title';
   export let type: $$props['type'] = 'success';
   export let row = false;
-  export let dark = false;
 </script>
 
 <section

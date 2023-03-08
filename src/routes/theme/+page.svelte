@@ -44,7 +44,7 @@
     <h2>Theme Props</h2>
     <Checkbox id={'chk-1'} reverse>theme</Checkbox>
     <Checkbox id={'chk-2'} reverse>override</Checkbox>
-    <Checkbox id={'chk-2'} reverse>padded</Checkbox>
+    <Checkbox id={'chk-3'} reverse>padded</Checkbox>
   </Card>
   <Flex gap={2}>
     <Card><h2>Named Themes</h2>
