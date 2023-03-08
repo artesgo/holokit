@@ -1,9 +1,16 @@
 <script lang="ts">
 	import Button from '../button/Button.svelte';
 	import { scale } from 'svelte/transition';
+	import { cubicInOut } from 'svelte/easing';
+	import { createEventDispatcher } from 'svelte';
 
 	export let open = false;
 	export let escapeable = true;
+	export let duration = 0;
+	export let easing = cubicInOut;
+	export let start = 2;
+	let dispatcher = createEventDispatcher();
+	let header: HTMLElement;
 
 	function closeModal(event: MouseEvent | Event) {
 		if (event.target instanceof HTMLElement && event.target.className === 'holo-modal') {
@@ -19,7 +26,13 @@
 			closeModal(event);
 		}
 	}
-	// TODO: cursor trap so it does not leave the modal
+
+	function goToStart() {
+		header?.focus();
+	}
+	$: if (!open) {
+		dispatcher('close');
+	}
 </script>
 
 <svelte:window on:keydown={escapeHandler} />
@@ -27,12 +40,21 @@
 {#if open}
 	<!-- ignore a11y, add keyboard controls for achieving the same -->
 	<!-- svelte-ignore a11y-click-events-have-key-events -->
-	<div class="holo-modal-overlay" on:click={closeModal} transition:scale={{
-		duration: 100,
-		start: 2
-	}}>
+	<div
+		class="holo-modal-overlay"
+		role="dialog"
+		aria-labelledby="holo-modal"
+		on:click={closeModal}
+		transition:scale={{
+			duration,
+			easing,
+			start,
+		}}
+		on:introend={goToStart}
+	>
+		<button on:focus={goToStart}></button>
 		<div class="holo-modal" on:click|stopPropagation>
-			<header class="holo-modal-header">
+			<header class="holo-modal-header" id="holo-modal" bind:this={header} tabindex="-1">
 				<slot name="header">Default header</slot>
 			</header>
 			<section class="holo-modal-body">
@@ -43,6 +65,7 @@
 					<Button on:click={closeModal}>Close</Button>
 				</slot>
 			</footer>
+			<button class="sr-only" on:focus={goToStart}></button>
 		</div>
 	</div>
 {/if}

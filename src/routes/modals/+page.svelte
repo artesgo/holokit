@@ -3,7 +3,7 @@
 	import Checkbox from '$lib/components/checkbox/Checkbox.svelte';
 	let open = false;
 	let open2 = false;
-	let simple = `<Modal bind:open>
+	let simple = `<Modal bind:open on:close={onClose}>
   <span slot="header">Modal Header</span>
   Modal Content With Close Button
 </Modal>`;
@@ -25,6 +25,10 @@
 	function decline() {
 		open2 = false;
 	}
+
+	function onClose() {
+		console.log('something closed me')
+	}
 </script>
 
 <h1>Modal Demo</h1>
@@ -35,13 +39,19 @@
 			<h2>Modal Props</h2>
 			<Checkbox id="chk-1" reverse>open</Checkbox>
 			<Checkbox id="chk-2" reverse>escapeable</Checkbox>
+			<h2>Modal Animation Props</h2>
+			<Checkbox id="chk-3" reverse>duration</Checkbox>
+			<Checkbox id="chk-4" reverse>start</Checkbox>
+			<Checkbox id="chk-4" reverse>easing</Checkbox>
+			<h2>Modal Output Events</h2>
+			<Checkbox id="chk-5" reverse>close</Checkbox>
 		</Card>
 
 		<Card grow>
 			<div class="modal-demo">
 				<Button on:click={() => (open = !open)}>Open Modal</Button>
 				<Button on:click={() => (open2 = !open2)}>Open Non-Esc Modal</Button>
-				<Modal bind:open>
+				<Modal bind:open on:close={onClose}>
 					<span slot="header">Modal Header</span>
 					Modal content With built-in close button
 				</Modal>
