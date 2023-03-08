@@ -89,6 +89,9 @@
 </section>
 
 <style lang="scss">
+	section {
+		position: relative;
+	}
 	label {
 		color: var(--color);
 		display: flex;
@@ -113,5 +116,11 @@
 			outline: 1px solid var(--outline-color);
 			outline-offset: var(--outline-offset);
 		}
+	}
+	input {
+		position: absolute;
+		top: 0; left: 0;
+		height: 24px;
+		width: 24px;
 	}
 </style>
