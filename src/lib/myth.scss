@@ -1,31 +1,31 @@
 :root {
 	--success: #5d81c7;
-	--warning: #f8db92;
-	--danger: #c90d40;
-	--info: #ff511c;
-	--neutral: #62567e;
-
 	--success-lightest: #9bb8f3;
-	--warning-lightest: #fff2d2;
-	--danger-lightest: #f899b3;
-	--info-lightest: #ffb6a0;
-	--neutral-lightest: #b4a4da;
-
 	--success-lighter: #7397df;
-	--warning-lighter: #ffe5a4;
-	--danger-lighter: #ee6589;
-	--info-lighter: #ff6b3d;
-	--neutral-lighter: #7e6da5;
-
 	--success-darker: #4a6bad;
-	--warning-darker: #eecd79;
-	--danger-darker: #740825;
-	--info-darker: #e93e0a;
-	--neutral-darker: #493d64;
-
 	--success-darkest: #2d477a;
-	--warning-darkest: #e7b841;
+
+	--info: #f8db92;
+	--info-lightest: #fff2d2;
+	--info-lighter: #ffe5a4;
+	--info-darker: #eecd79;
+	--info-darkest: #e7b841;
+
+	--danger: #c90d40;
+	--danger-lightest: #f899b3;
+	--danger-lighter: #ee6589;
+	--danger-darker: #740825;
 	--danger-darkest: #460214;
-	--info-darkest: #ca2f00;
+
+	--warning: #ff511c;
+	--warning-lightest: #ffb6a0;
+	--warning-lighter: #ff6b3d;
+	--warning-darker: #e93e0a;
+	--warning-darkest: #ca2f00;
+
+	--neutral: #62567e;
+	--neutral-lightest: #b4a4da;
+	--neutral-lighter: #7e6da5;
+	--neutral-darker: #493d64;
 	--neutral-darkest: #332a49;
 }

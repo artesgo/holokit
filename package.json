@@ -1,6 +1,6 @@
 {
 	"name": "artesgo-holokit",
-	"version": "1.0.3",
+	"version": "1.0.4",
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build && npm run package",
@@ -25,7 +25,9 @@
 		}
 	},
 	"files": [
-		"dist"
+		"dist",
+		"index.scss",
+		"myth.scss"
 	],
 	"peerDependencies": {
 		"svelte": "^3.55.1"

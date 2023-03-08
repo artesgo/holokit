@@ -1,6 +1,8 @@
-<script>
-	import { Button, Modal, Card, Flex, Prism } from '$lib';
-	import Checkbox from '$lib/components/checkbox/Checkbox.svelte';
+<script lang="ts">
+	import { Button, Modal, Card, Flex, Prism, Checkbox } from '$lib';
+	import { getContext } from 'svelte';
+	import type { Writable } from 'svelte/store';
+	let theme = getContext<Writable<'void' | 'light'>>('theme');
 	let open = false;
 	let open2 = false;
 	let simple = `<Modal bind:open on:close={onClose}>
@@ -71,9 +73,9 @@
 
 	<Card>
 		<h2>Modal Sample Usage</h2>
-		<Prism language="html" code={simple}></Prism>
+		<Prism theme={$theme} language="html" code={simple}></Prism>
 		<h2>Modal Additional Props</h2>
-		<Prism language="html" code={complex}></Prism>
+		<Prism theme={$theme} language="html" code={complex}></Prism>
 	</Card>
 </Flex>
 

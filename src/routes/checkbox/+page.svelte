@@ -1,6 +1,8 @@
 <script lang="ts">
 	import { Checkbox, Card, Prism, Flex } from '$lib';
-
+	import { getContext } from 'svelte';
+	import type { Writable } from 'svelte/store';
+	let theme = getContext<Writable<'void' | 'light'>>('theme');
 	function bindings() {
 		console.log('fire bindings');
 	}
@@ -19,7 +21,7 @@
 		<Checkbox id={'chk-1'} reverse bind:checked={reverse}>reverse</Checkbox>
 		<Checkbox id={'chk-2'} reverse bind:checked={apart}>apart</Checkbox>
     <br />
-		<Prism language="html" {code} />
+		<Prism theme={$theme} language="html" {code} />
 	</Card>
 
 	<Card grow>

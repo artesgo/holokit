@@ -1,7 +1,9 @@
-<script>
-	import {Grid, GridItem, Card, Theme, Flex, Checkbox} from "$lib";
-	import Prism from "$lib/components/prism/Prism.svelte";
-  import { theme } from '../store';
+<script lang="ts">
+	import {Grid, GridItem, Card, Theme, Flex, Checkbox, Prism} from "$lib";
+	import { getContext } from 'svelte';
+	import type { Writable } from 'svelte/store';
+	let theme = getContext<Writable<'void' | 'light'>>('theme');
+
   let code = `<Grid columnTemplate='1fr 3fr 1fr' rowTemplate='1fr 3fr 1fr' borderless>
   <GridItem col={1} row={1}>
     <Theme theme={$theme} override={{ backgroundColorAlt: '#F00', color: '#000' }}>
@@ -63,5 +65,5 @@
 
 <br />
 <Card>
-  <Prism language="html" {code}></Prism>
+  <Prism theme={$theme} language="html" {code}></Prism>
 </Card>

@@ -1,6 +1,11 @@
 <script lang="ts">
 	import type { ICell } from '$lib/components/table';
 	import { Table, Card, Prism, Checkbox } from '$lib';
+  
+	import { getContext } from 'svelte';
+	import type { Writable } from 'svelte/store';
+	let theme = getContext<Writable<'void' | 'light'>>('theme');
+
   import Template from './cell-template.svelte';
 	import { Flex } from '$lib/components/flex';
 
@@ -83,7 +88,7 @@ let data: ICell[][] = [
       <Checkbox id={'stripes'} reverse bind:checked={alternate}>Striped</Checkbox>
       <Checkbox id={'captioned'} reverse bind:checked={hideCaption}>Hide Caption</Checkbox>
       <br />
-      <Prism language="html" {code}></Prism>
+      <Prism theme={$theme} language="html" {code}></Prism>
     </Flex>
   </Card>
 
@@ -96,5 +101,5 @@ let data: ICell[][] = [
 </Flex>
 <br />
 <Card>
-  <Prism language="javascript" code={tsCode}></Prism>
+  <Prism theme={$theme} language="javascript" code={tsCode}></Prism>
 </Card>

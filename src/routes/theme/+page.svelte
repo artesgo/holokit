@@ -1,7 +1,10 @@
 <script lang="ts">
 	import { Card, Table, Theme, Prism, Flex, Checkbox } from "$lib";
 	import type { ICell } from '$lib/components/table';
-  import { theme } from '../store';
+	import { getContext } from 'svelte';
+	import type { Writable } from 'svelte/store';
+	let theme = getContext<Writable<'void' | 'light'>>('theme');
+
   let data: ICell[][] = [
     [{ value: 'data 1' }, { value: 'data 2' }, { value: 'data 3' }, { value: 'data 4' }],
     [{ value: 'data 1' }, { value: 'data 2' }, { value: 'data 3' }, { value: 'data 4' }],
@@ -96,5 +99,5 @@
 </Flex>
 <br />
 <Card>
-  <Prism language="html" {code}></Prism>
+  <Prism theme={$theme} language="html" {code}></Prism>
 </Card>

@@ -1,5 +1,8 @@
-<script>
+<script lang="ts">
 	import { Input, Button, Card, Prism } from '$lib';
+	import { getContext } from 'svelte';
+	import type { Writable } from 'svelte/store';
+	let theme = getContext<Writable<'void' | 'light'>>('theme');
 	let value = 'test';
 	let code = `<Input bind:value type="success" />
 <Input bind:value type="warning" />
@@ -35,5 +38,5 @@ buttons sold separately
 
 <br />
 <Card>
-  <Prism language="html" {code}></Prism>
+  <Prism theme={$theme} language="html" {code}></Prism>
 </Card>
