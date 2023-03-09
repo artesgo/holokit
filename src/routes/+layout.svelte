@@ -14,22 +14,22 @@
 	}
 </script>
 
-<Theme full theme={$theme}>
+<Theme stretch="window" theme={$theme}>
 	<header>
 		<Flex row gap={2}>
 			<ul>
 				<Link underline={true} href={'/'}>Home</Link>
 				<Link underline={true} href={'/alert'}>Alerts</Link>
 				<Link underline={true} href={'/buttons'}>Buttons</Link>
+				<Link underline={true} href={'/checkbox'}>Checkbox</Link>
+				<Link underline={true} href={'/grid'}>Grid</Link>
 				<Link underline={true} href={'/inputs'}>Input</Link>
 				<Link underline={true} href={'/modals'}>Modal</Link>
 				<Link underline={true} href={'/popover'}>Popover</Link>
-				<Link underline={true} href={'/checkbox'}>Checkbox</Link>
 				<Link underline={true} href={'/radios'}>Radios</Link>
-				<Link underline={true} href={'/theme'}>Theme</Link>
-				<Link underline={true} href={'/table'}>Table</Link>
-				<Link underline={true} href={'/grid'}>Grid</Link>
 				<Link underline={true} href={'/select'}>Select</Link>
+				<Link underline={true} href={'/table'}>Table</Link>
+				<Link underline={true} href={'/theme'}>Theme</Link>
 				<!-- <Link underline={true} href={'/pattern'}>Pattern</Link> -->
 			</ul>
 
