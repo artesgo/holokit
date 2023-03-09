@@ -15,5 +15,5 @@ export { Prism } from './components/prism';
 export { Flex } from './components/flex';
 export { Alert } from './components/alert';
 
-export * from './patterns';
+// export * from './patterns';
 export * from './icons';
