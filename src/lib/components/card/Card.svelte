@@ -1,11 +1,16 @@
 <script lang="ts">
+	import type { Stretch } from '../common';
 	export let grow = false;
 	export let flex = false;
-	export let stretch = false;
+	export let stretch: Stretch = 'none';
 	export let between = false;
 </script>
 
-<section class="holo-card" class:grow class:flex class:stretch class:justify-between={between}>
+<section class="holo-card" class:grow class:flex
+	class:stretch-element={stretch === 'element'}
+	class:stretch-window={stretch === 'window'}
+	class:justify-between={between}
+>
 	<slot />
 </section>
 
@@ -23,8 +28,5 @@
 	}
 	.grow {
 		flex-grow: 1;
-	}
-	.stretch {
-		min-height: 100%;
 	}
 </style>
