@@ -5,12 +5,12 @@
 	export let between = false;
 </script>
 
-<section class:grow class:flex class:stretch class:justify-between={between}>
+<section class="holo-card" class:grow class:flex class:stretch class:justify-between={between}>
 	<slot />
 </section>
 
 <style>
-	section {
+	.holo-card {
 		padding-left: var(--padding-h-l);
 		padding-right: var(--padding-h-l);
 		padding-top: var(--padding-v-l);
@@ -25,6 +25,6 @@
 		flex-grow: 1;
 	}
 	.stretch {
-		height: 100%;
+		min-height: 100%;
 	}
 </style>

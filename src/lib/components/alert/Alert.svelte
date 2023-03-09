@@ -10,6 +10,7 @@
 </script>
 
 <section
+  class="holo-alert"
   class:success={type === 'success'}
   class:neutral={type === 'neutral'}
   class:danger={type === 'danger'}
@@ -45,7 +46,7 @@
   header {
     margin-bottom: var(--margin-v-m);
   }
-  section {
+  .holo-alert {
 		padding-left: var(--padding-h-l);
 		padding-right: var(--padding-h-l);
 		padding-top: var(--padding-v-l);

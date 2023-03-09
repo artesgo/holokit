@@ -16,13 +16,9 @@
 			$open = false;
 		}
 	}
-
-	index.subscribe((i) => {
-    
-  });
 </script>
 
-<li role="presentation">
+<li class="dropdown-item" role="presentation">
 	<svelte:component
 		this={component}
 		role="menuitem"

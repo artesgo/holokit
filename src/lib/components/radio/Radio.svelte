@@ -17,7 +17,7 @@
 	}
 </script>
 
-<label class:reverse>
+<label class:reverse class="holo-radio">
 	<slot />
 	<span class="spacer" class:apart />
 	<svg
@@ -83,7 +83,7 @@
 </label>
 
 <style lang="scss">
-	label {
+	.holo-radio {
 		color: var(--color);
 		display: flex;
 		margin-bottom: var(--margin-v-s);

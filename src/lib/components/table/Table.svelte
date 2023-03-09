@@ -10,7 +10,7 @@
   export let alternate = false;
   export let borderless = false;
 </script>
-<table class:borderless>
+<table class:borderless class="holo-table">
   <caption class:sr-only={hideCaption}>{caption}</caption>
   <thead>
     {#each headers as cell}

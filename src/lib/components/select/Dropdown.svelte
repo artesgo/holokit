@@ -58,7 +58,7 @@
     <slot name="trigger">Menu</slot>
   </svelte:component>
   {#if show}
-    <ul role="menu"
+    <ul class="holo-dropdown" role="menu"
       transition:fade={{ duration: 100 }}
       class:backdrop
       class:top={position === "top"}
@@ -76,7 +76,7 @@
     position: relative;
   }
 
-  ul {
+  ul.holo-dropdown {
     list-style: none;
     position: absolute;
     z-index: 900;

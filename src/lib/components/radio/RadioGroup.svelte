@@ -18,13 +18,13 @@
 	onDestroy(unsub);
 </script>
 
-<fieldset>
+<fieldset class="holo-radio-group">
 	<legend>{label}</legend>
 	<slot />
 </fieldset>
 
 <style>
-	fieldset {
+	.holo-radio-group {
 		border: none;
 	}
 </style>

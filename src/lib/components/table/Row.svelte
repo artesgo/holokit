@@ -6,7 +6,7 @@
   export let row: ICell[] = [];
 </script>
 
-<tr class:alt={alternate && index % 2 === 0}>
+<tr class="holo-row" class:alt={alternate && index % 2 === 0}>
   {#each row as cell}
     <Cell {cell} />
   {/each}

@@ -30,7 +30,7 @@
 				<Link underline={true} href={'/table'}>Table</Link>
 				<Link underline={true} href={'/grid'}>Grid</Link>
 				<Link underline={true} href={'/select'}>Select</Link>
-				<Link underline={true} href={'/pattern'}>Pattern</Link>
+				<!-- <Link underline={true} href={'/pattern'}>Pattern</Link> -->
 			</ul>
 
 			<Checkbox id="chk" bind:checked>Light</Checkbox>

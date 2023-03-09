@@ -15,7 +15,7 @@
 	}
 </script>
 
-<section>
+<section class="holo-check">
 	<label
 		for={id}
 		class:reverse

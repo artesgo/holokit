@@ -9,12 +9,12 @@
 		'grid-template-columns: ' + columnTemplate + ';' + 'grid-template-rows: ' + rowTemplate + ';';
 </script>
 
-<section class="grid" class:borderless class:unpadded class:full-height={full} class:stretch {style}>
+<section class="holo-grid" class:borderless class:unpadded class:full-height={full} class:stretch {style}>
 	<slot />
 </section>
 
 <style>
-	.grid {
+	.holo-grid {
 		width: 100%;
 		display: grid;
 		padding-left: var(--padding-h-s);
@@ -22,7 +22,7 @@
 		padding-top: var(--padding-v-s);
 		padding-bottom: var(--padding-v-s);
 	}
-	.grid.borderless {
+	.holo-grid.borderless {
 		border: none;
 	}
 	.unpadded {

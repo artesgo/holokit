@@ -41,7 +41,7 @@
 {#if show}
 	<!-- svelte-ignore a11y-click-events-have-key-events -->
 	<section class="overlay" on:click={() => (show = false)} />
-	<section class="popover" {style} bind:this={popper} transition:scale={{
+	<section class="holo-popover" {style} bind:this={popper} transition:scale={{
 		duration: 100,
 		start: 2,
 	}}>
@@ -63,7 +63,7 @@
 		height: 100%;
 	}
 
-	.popover {
+	.holo-popover {
 		position: absolute;
 		background-color: var(--background-color-alt);
 		color: var(--color);

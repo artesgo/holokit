@@ -56,7 +56,7 @@
   ).slice(2, -2).replace(/","/g, ';');
 </script>
 
-<section {style} class:grow class:stretch class:full class:light class:dark class:padded>
+<section {style} class="holo-theme" class:grow class:stretch class:full class:light class:dark class:padded>
   <slot />
 </section>
 

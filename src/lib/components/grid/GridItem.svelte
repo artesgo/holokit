@@ -18,10 +18,10 @@
 		';';
 </script>
 
-<section {style}><slot /></section>
+<section class="grid-item" {style}><slot /></section>
 
 <style>
-	section {
+	.grid-item {
 		background-color: var(--background-color-alt);
 	}
 </style>

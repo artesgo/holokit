@@ -15,10 +15,11 @@
   // align content
   export let alignContent: AlignContent = 'unset';
 
-  $: gap_ = `flex gap-${gap}`;
+  $: gap_ = `flex gap-${gap} holo-flex`;
 </script>
 
-<section class={gap_}
+<section 
+  class={gap_}
   class:flex-row={row && !reverse}
   class:flex-col={!row && !reverse}
   class:flex-row-reverse={row && reverse}
