@@ -1,8 +1,6 @@
 <script lang="ts">
-	import { Button, Modal, Card, Flex, Prism, Checkbox } from '$lib';
-	import { getContext } from 'svelte';
-	import type { Writable } from 'svelte/store';
-	let theme = getContext<Writable<'void' | 'light'>>('theme');
+	import { Button, Modal, Card, Flex, Checkbox } from '$lib';
+	import Prism from '../prism/Prism.svelte';
 	let open = false;
 	let open2 = false;
 	let simple = `<Modal bind:open on:close={onClose}>
@@ -32,6 +30,10 @@
 		console.log('something closed me')
 	}
 </script>
+
+<svelte:head>
+	<title>Holokit Modal</title>
+</svelte:head>
 
 <h1>Modal Demo</h1>
 
@@ -73,9 +75,9 @@
 
 	<Card>
 		<h2>Modal Sample Usage</h2>
-		<Prism theme={$theme} language="html" code={simple}></Prism>
+		<Prism language="html" code={simple}></Prism>
 		<h2>Modal Additional Props</h2>
-		<Prism theme={$theme} language="html" code={complex}></Prism>
+		<Prism language="html" code={complex}></Prism>
 	</Card>
 </Flex>
 

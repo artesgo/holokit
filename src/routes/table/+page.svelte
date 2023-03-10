@@ -1,10 +1,7 @@
 <script lang="ts">
 	import type { ICell } from '$lib/components/table';
-	import { Table, Card, Prism, Checkbox } from '$lib';
-  
-	import { getContext } from 'svelte';
-	import type { Writable } from 'svelte/store';
-	let theme = getContext<Writable<'void' | 'light'>>('theme');
+	import { Table, Card, Checkbox } from '$lib';
+	import Prism from '../prism/Prism.svelte';
 
   import Template from './cell-template.svelte';
 	import { Flex } from '$lib/components/flex';
@@ -78,6 +75,10 @@ let data: ICell[][] = [
 ];`
 </script>
 
+<svelte:head>
+	<title>Holokit Table</title>
+</svelte:head>
+
 <h1>Table</h1>
 
 <Flex row gap={1}>
@@ -88,7 +89,7 @@ let data: ICell[][] = [
       <Checkbox id={'stripes'} reverse bind:checked={alternate}>Striped</Checkbox>
       <Checkbox id={'captioned'} reverse bind:checked={hideCaption}>Hide Caption</Checkbox>
       <br />
-      <Prism theme={$theme} language="html" {code}></Prism>
+      <Prism language="html" {code}></Prism>
     </Flex>
   </Card>
 
@@ -101,5 +102,5 @@ let data: ICell[][] = [
 </Flex>
 <br />
 <Card>
-  <Prism theme={$theme} language="javascript" code={tsCode}></Prism>
+  <Prism language="javascript" code={tsCode}></Prism>
 </Card>

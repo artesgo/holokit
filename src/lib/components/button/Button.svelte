@@ -2,6 +2,7 @@
 	import type { ButtonProps } from './button.types';
 	type $$props = ButtonProps;
 
+	export let id: $$props['id'] = '';
 	export let type: $$props['type'] = 'success';
 	export let size: $$props['size'] = 'm';
 	export let width: string | undefined = undefined;
@@ -22,6 +23,7 @@
 <button
 	class="holo-btn"
 	style={style()}
+	{id} data-testid={id}
 	class:holo-success={type === 'success'}
 	class:holo-warning={type === 'warning'}
 	class:holo-info={type === 'info'}

@@ -2,11 +2,15 @@
 	import { Button, Card } from '$lib';
 </script>
 
-<h1>Buttons</h1>
+<svelte:head>
+	<title>Holokit Button</title>
+</svelte:head>
+
+<h1>Button Component Demo</h1>
 
 <Card>
 	<div>
-		<Button type={'success'} size={'s'}>click</Button>
+		<Button id={"hahaaa"} type={'success'} size={'s'}>click</Button>
 		<Button type={'warning'} size={'s'}>click</Button>
 		<Button type={'info'} size={'s'}>click</Button>
 		<Button type={'danger'} size={'s'}>click</Button>

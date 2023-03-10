@@ -1,5 +1,5 @@
-import type { ControlSize, ControlType } from "../common";
+import type { ControlSize, ControlType, Id } from "../common";
 
-export interface ButtonProps extends ControlSize, ControlType {
+export interface ButtonProps extends ControlSize, ControlType, Id {
   title?: string;
 }

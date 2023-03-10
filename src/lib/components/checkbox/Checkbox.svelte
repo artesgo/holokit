@@ -1,7 +1,11 @@
 <script lang="ts">
 	import { fade } from 'svelte/transition';
+	import type { CheckboxProps } from './checkbox.types';
 	export let checked: boolean | undefined = undefined;
-	export let id: string;
+	type $$props = CheckboxProps;
+	export let id: $$props['id'] = '';
+	// TODO: control size
+	export let size: $$props['size'] = 'm';
 	// tricks, defaulting boolean props to false, so that when you consume,
 	// you just have to provide "reverse" (implied true), instead of "reverse={false}"
 	export let reverse = false;

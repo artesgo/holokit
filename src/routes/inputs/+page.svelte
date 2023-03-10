@@ -1,8 +1,6 @@
 <script lang="ts">
-	import { Input, Button, Card, Prism } from '$lib';
-	import { getContext } from 'svelte';
-	import type { Writable } from 'svelte/store';
-	let theme = getContext<Writable<'void' | 'light'>>('theme');
+	import { Input, Button, Card } from '$lib';
+	import Prism from '../prism/Prism.svelte';
 	let value = 'test';
 	let code = `<Input bind:value type="success" />
 <Input bind:value type="warning" />
@@ -12,6 +10,10 @@
 buttons sold separately
 `;
 </script>
+
+<svelte:head>
+	<title>Holokit Input</title>
+</svelte:head>
 
 <h1>Inputs</h1>
 
@@ -38,5 +40,5 @@ buttons sold separately
 
 <br />
 <Card>
-  <Prism theme={$theme} language="html" {code}></Prism>
+  <Prism language="html" {code}></Prism>
 </Card>

@@ -1,5 +1,7 @@
 <script lang="ts">
-	import { Button, Popover, Card, Flex, RadioGroup, Radio, Prism } from '$lib';
+	import { Button, Popover, Card, Flex, RadioGroup, Radio } from '$lib';
+	import Prism from '../prism/Prism.svelte';
+	
 	import { getContext } from 'svelte';
 	import type { Writable } from 'svelte/store';
 	let theme = getContext<Writable<'void' | 'light'>>('theme');
@@ -10,6 +12,10 @@
   <p slot="content">Popover Content</p>
 </Popover>`;
 </script>
+
+<svelte:head>
+	<title>Holokit Popover</title>
+</svelte:head>
 
 <h1>Popover</h1>
 
@@ -34,6 +40,6 @@
 
 	<Card>
 		<h2>Code Sample</h2>
-		<Prism theme={$theme} language="html" {code}></Prism>
+		<Prism language="html" {code}></Prism>
 	</Card>
 </Flex>

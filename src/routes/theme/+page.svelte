@@ -1,5 +1,7 @@
 <script lang="ts">
-	import { Card, Table, Theme, Prism, Flex, Checkbox } from "$lib";
+	import { Card, Table, Theme, Flex, Checkbox } from "$lib";
+	import Prism from '../prism/Prism.svelte';
+
 	import type { ICell } from '$lib/components/table';
 	import { getContext } from 'svelte';
 	import type { Writable } from 'svelte/store';
@@ -36,6 +38,10 @@
   <Card>Hello</Card>
 </Theme>`;
 </script>
+
+<svelte:head>
+	<title>Holokit Theme</title>
+</svelte:head>
 
 <h1>Theme</h1>
 
@@ -99,5 +105,5 @@
 </Flex>
 <br />
 <Card>
-  <Prism theme={$theme} language="html" {code}></Prism>
+  <Prism language="html" {code}></Prism>
 </Card>

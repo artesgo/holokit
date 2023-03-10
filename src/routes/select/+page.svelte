@@ -1,9 +1,7 @@
 <script lang="ts">
-	import { Prism, Button, Dropdown, DropdownItem, Link, Card, Flex, Checkbox } from "$lib";
+	import { Button, Dropdown, DropdownItem, Link, Card, Flex, Checkbox } from "$lib";
+	import Prism from '../prism/Prism.svelte';
 
-	import { getContext } from 'svelte';
-	import type { Writable } from 'svelte/store';
-	let theme = getContext<Writable<'void' | 'light'>>('theme');
   let code = `<Dropdown component={Button} triggerProps={{width: '200px'}}>
   <DropdownItem component={Button} triggerProps={{width: '200px'}}>
     Item 1
@@ -36,6 +34,10 @@
     alert('hi');
   }
 </script>
+
+<svelte:head>
+	<title>Holokit Dropdown Menus</title>
+</svelte:head>
 
 <h1>Dropdown Menus</h1>
 <Flex row gap={1}>
@@ -75,7 +77,7 @@
       </div>
     </Card>
     <Card>
-      <Prism theme={$theme} language="html" {code}></Prism>
+      <Prism language="html" {code}></Prism>
     </Card>
   </Flex>
 </Flex>

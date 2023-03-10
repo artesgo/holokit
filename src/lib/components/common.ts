@@ -7,3 +7,7 @@ export interface ControlType {
 }
 
 export type Stretch = 'window' | 'element' | 'none';
+
+export interface Id {
+	id?: string;
+}

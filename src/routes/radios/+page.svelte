@@ -5,6 +5,10 @@
 	let reverse = false;
 </script>
 
+<svelte:head>
+	<title>Holokit Radio</title>
+</svelte:head>
+
 <h1>Radio</h1>
 <Flex row gap={1}>
 	<Card grow>

@@ -1,7 +1,12 @@
 <script lang="ts">
-	export let href = '';
+	import type { LinkProps } from "./link.types";
+
 	export let target: string | undefined = undefined;
 	export let underline = false;
+	type $$props = LinkProps;
+	export let type: $$props['type'] = 'success';
+	export let size: $$props['size'] = 'm';
+	export let href: $$props['href'];
 	let focused = false;
 	function focus() {
 		focused = true;
@@ -15,6 +20,14 @@
 	class="holo-link"
 	class:underline
 	class:focused
+	class:holo-success={type === 'success'}
+	class:holo-warning={type === 'warning'}
+	class:holo-info={type === 'info'}
+	class:holo-danger={type === 'danger'}
+	class:holo-neutral={type === 'neutral'}
+	class:holo-padding-s={size === 's'}
+	class:holo-padding-m={size === 'm'}
+	class:holo-padding-l={size === 'l'}
 	{...$$restProps}
 	{href}
 	{target}

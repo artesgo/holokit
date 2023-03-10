@@ -5,9 +5,12 @@
 
 # Done (Initial)
 
+- Alert
 - Button
 - Card
 - Checkbox
+- Flex
+- Grid
 - Input
 - Link
 - Modal

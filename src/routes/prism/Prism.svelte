@@ -9,7 +9,6 @@
 	// };
   export let language: string;
   export let code: string;
-  export let theme = 'void';
   $: _code = Prism.highlight(code, Prism.languages[language], language);
   // async function loadTheme() {
   //   await imports[theme]();

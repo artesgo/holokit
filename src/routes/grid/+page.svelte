@@ -1,5 +1,6 @@
 <script lang="ts">
-	import { Grid, GridItem, Card, Theme, Flex, Checkbox, Prism } from '$lib';
+	import { Grid, GridItem, Card, Theme, Flex, Checkbox } from '$lib';
+	import Prism from '../prism/Prism.svelte';
 	import { getContext } from 'svelte';
 	import type { Writable } from 'svelte/store';
 	let theme = getContext<Writable<'void' | 'light'>>('theme');
@@ -18,6 +19,10 @@
   ...
 </Grid>`;
 </script>
+
+<svelte:head>
+	<title>Holokit Grid</title>
+</svelte:head>
 
 <h1>Grid</h1>
 
@@ -81,5 +86,5 @@
 
 <br />
 <Card>
-	<Prism theme={$theme} language="html" {code} />
+	<Prism language="html" {code} />
 </Card>

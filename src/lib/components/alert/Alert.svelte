@@ -5,6 +5,7 @@
   type $$props = AlertProps;
 
   export let title: $$props['title'] = 'Title';
+  export let body: $$props['body'] = '';
   export let type: $$props['type'] = 'success';
   export let row = false;
 </script>
@@ -33,12 +34,12 @@
         {/if}
       </slot>
       <h2>
-        <slot name="title">{title}</slot>
+        <slot>{title}</slot>
       </h2>
     </Flex>
   </header>
   <article>
-    <slot />
+    <slot name="body">{body}</slot>
   </article>
 </section>
 

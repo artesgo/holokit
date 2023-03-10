@@ -1,6 +1,6 @@
-import type { ControlType } from "../common";
+import type { ControlType, Id } from "../common";
 
-export interface AlertProps extends ControlType {
+export interface AlertProps extends ControlType, Id {
   title?: string;
   body?: string;
 }
