@@ -45,7 +45,7 @@
 		on:keydown
 		on:keyup
 		on:keypress
-		on:change={() => dispatch(value)}
+		on:change={() => dispatch('change', value)}
 		bind:value
 		{placeholder}
 	/>
