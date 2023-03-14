@@ -4,11 +4,13 @@
 	import { cubicInOut } from 'svelte/easing';
 	import { createEventDispatcher } from 'svelte';
 
+	export let id = '';
 	export let open = false;
 	export let escapeable = true;
 	export let duration = 0;
 	export let easing = cubicInOut;
 	export let start = 2;
+
 	let dispatcher = createEventDispatcher();
 	let header: HTMLElement;
 
@@ -41,6 +43,7 @@
 	<!-- ignore a11y, add keyboard controls for achieving the same -->
 	<!-- svelte-ignore a11y-click-events-have-key-events -->
 	<div
+		{id} data-testid={id}
 		class="holo-modal-overlay"
 		role="dialog"
 		aria-labelledby="holo-modal"

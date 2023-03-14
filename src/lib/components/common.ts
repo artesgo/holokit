@@ -11,3 +11,8 @@ export type Stretch = 'window' | 'element' | 'none';
 export interface Id {
 	id?: string;
 }
+
+export interface ControlPair {
+	apart: boolean;
+	reverse: boolean;
+}

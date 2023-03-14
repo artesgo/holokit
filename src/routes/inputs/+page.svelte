@@ -1,12 +1,12 @@
 <script lang="ts">
-	import { Input, Button, Card } from '$lib';
+	import { Input, Card, Flex } from '$lib';
 	import Prism from '../prism/Prism.svelte';
 	let value = 'test';
-	let code = `<Input bind:value type="success" />
-<Input bind:value type="warning" />
-<Input bind:value type="info" />
-<Input bind:value type="danger" />
-<Input bind:value type="neutral" />
+	let code = `<Input bind:value type="success">Label</Input>
+<Input bind:value type="warning">Label</Input>
+<Input bind:value type="info">Label</Input>
+<Input bind:value type="danger">Label</Input>
+<Input bind:value type="neutral">Label</Input>
 buttons sold separately
 `;
 </script>
@@ -17,27 +17,34 @@ buttons sold separately
 
 <h1>Inputs</h1>
 
-<Card>
-	<div>
-		<Input bind:value type="success" /><Button type="success">Submit</Button>
-	</div>
-	<div>
-		<Input bind:value type="warning" /><Button type="warning">Submit</Button>
-	</div>
-	<div>
-		<Input bind:value type="info" /><Button type="info">Submit</Button>
-	</div>
-	<div>
-		<Input bind:value type="danger" /><Button type="danger">Submit</Button>
-	</div>
-	<div>
-		<Input bind:value type="neutral" /><Button type="neutral">Submit</Button>
-	</div>
-	<p>
-		start typing: {value}
-	</p>
-</Card>
-
+<Flex row gap={1}>
+	<Card grow>
+		<Input bind:value type="success">Label</Input>
+		<Input bind:value type="warning">Label</Input>
+		<Input bind:value type="info">Label</Input>
+		<Input bind:value type="danger">Label</Input>
+		<Input bind:value type="neutral">Label</Input>
+		<p>
+			start typing: {value}
+		</p>
+	</Card>
+	
+	<Card grow>
+		<Input inline apart bind:value type="success">Label</Input>
+		<Input inline apart bind:value type="warning">Label</Input>
+		<Input inline apart bind:value type="info">Label</Input>
+		<Input inline apart bind:value type="danger">Label</Input>
+		<Input inline apart bind:value type="neutral">Label</Input>
+		<p>
+			start typing: {value}
+		</p>
+		<Input integrated bind:value type="success">Label</Input>
+		<Input integrated bind:value type="warning">Label</Input>
+		<Input integrated bind:value type="info">Label</Input>
+		<Input integrated bind:value type="danger">Label</Input>
+		<Input integrated bind:value type="neutral">Label</Input>
+	</Card>
+</Flex>
 <br />
 <Card>
   <Prism language="html" {code}></Prism>

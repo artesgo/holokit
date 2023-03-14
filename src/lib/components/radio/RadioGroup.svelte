@@ -2,9 +2,11 @@
 	import { onDestroy, setContext } from 'svelte';
 	import { writable } from 'svelte/store';
 
-	export let name;
-	export let label = '';
-	export let value = '';
+	import type { RadioGroupProps } from './radio.types';
+	export let id: RadioGroupProps['id'] = '';
+	export let name: RadioGroupProps['name'];
+	export let label: RadioGroupProps['label'] = '';
+	export let value: RadioGroupProps['value'] = '';
 
 	const selectedValue = writable(value);
 	$: $selectedValue = value;
@@ -18,7 +20,7 @@
 	onDestroy(unsub);
 </script>
 
-<fieldset class="holo-radio-group">
+<fieldset class="holo-radio-group" {id} data-testid={id}>
 	<legend>{label}</legend>
 	<slot />
 </fieldset>

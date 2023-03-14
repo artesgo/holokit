@@ -2,12 +2,10 @@
 	import Eyecon from '../../icons/Eyecon.svelte';
 	import Flex from '../flex/Flex.svelte';
   import type { AlertProps } from './alert.types';
-  type $$props = AlertProps;
-
-  export let title: $$props['title'] = 'Title';
-  export let body: $$props['body'] = '';
-  export let type: $$props['type'] = 'success';
-  export let row = false;
+  export let title: AlertProps['title'] = 'Title';
+  export let body: AlertProps['body'] = '';
+  export let type: AlertProps['type'] = 'success';
+  export let row: AlertProps['row'] = false;
 </script>
 
 <section

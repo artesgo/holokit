@@ -1,13 +1,11 @@
 <script lang="ts">
 	import type { ButtonProps } from './button.types';
-	type $$props = ButtonProps;
-
-	export let id: $$props['id'] = '';
-	export let type: $$props['type'] = 'success';
-	export let size: $$props['size'] = 'm';
-	export let width: string | undefined = undefined;
-	export let align: string | undefined = undefined;
-	export let wrap = false;
+	export let id: ButtonProps['id'] = '';
+	export let type: ButtonProps['type'] = 'success';
+	export let size: ButtonProps['size'] = 'm';
+	export let width: ButtonProps['width'] = undefined;
+	export let align: ButtonProps['align'] = undefined;
+	export let wrap: ButtonProps['wrap'] = false;
 	$: style = () => {
 		let styles = '';
 		if (width !== undefined) {

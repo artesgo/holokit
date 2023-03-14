@@ -2,9 +2,13 @@
 	import { getContext } from 'svelte';
 	import type { Writable } from 'svelte/store';
 	import { fade } from 'svelte/transition';
-	export let value = '';
-	export let reverse = false;
-	export let apart = false;
+
+	import type { RadioProps } from './radio.types';
+	export let id: RadioProps['id'] = '';
+	export let value: RadioProps['value'] = '';
+	export let reverse: RadioProps['reverse'] = false;
+	export let apart: RadioProps['apart'] = false;
+
 	const { selectedValue, name } = getContext<{ selectedValue: Writable<string>; name: string }>(
 		'RadioGroup'
 	);
@@ -55,6 +59,7 @@
 		{/if}
 	</svg>
 	<input
+		{id} data-testid={id}
 		{name}
 		type="radio"
 		class="sr-only"

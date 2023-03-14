@@ -1,12 +1,13 @@
 <script lang="ts">
 	import type { LinkProps } from "./link.types";
+	export let id: LinkProps['id'] = '';
+	export let type: LinkProps['type'] = 'success';
+	export let size: LinkProps['size'] = 'm';
+	export let href: LinkProps['href'];
+	export let target: LinkProps['target'] = undefined;
+	export let rel: LinkProps['rel'];
+	export let underline: LinkProps['underline'] = false;
 
-	export let target: string | undefined = undefined;
-	export let underline = false;
-	type $$props = LinkProps;
-	export let type: $$props['type'] = 'success';
-	export let size: $$props['size'] = 'm';
-	export let href: $$props['href'];
 	let focused = false;
 	function focus() {
 		focused = true;
@@ -17,6 +18,9 @@
 </script>
 
 <a
+	{id} data-testid={id}
+	{href} {rel} {target}
+	{...$$restProps}
 	class="holo-link"
 	class:underline
 	class:focused
@@ -28,9 +32,6 @@
 	class:holo-padding-s={size === 's'}
 	class:holo-padding-m={size === 'm'}
 	class:holo-padding-l={size === 'l'}
-	{...$$restProps}
-	{href}
-	{target}
 	on:mouseover={focus}
 	on:focus={focus}
 	on:blur={blur}
