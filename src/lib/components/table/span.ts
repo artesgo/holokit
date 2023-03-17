@@ -1,4 +1,4 @@
 export interface ISpan {
-  colspan: number;
-  rowspan: number;
+  colspan?: number;
+  rowspan?: number;
 }

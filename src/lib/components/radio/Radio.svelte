@@ -9,7 +9,7 @@
 	export let reverse: RadioProps['reverse'] = false;
 	export let apart: RadioProps['apart'] = false;
 
-	const { selectedValue, name } = getContext<{ selectedValue: Writable<string>; name: string }>(
+	const { selectedValue, name } = getContext<{ selectedValue: Writable<string | undefined>; name: string }>(
 		'RadioGroup'
 	);
 	let focused = false;	

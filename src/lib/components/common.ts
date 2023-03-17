@@ -13,6 +13,6 @@ export interface Id {
 }
 
 export interface ControlPair {
-	apart: boolean;
-	reverse: boolean;
+	apart?: boolean;
+	reverse?: boolean;
 }

@@ -8,7 +8,7 @@
 	export let label: RadioGroupProps['label'] = '';
 	export let value: RadioGroupProps['value'] = '';
 
-	const selectedValue = writable(value);
+	const selectedValue = writable<string | undefined>(value);
 	$: $selectedValue = value;
 	setContext('RadioGroup', {
 		selectedValue,

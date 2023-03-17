@@ -73,7 +73,7 @@
 		border: var(--border);
 		border-color: var(--border-color);
 		padding: var(--padding-v-m);
-		box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+		box-shadow: 2px 2px var(--box-shadow) rgba(0, 0, 0, 0.3);
 		box-sizing: border-box;
 	}
 </style>

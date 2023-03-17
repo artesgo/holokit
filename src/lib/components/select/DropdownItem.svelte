@@ -4,17 +4,29 @@
 
 	export let component: any;
 	export let triggerProps = {};
+	export let index = 0;
 
-	const { open, index, openOnArrows } = getContext<{ 
-    open: Writable<boolean>, 
-    index: Writable<number>,
-    openOnArrows: () => void
-  }>('Dropdown');
+	let element: HTMLElement;
+	const { state, openOnArrows } = getContext<{
+		state: Writable<{ show: boolean; index: number; limit: number }>;
+		openOnArrows: () => void;
+	}>('Dropdown');
 
 	function closeOnESC(event: KeyboardEvent) {
 		if (event.key === 'Escape') {
-			$open = false;
+			$state.show = false;
 		}
+	}
+	function updateIndex() {
+		$state.index = index;
+	}
+	$: if ($state.index === index && element) {
+		setTimeout(() => {
+			element.focus();
+		}, 0);
+	}
+	$: if ($state.limit < index) {
+		$state.limit = index;
 	}
 </script>
 
@@ -22,9 +34,11 @@
 	<svelte:component
 		this={component}
 		role="menuitem"
+		bind:this={element}
 		{...triggerProps}
 		on:keyup={closeOnESC}
 		on:keyup={openOnArrows}
+		on:click={updateIndex}
 		on:click
 		on:keydown
 		on:keyup

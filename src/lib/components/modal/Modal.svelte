@@ -57,8 +57,12 @@
 	>
 		<button on:focus={goToStart}></button>
 		<div class="holo-modal" on:click|stopPropagation>
-			<header class="holo-modal-header" id="holo-modal" bind:this={header} tabindex="-1">
-				<slot name="header">Default header</slot>
+			<header class="holo-modal-header" class:alert-header={$$slots.alert} id="holo-modal" bind:this={header} tabindex="-1">
+				{#if $$slots.alert}
+					<slot name="alert"></slot>
+				{:else}
+					<slot name="header">Default header</slot>
+				{/if}
 			</header>
 			<section class="holo-modal-body">
 				<slot>Default body</slot>
@@ -91,8 +95,9 @@
 		transform: translate(-50%, -50%);
 		background-color: var(--background-color-alt);
 		color: var(--color);
+		border: var(--border);
 		border-radius: var(--border-radius);
-		box-shadow: 0px 0px 4px var(--color);
+		box-shadow: 0px 0px var(--box-shadow) var(--color);
 		width: 80%;
 		max-width: var(--modal-width);
 		z-index: 1000;
@@ -100,9 +105,17 @@
 	}
 
 	.holo-modal-header {
+		--border: none;
+		--margin-v-m: 4px;
 		margin-bottom: var(--margin-v-m);
 		font-weight: var(--font-weight-m);
 		font-size: var(--font-size-l);
+	}
+
+	.alert-header {
+		margin: 0 calc(var(--padding-h-m) * -1);
+		margin-top: calc(var(--padding-h-m) * -1);
+		margin-bottom: var(--padding-h-m);
 	}
 
 	.holo-modal-footer {

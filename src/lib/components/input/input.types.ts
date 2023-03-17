@@ -5,7 +5,7 @@ export interface InputProps extends ControlSize, ControlType, ControlPair, Id {
 	ariaLabel?: string;
 	label?: string;
 	placeholder?: string;
-	value: string;
-	inline: boolean;
-	integrated: boolean;
+	value?: string;
+	inline?: boolean;
+	integrated?: boolean;
 }

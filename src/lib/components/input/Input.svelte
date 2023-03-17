@@ -83,7 +83,6 @@
 	}
 	.holo-input {
 		border: var(--control-border);
-		border-left: var(--border-width-m);
 		border-color: var(--control-border-color);
 		border-radius: var(--control-border-radius);
 		min-width: var(--control-min-width);

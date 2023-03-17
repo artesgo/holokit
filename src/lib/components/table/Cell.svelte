@@ -2,8 +2,8 @@
   import type { ICell } from '.';
   export let cell: ICell;
   let scope: string;
-  let colspan: number;
-  let rowspan: number;
+  let colspan: number | undefined;
+  let rowspan: number | undefined;
   $: if (cell.header) {
     scope = cell.header.scope;
   }

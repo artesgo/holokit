@@ -54,7 +54,7 @@
 		background-color: var(--background-color-alt);
 		border: var(--border);
 		border-color: var(--border-color-alt);
-		border-radius: calc(var(--border-radius) * 2);
+		border-radius: var(--border-radius);
     width: 100%;
   }
   h2 {
