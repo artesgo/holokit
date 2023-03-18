@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Checkbox, Card, Flex } from '$lib';
+	import { Checkbox, Card, Flex, Title } from '$lib';
 	import Prism from '../prism/Prism.svelte';
 	function bindings() {
 		console.log('fire bindings');
@@ -16,7 +16,7 @@
 	<title>Holokit Checkbox</title>
 </svelte:head>
 
-<h1>Checkbox</h1>
+<Title id="heading">Checkbox</Title>
 <Flex justifyContent='between' row={true} gap={1}>
 	<Card grow>
     <h2>Props</h2>

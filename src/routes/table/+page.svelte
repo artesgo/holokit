@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { ICell } from '$lib/components/table';
-	import { Table, Card, Checkbox } from '$lib';
+	import { Table, Card, Checkbox, Title } from '$lib';
 	import Prism from '../prism/Prism.svelte';
 
   import Template from './cell-template.svelte';
@@ -79,7 +79,7 @@ let data: ICell[][] = [
 	<title>Holokit Table</title>
 </svelte:head>
 
-<h1>Table</h1>
+<Title id="heading">Table</Title>
 
 <Flex row gap={1}>
   <Card grow>

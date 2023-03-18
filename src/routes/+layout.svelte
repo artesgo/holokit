@@ -2,10 +2,12 @@
 	import '$lib/myth.scss';
 	import '$lib/common.scss';
 	import './global.scss';
-	import { Link, Theme, Flex, Checkbox } from '$lib';
+	import { Link, Theme, Flex, Checkbox, createFocusManager, Button } from '$lib';
 	import { setContext } from 'svelte';
 	import { theme } from './store';
+	let focusManager = createFocusManager();
 	setContext('theme', theme);
+	setContext('focus', focusManager);
 	let checked = false;
 	$: if (checked) {
 		$theme = 'light';
@@ -17,6 +19,7 @@
 <Theme stretch="window" theme={$theme}>
 	<header>
 		<Flex row gap={2}>
+			<Button on:click={() => focusManager.focus('heading')}>Go To Main</Button>
 			<ul>
 				<Link underline={true} href={'/'}>Home</Link>
 				<Link underline={true} href={'/alert'}>Alerts</Link>
@@ -30,6 +33,8 @@
 				<Link underline={true} href={'/select'}>Select</Link>
 				<Link underline={true} href={'/table'}>Table</Link>
 				<Link underline={true} href={'/theme'}>Theme</Link>
+
+				<Link underline={true} href={'/focus'}>Focus Management</Link>
 				<!-- <Link underline={true} href={'/pattern'}>Pattern</Link> -->
 			</ul>
 

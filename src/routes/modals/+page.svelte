@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Button, Modal, Card, Flex, Checkbox, Alert } from '$lib';
+	import { Button, Modal, Card, Flex, Checkbox, Alert, Title } from '$lib';
 	import Prism from '../prism/Prism.svelte';
 	let open = false;
 	let open2 = false;
@@ -36,7 +36,7 @@
 	<title>Holokit Modal</title>
 </svelte:head>
 
-<h1>Modal Demo</h1>
+<Title id="heading">Modal Demo</Title>
 
 <Flex gap={2}>
 	<Flex row gap={1}>

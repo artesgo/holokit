@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Radio, RadioGroup, Card, Flex, Checkbox } from '$lib';
+	import { Radio, RadioGroup, Card, Flex, Checkbox, Title } from '$lib';
 	let value = 'item 1';
 	let apart = false;
 	let reverse = false;
@@ -9,7 +9,7 @@
 	<title>Holokit Radio</title>
 </svelte:head>
 
-<h1>Radio</h1>
+<Title id="heading">Radio</Title>
 <Flex row gap={1}>
 	<Card grow>
 		<h2>Radio Props</h2>

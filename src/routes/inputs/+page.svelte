@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Input, Card, Flex } from '$lib';
+	import { Input, Card, Flex, Title } from '$lib';
 	import Prism from '../prism/Prism.svelte';
 	let value = 'start typing';
 	let code = `<Input bind:value type="success">Label</Input>
@@ -19,7 +19,7 @@ function change(value: CustomEvent) {
 	<title>Holokit Input</title>
 </svelte:head>
 
-<h1>Inputs</h1>
+<Title id="heading">Inputs</Title>
 
 <Flex row gap={1}>
 	<Card grow>

@@ -1,4 +1,6 @@
 <script lang="ts">
+	import type { FocusManagerContext } from '$lib';
+	import { getContext } from 'svelte';
 	import { fade } from 'svelte/transition';
 	import type { CheckboxProps } from './checkbox.types';
 	export let id: CheckboxProps['id'] = '';
@@ -16,6 +18,11 @@
 	}
 	function blur() {
 		focused = false;
+	}
+	let element: HTMLElement;
+	const focusManager = getContext<FocusManagerContext>('focus');
+	$: if (element && !!$focusManager.focused && $focusManager.focused === id) {
+		element.focus();
 	}
 </script>
 
@@ -69,6 +76,7 @@
 		{id}
 		type="checkbox"
 		bind:checked
+		bind:this={element}
 		class="sr-only"
 		on:mouseover={focus}
 		on:focus={focus}

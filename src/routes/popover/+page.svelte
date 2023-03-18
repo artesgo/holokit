@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Button, Popover, Card, Flex, RadioGroup, Radio } from '$lib';
+	import { Button, Popover, Card, Flex, RadioGroup, Radio, Title } from '$lib';
 	import Prism from '../prism/Prism.svelte';
 	
 	import { getContext } from 'svelte';
@@ -17,7 +17,7 @@
 	<title>Holokit Popover</title>
 </svelte:head>
 
-<h1>Popover</h1>
+<Title id="heading">Popover</Title>
 
 <Flex gap={1}>
 	<Flex row gap={1}>

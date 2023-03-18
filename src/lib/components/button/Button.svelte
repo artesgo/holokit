@@ -1,4 +1,6 @@
 <script lang="ts">
+	import type { FocusManagerContext } from '$lib';
+	import { getContext } from 'svelte';
 	import type { ButtonProps } from './button.types';
 	export let id: ButtonProps['id'] = '';
 	export let type: ButtonProps['type'] = 'success';
@@ -6,6 +8,12 @@
 	export let width: ButtonProps['width'] = undefined;
 	export let align: ButtonProps['align'] = undefined;
 	export let wrap: ButtonProps['wrap'] = false;
+	
+	const focusManager = getContext<FocusManagerContext>('focus');
+	let element: HTMLElement;
+	$: if (element && !!$focusManager.focused && $focusManager.focused === id) {
+		element.focus();
+	}
 	$: style = () => {
 		let styles = '';
 		if (width !== undefined) {
@@ -21,6 +29,7 @@
 <button
 	class="holo-btn"
 	style={style()}
+
 	{id} data-testid={id}
 	class:holo-success={type === 'success'}
 	class:holo-warning={type === 'warning'}
@@ -32,6 +41,7 @@
 	class:holo-padding-l={size === 'l'}
 	class:holo-wrap={wrap}
 	{...$$restProps}
+	bind:this={element}
 	on:blur
 	on:click
 	on:contextmenu

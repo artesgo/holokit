@@ -10,6 +10,7 @@
 	class:stretch-element={stretch === 'element'}
 	class:stretch-window={stretch === 'window'}
 	class:justify-between={between}
+	{...$$restProps}
 >
 	<slot />
 </section>

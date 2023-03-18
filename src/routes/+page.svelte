@@ -1,12 +1,12 @@
 <script>
-	import { Button } from '$lib';
+	import { Button, Title } from '$lib';
 </script>
 
 <svelte:head>
 	<title>Holokit</title>
 </svelte:head>
 
-<h1>Holokit Components</h1>
+<Title id="heading" data-testid="testing">Holokit Components</Title>
 
 <div>
 	<Button type={'success'} size={'s'}>Welcome</Button>

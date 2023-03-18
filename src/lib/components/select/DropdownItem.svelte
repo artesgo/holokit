@@ -1,15 +1,16 @@
 <script lang="ts">
-	import { getContext } from 'svelte';
+	import { getContext, onMount } from 'svelte';
 	import type { Writable } from 'svelte/store';
 
 	export let component: any;
 	export let triggerProps = {};
-	export let index = 0;
+	let index = 0;
+	let id = '';
 
 	let element: HTMLElement;
-	const { state, openOnArrows } = getContext<{
-		state: Writable<{ show: boolean; index: number; limit: number }>;
-		openOnArrows: () => void;
+	const { state, onArrow } = getContext<{
+		state: Writable<{ show: boolean; index: number; limit: number, dropdownList: number[] }>;
+		onArrow: () => void;
 	}>('Dropdown');
 
 	function closeOnESC(event: KeyboardEvent) {
@@ -17,16 +18,34 @@
 			$state.show = false;
 		}
 	}
+	function prevent(event: KeyboardEvent) {
+		if (event.key.includes('Arrow')) {
+			event.preventDefault();
+			event.stopPropagation();
+		}
+	}
 	function updateIndex() {
 		$state.index = index;
 	}
-	$: if ($state.index === index && element) {
-		setTimeout(() => {
-			element.focus();
-		}, 0);
-	}
 	$: if ($state.limit < index) {
 		$state.limit = index;
+		console.log('update index');
+	}
+	onMount(() => {
+		const [last] = [...$state.dropdownList].reverse();
+		const _last = (last || 0) + 1;
+		$state.dropdownList = [...$state.dropdownList, _last];
+		id = 'dropdown-'+ _last;
+		if ($state.limit < _last) {
+			$state.limit = _last;
+		}
+		console.log('mounted');
+	});
+	
+	function onTab(event: KeyboardEvent) {
+		if (event.key === 'Tab' && $state.index) {
+			$state.show = false;
+		}
 	}
 </script>
 
@@ -35,10 +54,12 @@
 		this={component}
 		role="menuitem"
 		bind:this={element}
-		{...triggerProps}
+		{...triggerProps }
+		{id}
 		on:keyup={closeOnESC}
-		on:keyup={openOnArrows}
+		on:keyup={onArrow}
 		on:click={updateIndex}
+		on:keydown={prevent}
 		on:click
 		on:keydown
 		on:keyup

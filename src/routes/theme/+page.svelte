@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Card, Table, Theme, Flex, Checkbox } from "$lib";
+	import { Card, Table, Theme, Flex, Checkbox, Title } from "$lib";
 	import Prism from '../prism/Prism.svelte';
 
 	import type { ICell } from '$lib/components/table';
@@ -43,7 +43,7 @@
 	<title>Holokit Theme</title>
 </svelte:head>
 
-<h1>Theme</h1>
+<Title id="heading">Theme</Title>
 
 <Flex row gap={1}>
   <Card>
