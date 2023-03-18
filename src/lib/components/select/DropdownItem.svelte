@@ -29,7 +29,6 @@
 	}
 	$: if ($state.limit < index) {
 		$state.limit = index;
-		console.log('update index');
 	}
 	onMount(() => {
 		const [last] = [...$state.dropdownList].reverse();
@@ -39,12 +38,19 @@
 		if ($state.limit < _last) {
 			$state.limit = _last;
 		}
-		console.log('mounted');
 	});
 	
 	function onTab(event: KeyboardEvent) {
-		if (event.key === 'Tab' && $state.index) {
-			$state.show = false;
+		if (event.key === 'Tab') {
+			if ($state.index < $state.limit && event.shiftKey) {
+				$state.index--;
+			}
+			if ($state.index > 0 && !event.shiftKey) {
+				$state.index++;
+			}
+			if ($state.index > $state.limit) {
+				$state.show = false;
+			}
 		}
 	}
 </script>
@@ -59,6 +65,7 @@
 		on:keyup={closeOnESC}
 		on:keyup={onArrow}
 		on:click={updateIndex}
+		on:keydown={onTab}
 		on:keydown={prevent}
 		on:click
 		on:keydown

@@ -4,6 +4,7 @@
 	import { writable } from 'svelte/store';
 	import { fade } from 'svelte/transition';
 
+	// binds to initial, and updates consumer if they bind to this
 	export let show = false;
 	export let component: any;
 	export let triggerProps = {};
@@ -14,8 +15,8 @@
 
 	let index = 0;
 	function toggle(event: Event) {
-		show = !show;
-		$state.show = show;
+		$state.show = !$state.show;
+		show = $state.show;
 		if ($state.show) {
 			focusManager.focus('dropdown-1');
 		}
@@ -25,16 +26,16 @@
 	function closeOnESC(event: KeyboardEvent) {
 		if (event.key === 'Escape') {
 			show = false;
-			$state.show = show;
+			$state.show = false;
 		}
 	}
 
 	function clickOutside() {
 		show = false;
-		$state.show = show;
+		$state.show = false;
 	}
 
-	$: if (!show) {
+	$: if (!$state.show) {
 		$state.dropdownList = [];
 		focusManager.focus(null);
 		$state.index = 1;
@@ -60,9 +61,14 @@
 		}
 	}
 	function onTab(event: KeyboardEvent) {
-		if (event.key === 'Tab' && event.shiftKey) {
-			show = false;
-			$state.show = false;
+		if (event.key === 'Tab') {
+			if (event.shiftKey) {
+				show = false;
+				$state.show = false;
+			}
+			if (!event.shiftKey) {
+				$state.index++;
+			}
 		}
 	}
 	const state = writable<{ show: boolean; index: number; limit: number; dropdownList: number[] }>({
