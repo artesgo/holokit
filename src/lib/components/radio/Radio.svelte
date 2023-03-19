@@ -92,6 +92,7 @@
 		color: var(--color);
 		display: flex;
 		margin-bottom: var(--margin-v-s);
+		font-weight: var(--font-weight-s);
 	}
 	.reverse {
 		flex-direction: row-reverse;

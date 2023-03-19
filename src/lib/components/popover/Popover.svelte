@@ -75,5 +75,6 @@
 		padding: var(--padding-v-m);
 		box-shadow: 2px 2px var(--box-shadow) rgba(0, 0, 0, 0.3);
 		box-sizing: border-box;
+		font-weight: var(--font-weight-s);
 	}
 </style>

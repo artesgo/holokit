@@ -105,6 +105,7 @@
 		position: relative;
 	}
 	label {
+		font-weight: var(--font-weight-s);
 		color: var(--color);
 		display: flex;
 		margin-bottom: var(--margin-v-s);

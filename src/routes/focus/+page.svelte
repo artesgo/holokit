@@ -10,14 +10,17 @@
   import { getContext } from "svelte";
   const focusManager = getContext<FocusManagerContext>('focus');
   ...`;
-  const html = `<Button id="focus-1" on:click={() => focusManager.focus("focus-4")}>Focus 4</Button>
-<Button id="focus-2" on:click={() => focusManager.focus("focus-5")}>Focus 5</Button>
-<Button id="focus-3" on:click={() => focusManager.focus("focus-6")}>Focus 6</Button>
-<div>
-  <Button id="focus-4">4</Button>
-  <Button id="focus-5">5</Button>
-  <Button id="focus-6">6</Button>
-</div>`;
+  const html = `<Button on:click={() => focusManager.focus("focus-4")}>
+  Focus 4</Button>
+<Button on:click={() => focusManager.focus("focus-5")}>
+  Focus 5</Button>
+<Button on:click={() => focusManager.focus("focus-6")}>
+  Focus 6</Button>
+
+<Button id="focus-4">4</Button>
+<Button id="focus-5">5</Button>
+<Button id="focus-6">6</Button>
+`;
   const own = `import type { FocusManagerContext } from 'artesgo-holokit';
 import { getContext } from 'svelte';
 const focusManager = getContext<FocusManagerContext>('focus');
@@ -28,20 +31,21 @@ $: if (element && !!$focusManager.focused && $focusManager.focused === id) {
 </script>
 
 <svelte:head>
-	<title>Focus management</title>
+	<title>Focus Management</title>
 </svelte:head>
 
-<Title id="heading">Focus management Utility</Title>
+<Title id="heading">Focus Management Utility</Title>
 <Flex row gap={1}>
 	<Card grow>
-    <Button id="focus-1" on:click={() => focusManager.focus("focus-4")}>Focus 4</Button>
-    <Button id="focus-2" on:click={() => focusManager.focus("focus-5")}>Focus 5</Button>
-    <Button id="focus-3" on:click={() => focusManager.focus("focus-6")}>Focus 6</Button>
-    <div>
+    <Flex gap={1}>
+      <Title l={2} id="demo">Demo</Title>
+      <Button id="focus-1" on:click={() => focusManager.focus("focus-4")}>Focus 4</Button>
+      <Button id="focus-2" on:click={() => focusManager.focus("focus-5")}>Focus 5</Button>
+      <Button id="focus-3" on:click={() => focusManager.focus("focus-6")}>Focus 6</Button>
       <Button id="focus-4">4</Button>
       <Button id="focus-5">5</Button>
       <Button id="focus-6">6</Button>
-    </div>
+    </Flex>
 	</Card>
   <Flex gap={2}>
     <Card grow>
@@ -51,6 +55,8 @@ $: if (element && !!$focusManager.focused && $focusManager.focused === id) {
       <Prism language="html" code={html} />
     </Card>
     <Card grow>
+      <!-- TODO: Create vanilla js tab -->
+      <Title l={2} id="own">Want to use this for your own components?</Title>
       <Prism language="javascript" code={own} />
     </Card>
   </Flex>

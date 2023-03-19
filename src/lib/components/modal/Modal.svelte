@@ -102,6 +102,7 @@
 		max-width: var(--modal-width);
 		z-index: 1000;
 		padding: var(--padding-h-m);
+		font-weight: var(--font-weight-s);
 	}
 
 	.holo-modal-header {

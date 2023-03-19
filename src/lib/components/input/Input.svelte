@@ -56,6 +56,7 @@
 		display: flex;
 		flex-direction: column;
 		margin-bottom: var(--margin-v-s);
+		font-weight: var(--font-weight-s);
 	}
 	.holo-input-container.inline{
 		display: flex;

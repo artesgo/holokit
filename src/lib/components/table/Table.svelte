@@ -29,6 +29,7 @@
     color: var(--color);
     background-color: var(--background-color);
     border: var(--border);
+		font-weight: var(--font-weight-s);
   }
 
   .borderless {

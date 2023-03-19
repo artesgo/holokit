@@ -39,5 +39,6 @@
 		padding-right: var(--padding-h-s);
 		padding-top: var(--padding-v-s);
 		padding-bottom: var(--padding-v-s);
+		font-weight: var(--font-weight-s);
   }
 </style>

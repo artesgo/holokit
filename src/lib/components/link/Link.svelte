@@ -70,6 +70,7 @@
 		color: var(--color);
 		text-decoration: none;
 		white-space: nowrap;
+		font-weight: var(--font-weight-s);
 	}
 	.holo-wrap {
 		white-space: wrap;
