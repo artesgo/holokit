@@ -12,7 +12,7 @@
 	}
 </script>
 
-<svelte:element this={'h' + l} bind:this={element} {...$$restProps} class:outline tabindex="-1">
+<svelte:element {id} this={'h' + l} bind:this={element} {...$$restProps} class:outline tabindex="-1">
 	<slot />
 </svelte:element>
 

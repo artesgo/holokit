@@ -81,26 +81,27 @@ let data: ICell[][] = [
 
 <Title id="heading">Table</Title>
 
-<Flex row gap={1}>
-  <Card grow>
-    <h2>Table Props</h2>
-    <Flex>
-      <Checkbox id={'borderless'} reverse bind:checked={borderless}>Borderless</Checkbox>
-      <Checkbox id={'stripes'} reverse bind:checked={alternate}>Striped</Checkbox>
-      <Checkbox id={'captioned'} reverse bind:checked={hideCaption}>Hide Caption</Checkbox>
-      <br />
-      <Prism language="html" {code}></Prism>
-    </Flex>
-  </Card>
+<Flex gap={1}>
+  <Flex row gap={1}>
+    <Card grow>
+      <h2>Table Props</h2>
+      <Flex>
+        <Checkbox id={'borderless'} reverse bind:checked={borderless}>Borderless</Checkbox>
+        <Checkbox id={'stripes'} reverse bind:checked={alternate}>Striped</Checkbox>
+        <Checkbox id={'captioned'} reverse bind:checked={hideCaption}>Hide Caption</Checkbox>
+        <br />
+        <Prism language="html" {code}></Prism>
+      </Flex>
+    </Card>
 
-  <Card grow>
-    <Flex justifyContent="start">
-      <h2>{description}</h2>
-      <Table {headers} {data} {caption} {alternate} {borderless} {hideCaption}/>
-    </Flex>
+    <Card grow>
+      <Flex justifyContent="start">
+        <h2>{description}</h2>
+        <Table {headers} {data} {caption} {alternate} {borderless} {hideCaption}/>
+      </Flex>
+    </Card>
+  </Flex>
+  <Card>
+    <Prism language="javascript" code={tsCode}></Prism>
   </Card>
 </Flex>
-<br />
-<Card>
-  <Prism language="javascript" code={tsCode}></Prism>
-</Card>
