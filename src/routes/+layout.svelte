@@ -35,6 +35,7 @@
 				</ul>
 	
 				<Dropdown component={Button} triggerProps={{ width: '200px' }}>
+					<svelte:fragment slot="trigger">Theme</svelte:fragment>
 					<DropdownItem component={Button} on:click={() => $theme = 'light'} triggerProps={{ width: '200px', type: 'info' }}>
 						Light
 					</DropdownItem>
