@@ -4,12 +4,14 @@
 
 	export let component: any;
 	export let triggerProps = {};
+	export let value: string;
+
 	let index = 0;
 	let id = '';
 
 	let element: HTMLElement;
 	const { state, onArrow } = getContext<{
-		state: Writable<{ show: boolean; index: number; limit: number, dropdownList: number[] }>;
+		state: Writable<{ value: string; show: boolean; index: number; limit: number, dropdownList: number[] }>;
 		onArrow: () => void;
 	}>('Dropdown');
 
@@ -26,6 +28,7 @@
 	}
 	function updateIndex() {
 		$state.index = index;
+		$state.value = value;
 	}
 	$: if ($state.limit < index) {
 		$state.limit = index;

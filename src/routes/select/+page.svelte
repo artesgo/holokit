@@ -2,17 +2,17 @@
 	import { Button, Dropdown, DropdownItem, Link, Card, Flex, Checkbox, Title } from '$lib';
 	import Prism from '../prism/Prism.svelte';
 
-	let code = `<Dropdown component={Button} triggerProps={{ width: '200px' }}>
-  <DropdownItem component={Button} triggerProps={{ width: '200px' }}>
+	let code = `<Dropdown bind:value component={Button} triggerProps={{ width: '200px' }}>
+  <DropdownItem value="one" component={Button} triggerProps={{ width: '200px' }}>
     Item 1
   </DropdownItem>
-  <DropdownItem component={Button} triggerProps={{ width: '200px' }}>
+  <DropdownItem value="two" component={Button} triggerProps={{ width: '200px' }}>
     Item 2
   </DropdownItem>
-  <DropdownItem component={Button} triggerProps={{ width: '200px' }}>
+  <DropdownItem value="three" component={Button} triggerProps={{ width: '200px' }}>
     Item 3
   </DropdownItem>
-  <DropdownItem component={Button} triggerProps={{ width: '200px' }}>
+  <DropdownItem value="four" component={Button} triggerProps={{ width: '200px' }}>
     Item 4
   </DropdownItem>
 </Dropdown>
@@ -21,22 +21,12 @@
   Other Content
 </div>
 
-<Dropdown component={Link} triggerProps={{ underline: true }} backdrop>
-  <DropdownItem
-    component={Link}
-    triggerProps={{ underline: true, href: '/radios' }} on:click={popup}>
+<Dropdown bind:value component={Button} triggerProps={{ width: '200px' }} backdrop>
+  <DropdownItem value="one" component={Link} triggerProps={{ underline: true, href: '/radios' }} on:click={popup}>
     Item 1
   </DropdownItem>
-  <DropdownItem
-    component={Link}
-    triggerProps={{ underline: true, href: '/radios' }}>
-    Item 2
-  </DropdownItem>
-  <DropdownItem
-    component={Link}
-    triggerProps={{ underline: true, href: '/radios' }}>
-    Item 3
-  </DropdownItem>
+  <DropdownItem value="two" component={Link} triggerProps={{ underline: true, href: '/radios' }}>Item 2</DropdownItem>
+  <DropdownItem value="three" component={Link} triggerProps={{ underline: true, href: '/radios' }}>Item 3</DropdownItem>
 </Dropdown>
 <div>
   ...
@@ -46,6 +36,8 @@
 	function popup() {
 		alert('hi');
 	}
+
+  let value = '';
 </script>
 
 <svelte:head>
@@ -67,28 +59,28 @@
 	</Card>
 	<Flex gap={2}>
 		<Card>
-			<Dropdown component={Button} triggerProps={{ width: '200px' }}>
-				<DropdownItem component={Button} triggerProps={{ width: '200px' }}>
+			<Dropdown bind:value component={Button} triggerProps={{ width: '200px' }}>
+				<DropdownItem value="one" component={Button} triggerProps={{ width: '200px' }}>
           Item 1
         </DropdownItem>
-				<DropdownItem component={Button} triggerProps={{ width: '200px' }}>
+				<DropdownItem value="two" component={Button} triggerProps={{ width: '200px' }}>
           Item 2
         </DropdownItem>
-				<DropdownItem component={Button} triggerProps={{ width: '200px' }}>
+				<DropdownItem value="three" component={Button} triggerProps={{ width: '200px' }}>
           Item 3
         </DropdownItem>
-				<DropdownItem component={Button} triggerProps={{ width: '200px' }}>
+				<DropdownItem value="four" component={Button} triggerProps={{ width: '200px' }}>
           Item 4
         </DropdownItem>
 			</Dropdown>
 			<div>... Other Content</div>
 
-			<Dropdown component={Button} triggerProps={{ width: '200px' }} backdrop>
-				<DropdownItem component={Link} triggerProps={{ underline: true, href: '/radios' }} on:click={popup}>
+			<Dropdown bind:value component={Button} triggerProps={{ width: '200px' }} backdrop>
+				<DropdownItem value="one" component={Link} triggerProps={{ underline: true, href: '/radios' }} on:click={popup}>
           Item 1
         </DropdownItem>
-				<DropdownItem component={Link} triggerProps={{ underline: true, href: '/radios' }}>Item 2</DropdownItem>
-				<DropdownItem component={Link} triggerProps={{ underline: true, href: '/radios' }}>Item 3</DropdownItem>
+				<DropdownItem value="two" component={Link} triggerProps={{ underline: true, href: '/radios' }}>Item 2</DropdownItem>
+				<DropdownItem value="three" component={Link} triggerProps={{ underline: true, href: '/radios' }}>Item 3</DropdownItem>
 			</Dropdown>
 			<div>... More Content</div>
 		</Card>

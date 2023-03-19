@@ -8,6 +8,8 @@
 	let focusManager = createFocusManager();
 	setContext('theme', theme);
 	setContext('focus', focusManager);
+	let value: 'void' | 'clear' | 'light' = 'void';
+	$: $theme = value;
 </script>
 
 <Theme stretch="window" theme={$theme}
@@ -34,18 +36,18 @@
 					<!-- <Link underline={true} href={'/pattern'}>Pattern</Link> -->
 				</ul>
 	
-				<Dropdown component={Button} triggerProps={{ width: '200px' }}>
+				<Dropdown bind:value component={Button} triggerProps={{ width: '200px' }}>
 					<svelte:fragment slot="trigger">Theme</svelte:fragment>
-					<DropdownItem component={Button} on:click={() => $theme = 'light'} triggerProps={{ width: '200px', type: 'info' }}>
+					<DropdownItem component={Button} value='light' triggerProps={{ width: '200px', type: 'info' }}>
 						Light
 					</DropdownItem>
-					<!-- <DropdownItem component={Button} on:click={() => $theme = 'void'} triggerProps={{ width: '200px', type: 'warning' }}>
+					<!-- <DropdownItem component={Button} value='void' triggerProps={{ width: '200px', type: 'warning' }}>
 						Red
 					</DropdownItem> -->
-					<DropdownItem component={Button} on:click={() => $theme = 'clear'} triggerProps={{ width: '200px', type: 'danger' }}>
+					<DropdownItem component={Button} value='clear' triggerProps={{ width: '200px', type: 'danger' }}>
 						Clear
 					</DropdownItem>
-					<DropdownItem component={Button} on:click={() => $theme = 'void'} triggerProps={{ width: '200px', type: 'neutral' }}>
+					<DropdownItem component={Button} value='void' triggerProps={{ width: '200px', type: 'neutral' }}>
 						Dark
 					</DropdownItem>
 					<!-- <DropdownItem component={Button} on:click={() => $theme = 'clear'} triggerProps={{ width: '200px', type: 'neutral' }}>

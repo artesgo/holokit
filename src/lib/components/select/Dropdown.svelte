@@ -10,6 +10,7 @@
 	export let triggerProps = {};
 	export let backdrop = false;
 	export let position: 'top' | 'bottom' | 'left' | 'right' = 'bottom';
+	export let value: string;
 
 	const focusManager = getContext<FocusManagerContext>('focus');
 
@@ -39,6 +40,7 @@
 		$state.dropdownList = [];
 		focusManager.focus(null);
 		$state.index = 1;
+		value = $state.value;
 	}
 	function preventArrowPropagation(event: KeyboardEvent) {
 		if (event.key.includes('Arrow')) {
@@ -71,10 +73,11 @@
 			}
 		}
 	}
-	const state = writable<{ show: boolean; index: number; limit: number; dropdownList: number[] }>({
+	const state = writable<{ value: string, show: boolean; index: number; limit: number; dropdownList: number[] }>({
 		show,
 		index,
 		limit: 0,
+		value,
 		dropdownList: [],
 	});
 	setContext('Dropdown', { state, onArrow });
