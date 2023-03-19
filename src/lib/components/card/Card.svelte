@@ -17,6 +17,7 @@
 
 <style>
 	.holo-card {
+		font-weight: var(--font-weight-s);
 		padding-left: var(--padding-h-l);
 		padding-right: var(--padding-h-l);
 		padding-top: var(--padding-v-l);

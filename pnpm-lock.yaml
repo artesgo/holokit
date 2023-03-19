@@ -11,6 +11,7 @@ specifiers:
   eslint: ^8.28.0
   eslint-config-prettier: ^8.5.0
   eslint-plugin-svelte3: ^4.0.0
+  pattern.css: ^1.0.0
   prettier: ^2.8.0
   prettier-plugin-svelte: ^2.8.1
   prismjs: ^1.29.0
@@ -37,6 +38,7 @@ devDependencies:
   eslint: 8.36.0
   eslint-config-prettier: 8.7.0_eslint@8.36.0
   eslint-plugin-svelte3: 4.0.0_eslint@8.36.0+svelte@3.56.0
+  pattern.css: 1.0.0
   prettier: 2.8.4
   prettier-plugin-svelte: 2.9.0_prettier@2.8.4+svelte@3.56.0
   prismjs: 1.29.0
@@ -1507,6 +1509,10 @@ packages:
 
   /pathval/1.1.1:
     resolution: {integrity: sha512-Dp6zGqpTdETdR63lehJYPeIOqpiNBNtc7BpWSLrOje7UaIsE5aY92r/AunQA7rsXvet3lrJ3JnZX29UPTKXyKQ==}
+    dev: true
+
+  /pattern.css/1.0.0:
+    resolution: {integrity: sha512-2bW2rCCdLGgvJPpiSJGrg44onxRWTMQpn6tooAayomsCHiso3nehlp5OugNYHSXxYuFfQ1vtDXtGbq6H206qLw==}
     dev: true
 
   /picocolors/1.0.0:

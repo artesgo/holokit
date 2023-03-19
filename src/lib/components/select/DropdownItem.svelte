@@ -60,7 +60,7 @@
 		this={component}
 		role="menuitem"
 		bind:this={element}
-		{...triggerProps }
+		{...triggerProps}
 		{id}
 		on:keyup={closeOnESC}
 		on:keyup={onArrow}

@@ -18,7 +18,7 @@
   $: gap_ = `flex gap-${gap} holo-flex`;
 </script>
 
-<section 
+<section
   class={gap_}
   class:flex-row={row && !reverse}
   class:flex-col={!row && !reverse}

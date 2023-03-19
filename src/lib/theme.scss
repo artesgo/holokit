@@ -18,6 +18,16 @@
   --outline-color: #efefef;
   --border-color: #332a49;
 }
+.clear {
+  --color: #333333;
+  --color-alt: #464646;
+  --background-color: transparent;
+  --background-color-alt: #33333311;
+  --control-border-color: #4a299b;
+  --outline-color: #4a299b;
+  --border-color: #4a299b;
+  --font-weight-s: 700;
+}
 
 :root {
   --dark: #333;

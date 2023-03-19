@@ -47,9 +47,9 @@
 			<h2>Modal Animation Props</h2>
 			<Checkbox id="chk-3" reverse>duration</Checkbox>
 			<Checkbox id="chk-4" reverse>start</Checkbox>
-			<Checkbox id="chk-4" reverse>easing</Checkbox>
+			<Checkbox id="chk-5" reverse>easing</Checkbox>
 			<h2>Modal Output Events</h2>
-			<Checkbox id="chk-5" reverse>close</Checkbox>
+			<Checkbox id="chk-6" reverse>close</Checkbox>
 		</Card>
 
 		<Card grow>

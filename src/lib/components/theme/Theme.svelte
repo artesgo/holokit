@@ -8,7 +8,7 @@
 	export let full = false;
 	export let padded = false;
 
-	export let theme: 'light' | 'void' | string = 'light';
+	export let theme: 'light' | 'void' | 'clear' | string = 'light';
 	let props: { bound: string; prop: keyof ITheme }[] = [
 		{ bound: '--color: ', prop: 'color' },
 		{ bound: '--color-alt: ', prop: 'colorAlt' },
@@ -50,6 +50,7 @@
 
 	$: light = theme === 'light';
 	$: dark = theme === 'void';
+	$: clear = theme === 'clear';
 	// get defined props from consumer
 	$: style = JSON.stringify(
 		props
@@ -66,10 +67,12 @@
 	class:full
 	class:light
 	class:dark
+	class:clear
 	class:padded
 	class:stretch-element={stretch === 'element'}
 	class:stretch-window={stretch === 'window'}
 	{style}
+	{...$$restProps}
 >
 	<slot />
 </section>

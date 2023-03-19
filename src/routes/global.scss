@@ -1,3 +1,4 @@
+@use 'pattern.css/pattern.scss';
 @import './fonts';
 
 div {
@@ -24,4 +25,29 @@ h5,
 h6,
 p {
 	color: var(--color);
+}
+
+.black {
+	color: #1e1e24;
+	--pattern-color: #1e1e24;
+}
+
+.orange {
+	color: #ff3e00;
+	--pattern-color: #ff3e00;
+}
+
+.blue {
+	color: #2e86ab;
+	--pattern-color: #2e86ab;
+}
+
+.mint {
+	color: #4fb286;
+	--pattern-color: #4fb286;
+}
+
+.pink {
+	color: #fad8d6;
+	--pattern-color: #fad8d6;
 }

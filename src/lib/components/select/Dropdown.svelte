@@ -82,33 +82,38 @@
 
 <svelte:window on:click={clickOutside}/>
 
-<svelte:component
-	this={component}
-	{...triggerProps}
-	on:click={toggle}
-	on:keydown={closeOnESC}
-	on:keydown={onArrow}
-	on:keydown={onTab}
-	on:keydown={preventArrowPropagation}
->
-	<slot name="trigger">Menu</slot>
-</svelte:component>
-{#if $state.show}
-	<ul
-		class="holo-dropdown"
-		role="menu"
-		transition:fade={{ duration: 100 }}
-		class:backdrop
-		class:top={position === 'top'}
-		class:left={position === 'left'}
-		class:right={position === 'right'}
-		class:bottom={position === 'bottom'}
+<section>
+	<svelte:component
+		this={component}
+		{...triggerProps}
+		on:click={toggle}
+		on:keydown={closeOnESC}
+		on:keydown={onArrow}
+		on:keydown={onTab}
+		on:keydown={preventArrowPropagation}
 	>
-		<slot />
-	</ul>
-{/if}
+		<slot name="trigger">Menu</slot>
+	</svelte:component>
+	{#if $state.show}
+		<ul
+			class="holo-dropdown"
+			role="menu"
+			transition:fade={{ duration: 100 }}
+			class:backdrop
+			class:top={position === 'top'}
+			class:left={position === 'left'}
+			class:right={position === 'right'}
+			class:bottom={position === 'bottom'}
+		>
+			<slot />
+		</ul>
+	{/if}
+</section>
 
 <style>
+	section {
+		position: relative;
+	}
 	ul.holo-dropdown {
 		list-style: none;
 		position: absolute;
