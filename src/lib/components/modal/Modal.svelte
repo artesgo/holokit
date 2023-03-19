@@ -93,7 +93,7 @@
 		top: 50%;
 		left: 50%;
 		transform: translate(-50%, -50%);
-		background-color: var(--background-color-alt);
+		background-color: var(--background-color-modal);
 		color: var(--color);
 		border: var(--border);
 		border-radius: var(--border-radius);

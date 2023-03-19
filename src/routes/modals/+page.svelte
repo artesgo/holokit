@@ -7,7 +7,7 @@
   <span slot="header">Modal Header</span>
   Modal Content With Close Button
 </Modal>`;
-	let complex = `<Modal bind:open={open2} escapeable={false}>
+	let complex = `<Modal bind:open={open2} escapeable={false} duration={1000}>
   <span slot="header">Modal Header</span>
   Modal Content
   <Flex row gap={2} slot="footer">
@@ -16,14 +16,25 @@
     <Button on:click={decline} type="danger">Decline</Button>
   </Flex>
 </Modal>`;
+let alertModal = `<Modal bind:open={alert} on:close={onClose} duration={300}>
+  <Alert type="warning" slot="alert">Modal Header</Alert>
+  Modal content With built-in close button
+  <Flex row gap={2} slot="footer">
+    <Button on:click={cancel} type="info" width={'100%'}>Cancel</Button>
+    <Button on:click={accept} type="success" width={'100%'}>Confirm</Button>
+  </Flex>
+</Modal>`
 	function cancel() {
 		open2 = false;
+		alert = false;
 	}
 	function accept() {
 		open2 = false;
+		alert = false;
 	}
 	function decline() {
 		open2 = false;
+		alert = false;
 	}
 
 	function onClose() {
@@ -57,14 +68,14 @@
 				<Button on:click={() => (open = !open)}>Open Modal</Button>
 				<Button on:click={() => (open2 = !open2)}>Open Non-Esc Modal</Button>
 				<Button on:click={() => (alert = !alert)}>Open Alert Modal</Button>
-				<Modal bind:open on:close={onClose}>
+				<Modal bind:open on:close={onClose} duration={500}>
 					<span slot="header">Modal Header</span>
 					Modal content With built-in close button
 				</Modal>
 
-				<Modal bind:open={open2} escapeable={false}>
+				<Modal bind:open={open2} escapeable={false} duration={1000}>
 					<span slot="header">Modal Header</span>
-					Hitting Escape will close this modal
+					Hitting Escape will not close this modal
 					<Flex row gap={2} slot="footer">
 						<Button on:click={cancel} type="info" width={'100%'}>Cancel</Button>
 						<Button on:click={decline} type="danger" width={'100%'}>Decline</Button>
@@ -72,9 +83,13 @@
 					</Flex>
 				</Modal>
 
-				<Modal bind:open={alert} on:close={onClose}>
+				<Modal bind:open={alert} on:close={onClose} duration={300}>
 					<Alert type="warning" slot="alert">Modal Header</Alert>
 					Modal content With built-in close button
+					<Flex row gap={2} slot="footer">
+						<Button on:click={cancel} type="info" width={'100%'}>Cancel</Button>
+						<Button on:click={accept} type="success" width={'100%'}>Confirm</Button>
+					</Flex>
 				</Modal>
 			</div>
 		</Card>
@@ -85,6 +100,8 @@
 		<Prism language="html" code={simple} />
 		<h2>Modal Additional Props</h2>
 		<Prism language="html" code={complex} />
+		<h2>Modal with Alert</h2>
+		<Prism language="html" code={alertModal} />
 	</Card>
 </Flex>
 

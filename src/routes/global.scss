@@ -1,10 +1,6 @@
 @use 'pattern.css/pattern.scss';
 @import './fonts';
 
-div {
-	margin-bottom: var(--margin-v-s);
-}
-
 * {
 	outline: var(--danger-darker);
 }
