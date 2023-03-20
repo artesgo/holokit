@@ -9,6 +9,7 @@ export { Grid, GridItem } from './components/grid';
 export { Input } from './components/input';
 export { Link } from './components/link';
 export { Modal } from './components/modal';
+export { Overlay } from './components/overlay';
 export { Popover } from './components/popover';
 export { Radio, RadioGroup } from './components/radio';
 export { Table, type ICell, type IHeader, type ISpan } from './components/table';

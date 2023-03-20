@@ -3,6 +3,7 @@
 	import { getContext, setContext } from 'svelte';
 	import { writable } from 'svelte/store';
 	import { fade } from 'svelte/transition';
+	import Overlay from '../overlay/Overlay.svelte';
 
 	// binds to initial, and updates consumer if they bind to this
 	export let show = false;
@@ -82,9 +83,9 @@
 	});
 	setContext('Dropdown', { state, onArrow });
 </script>
-
-<svelte:window on:click={clickOutside}/>
-
+{#if $state.show}
+	<Overlay on:click={clickOutside} />
+{/if}
 <section>
 	<svelte:component
 		this={component}

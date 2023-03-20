@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { scale } from 'svelte/transition';
+	import Overlay from '../overlay/Overlay.svelte';
 	export let show: boolean = false;
 	export let placement: 'top' | 'bottom' | 'left' | 'right' = 'top';
 	export let offset = 5;
@@ -40,8 +41,7 @@
 </section>
 
 {#if show}
-	<!-- svelte-ignore a11y-click-events-have-key-events -->
-	<section class="overlay" on:click={() => (show = false)} />
+	<Overlay on:click={() => (show = false)} />
 	<section class="holo-popover"
 		{id} data-testid={id}
 		{style} bind:this={popper} transition:scale={{
@@ -56,14 +56,6 @@
 	.host {
 		position: relative;
 		display: inline-block;
-	}
-
-	.overlay {
-		position: absolute;
-		left: 0;
-		top: 0;
-		width: 100%;
-		height: 100%;
 	}
 
 	.holo-popover {

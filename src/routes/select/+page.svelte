@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Button, Dropdown, DropdownItem, Link, Card, Flex, Checkbox, Title } from '$lib';
+	import { Button, Dropdown, DropdownItem, Link, Card, Flex, Checkbox, Title, Modal } from '$lib';
 	import Prism from '../prism/Prism.svelte';
 
 	let code = `<Dropdown bind:value component={Button} triggerProps={{ width: '200px' }}>
@@ -21,12 +21,30 @@
   Other Content
 </div>
 
-<Dropdown bind:value component={Button} triggerProps={{ width: '200px' }} backdrop>
-  <DropdownItem value="one" component={Link} triggerProps={{ underline: true, href: '/radios' }} on:click={popup}>
+<Dropdown
+  bind:value
+  component={Button}
+  triggerProps={{ width: '200px' }}
+  backdrop>
+  <DropdownItem
+    value="one"
+    component={Link}
+    triggerProps={{ underline: true, href: '/radios' }}
+    on:click={popup}>
     Item 1
   </DropdownItem>
-  <DropdownItem value="two" component={Link} triggerProps={{ underline: true, href: '/radios' }}>Item 2</DropdownItem>
-  <DropdownItem value="three" component={Link} triggerProps={{ underline: true, href: '/radios' }}>Item 3</DropdownItem>
+  <DropdownItem
+    value="two"
+    component={Link}
+    triggerProps={{ underline: true, href: '/radios' }}>
+    Item 2
+  </DropdownItem>
+  <DropdownItem
+    value="three"
+    component={Link}
+    triggerProps={{ underline: true, href: '/radios' }}>
+    Item 3
+  </DropdownItem>
 </Dropdown>
 <div>
   ...
@@ -38,6 +56,8 @@
 	}
 
   let value = '';
+	let open = false;
+	let triggerProps = { width: '200px' }
 </script>
 
 <svelte:head>
@@ -59,23 +79,23 @@
 	</Card>
 	<Flex gap={2}>
 		<Card>
-			<Dropdown bind:value component={Button} triggerProps={{ width: '200px' }}>
-				<DropdownItem value="one" component={Button} triggerProps={{ width: '200px' }}>
+			<Dropdown bind:value component={Button} {triggerProps}>
+				<DropdownItem value="one" component={Button} {triggerProps}>
           Item 1
         </DropdownItem>
-				<DropdownItem value="two" component={Button} triggerProps={{ width: '200px' }}>
+				<DropdownItem value="two" component={Button} {triggerProps}>
           Item 2
         </DropdownItem>
-				<DropdownItem value="three" component={Button} triggerProps={{ width: '200px' }}>
+				<DropdownItem value="three" component={Button} {triggerProps}>
           Item 3
         </DropdownItem>
-				<DropdownItem value="four" component={Button} triggerProps={{ width: '200px' }}>
+				<DropdownItem value="four" component={Button} {triggerProps}>
           Item 4
         </DropdownItem>
 			</Dropdown>
 			<div>... Other Content</div>
 
-			<Dropdown bind:value component={Button} triggerProps={{ width: '200px' }} backdrop>
+			<Dropdown bind:value component={Button} {triggerProps} backdrop>
 				<DropdownItem value="one" component={Link} triggerProps={{ underline: true, href: '/radios' }} on:click={popup}>
           Item 1
         </DropdownItem>
@@ -83,6 +103,26 @@
 				<DropdownItem value="three" component={Link} triggerProps={{ underline: true, href: '/radios' }}>Item 3</DropdownItem>
 			</Dropdown>
 			<div>... More Content</div>
+
+			<Button on:click={() => open = !open}>Open Modal</Button>
+			<Modal bind:open duration={500}>
+				<span slot="header">Modal Header</span>
+				Modal with Dropdown
+				<Dropdown bind:value component={Button} {triggerProps} backdrop>
+					<DropdownItem value="one" component={Button} {triggerProps}>
+						Item 1
+					</DropdownItem>
+					<DropdownItem value="two" component={Button} {triggerProps}>
+						Item 2
+					</DropdownItem>
+					<DropdownItem value="three" component={Button} {triggerProps}>
+						Item 3
+					</DropdownItem>
+					<DropdownItem value="four" component={Button} {triggerProps}>
+						Item 4
+					</DropdownItem>
+				</Dropdown>
+			</Modal>
 		</Card>
 		<Card>
 			<Prism language="html" {code} />

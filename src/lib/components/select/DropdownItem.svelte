@@ -29,6 +29,7 @@
 	function updateIndex() {
 		$state.index = index;
 		$state.value = value;
+		$state.show = false;
 	}
 	$: if ($state.limit < index) {
 		$state.limit = index;

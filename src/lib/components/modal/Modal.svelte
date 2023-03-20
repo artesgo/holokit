@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Button from '../button/Button.svelte';
+	import Overlay from '../overlay/Overlay.svelte';
 	import { scale } from 'svelte/transition';
 	import { cubicInOut } from 'svelte/easing';
 	import { createEventDispatcher } from 'svelte';
@@ -42,12 +43,12 @@
 {#if open}
 	<!-- ignore a11y, add keyboard controls for achieving the same -->
 	<!-- svelte-ignore a11y-click-events-have-key-events -->
+
 	<div
 		{id} data-testid={id}
 		class="holo-modal-overlay"
 		role="dialog"
 		aria-labelledby="holo-modal"
-		on:click={closeModal}
 		transition:scale={{
 			duration,
 			easing,
@@ -55,6 +56,7 @@
 		}}
 		on:introend={goToStart}
 	>
+		<Overlay on:click={closeModal} />
 		<button on:focus={goToStart}></button>
 		<div class="holo-modal" on:click|stopPropagation>
 			<header class="holo-modal-header" class:alert-header={$$slots.alert} id="holo-modal" bind:this={header} tabindex="-1">
