@@ -3,6 +3,7 @@
 	import type { InputProps } from './input.types';
 
 	export let id: InputProps['id'] = '';
+	export let name: InputProps['name'] = '';
 	export let value: InputProps['value'] = '';
 	export let size: InputProps['size'] = 'm';
 	export let type: InputProps['type'] = 'success';
@@ -10,6 +11,7 @@
 	export let inline: InputProps['inline'] = false;
 	export let apart: InputProps['apart'] = false;
 	export let integrated: InputProps['integrated'] = false;
+	export let readonly: InputProps['readonly'] = false;
 
 	const dispatch = createEventDispatcher();
 </script>
@@ -20,7 +22,7 @@
 	</span>
 
 	<input
-		{id} data-testid={id}
+		{id} data-testid={id} {name} {readonly}
 		class="holo-input"
 		class:holo-success={type === 'success'}
 		class:holo-warning={type === 'warning'}
