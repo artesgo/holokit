@@ -3,7 +3,7 @@ export interface ControlSize {
 }
 
 export interface ControlType {
-	type?: 'success' | 'warning' | 'info' | 'danger' | 'neutral';
+	theme?: 'success' | 'warning' | 'info' | 'danger' | 'neutral';
 }
 
 export type Stretch = 'window' | 'element' | 'none';

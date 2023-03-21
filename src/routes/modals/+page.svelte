@@ -77,9 +77,9 @@ let alertModal = `<Modal bind:open={alert} on:close={onClose} duration={300}>
 					<span slot="header">Modal Header</span>
 					Hitting Escape will not close this modal
 					<Flex row gap={2} slot="footer">
-						<Button on:click={cancel} type="info" width={'100%'}>Cancel</Button>
-						<Button on:click={decline} type="danger" width={'100%'}>Decline</Button>
-						<Button on:click={accept} type="success" width={'100%'}>Accept</Button>
+						<Button on:click={cancel} theme="info" width={'100%'}>Cancel</Button>
+						<Button on:click={decline} theme="danger" width={'100%'}>Decline</Button>
+						<Button on:click={accept} theme="success" width={'100%'}>Accept</Button>
 					</Flex>
 				</Modal>
 
@@ -87,8 +87,8 @@ let alertModal = `<Modal bind:open={alert} on:close={onClose} duration={300}>
 					<Alert type="warning" slot="alert">Modal Header</Alert>
 					Modal content With built-in close button
 					<Flex row gap={2} slot="footer">
-						<Button on:click={cancel} type="info" width={'100%'}>Cancel</Button>
-						<Button on:click={accept} type="success" width={'100%'}>Confirm</Button>
+						<Button on:click={cancel} theme="info" width={'100%'}>Cancel</Button>
+						<Button on:click={accept} theme="success" width={'100%'}>Confirm</Button>
 					</Flex>
 				</Modal>
 			</div>

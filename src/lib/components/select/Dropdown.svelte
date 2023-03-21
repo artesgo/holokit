@@ -12,6 +12,7 @@
 	export let backdrop = false;
 	export let position: 'top' | 'bottom' | 'left' | 'right' = 'bottom';
 	export let value: string;
+	export let label: string;
 
 	const focusManager = getContext<FocusManagerContext>('focus');
 
@@ -88,6 +89,7 @@
 {/if}
 <section>
 	<svelte:component
+		role="menu"
 		this={component}
 		{...triggerProps}
 		on:click={toggle}
@@ -96,12 +98,15 @@
 		on:keydown={onTab}
 		on:keydown={preventArrowPropagation}
 	>
-		<slot name="trigger">Menu</slot>
+		{#if $$slots.trigger}
+			<slot name="trigger">Menu</slot>
+		{:else}
+			{label}
+		{/if}
 	</svelte:component>
 	{#if $state.show}
 		<ul
 			class="holo-dropdown"
-			role="menu"
 			transition:fade={{ duration: 100 }}
 			class:backdrop
 			class:top={position === 'top'}

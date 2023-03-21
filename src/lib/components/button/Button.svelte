@@ -3,11 +3,13 @@
 	import { getContext } from 'svelte';
 	import type { ButtonProps } from './button.types';
 	export let id: ButtonProps['id'] = '';
-	export let type: ButtonProps['type'] = 'success';
+	export let theme: ButtonProps['theme'] = 'success';
 	export let size: ButtonProps['size'] = 'm';
 	export let width: ButtonProps['width'] = undefined;
 	export let align: ButtonProps['align'] = undefined;
 	export let wrap: ButtonProps['wrap'] = false;
+	export let type: ButtonProps['type'] = "button";
+	export let disabled: ButtonProps['disabled'] = false;
 	
 	const focusManager = getContext<FocusManagerContext>('focus');
 	let element: HTMLElement;
@@ -29,13 +31,13 @@
 <button
 	class="holo-btn"
 	style={style()}
-
+	{type} {disabled}
 	{id} data-testid={id}
-	class:holo-success={type === 'success'}
-	class:holo-warning={type === 'warning'}
-	class:holo-info={type === 'info'}
-	class:holo-danger={type === 'danger'}
-	class:holo-neutral={type === 'neutral'}
+	class:holo-success={theme === 'success'}
+	class:holo-warning={theme === 'warning'}
+	class:holo-info={theme === 'info'}
+	class:holo-danger={theme === 'danger'}
+	class:holo-neutral={theme === 'neutral'}
 	class:holo-padding-s={size === 's'}
 	class:holo-padding-m={size === 'm'}
 	class:holo-padding-l={size === 'l'}

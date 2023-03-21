@@ -9,9 +9,9 @@
 <Title id="heading" data-testid="testing">Holokit Components</Title>
 
 <div>
-	<Button type={'success'} size={'s'}>Welcome</Button>
-	<Button type={'warning'} size={'s'}>To</Button>
-	<Button type={'info'} size={'s'}>The</Button>
-	<Button type={'danger'} size={'s'}>Holokit</Button>
-	<Button type={'neutral'} size={'s'}>Library</Button>
+	<Button theme={'success'} size={'s'}>Welcome</Button>
+	<Button theme={'warning'} size={'s'}>To</Button>
+	<Button theme={'info'} size={'s'}>The</Button>
+	<Button theme={'danger'} size={'s'}>Holokit</Button>
+	<Button theme={'neutral'} size={'s'}>Library</Button>
 </div>
