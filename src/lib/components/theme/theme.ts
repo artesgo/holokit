@@ -3,6 +3,7 @@ export interface ITheme {
   colorAlt?: string,
   backgroundColor?: string,
   backgroundColorAlt?: string,
+  backgroundColorModal?: string,
   fontSizeS?: string,
   fontSizeM?: string,
   fontSizeL?: string,

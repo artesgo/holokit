@@ -24,30 +24,30 @@ function change(value: CustomEvent) {
 <Flex gap={1}>
 	<Flex row gap={1}>
 		<Card grow>
-			<Input bind:value type="success" on:change={change}>Label</Input>
-			<Input bind:value type="warning">Label</Input>
-			<Input bind:value type="info">Label</Input>
-			<Input bind:value type="danger">Label</Input>
-			<Input bind:value type="neutral">Label</Input>
+			<Input bind:value theme="success" on:change={change}>Label</Input>
+			<Input bind:value theme="warning">Label</Input>
+			<Input bind:value theme="info">Label</Input>
+			<Input bind:value theme="danger">Label</Input>
+			<Input bind:value theme="neutral">Label</Input>
 			<p>
 				bound value: {value}
 			</p>
 		</Card>
 		
 		<Card grow>
-			<Input inline apart bind:value type="success">Label</Input>
-			<Input inline apart bind:value type="warning">Label</Input>
-			<Input inline apart bind:value type="info">Label</Input>
-			<Input inline apart bind:value type="danger">Label</Input>
-			<Input inline apart bind:value type="neutral">Label</Input>
+			<Input inline apart bind:value theme="success">Label</Input>
+			<Input inline apart bind:value theme="warning">Label</Input>
+			<Input inline apart bind:value theme="info">Label</Input>
+			<Input inline apart bind:value theme="danger">Label</Input>
+			<Input inline apart bind:value theme="neutral">Label</Input>
 			<p>
 				bound value: {value}
 			</p>
-			<Input integrated bind:value type="success">Label</Input>
-			<Input integrated bind:value type="warning">Label</Input>
-			<Input integrated bind:value type="info">Label</Input>
-			<Input integrated bind:value type="danger">Label</Input>
-			<Input integrated bind:value type="neutral">Label</Input>
+			<Input integrated bind:value theme="success">Label</Input>
+			<Input integrated bind:value theme="warning">Label</Input>
+			<Input integrated bind:value theme="info">Label</Input>
+			<Input integrated bind:value theme="danger">Label</Input>
+			<Input integrated bind:value theme="neutral">Label</Input>
 			<p>
 				bound value: {value}
 			</p>

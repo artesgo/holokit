@@ -31,26 +31,24 @@
 					<Link underline={true} href={'/select'}>Select</Link>
 					<Link underline={true} href={'/table'}>Table</Link>
 					<Link underline={true} href={'/theme'}>Theme</Link>
-	
 					<Link underline={true} href={'/focus'}>Focus Management</Link>
 					<!-- <Link underline={true} href={'/pattern'}>Pattern</Link> -->
 				</ul>
 	
-				<Dropdown bind:value component={Button} triggerProps={{ width: '200px' }}>
-					<svelte:fragment slot="trigger">Theme</svelte:fragment>
-					<DropdownItem component={Button} value='light' triggerProps={{ width: '200px', type: 'info' }}>
+				<Dropdown label="Theme" bind:value component={Button} triggerProps={{ width: '200px' }}>
+					<DropdownItem component={Button} value='light' triggerProps={{ width: '200px', theme: 'info' }}>
 						Light
 					</DropdownItem>
-					<!-- <DropdownItem component={Button} value='void' triggerProps={{ width: '200px', type: 'warning' }}>
+					<!-- <DropdownItem component={Button} value='void' triggerProps={{ width: '200px', theme: 'warning' }}>
 						Red
 					</DropdownItem> -->
-					<DropdownItem component={Button} value='clear' triggerProps={{ width: '200px', type: 'danger' }}>
+					<DropdownItem component={Button} value='clear' triggerProps={{ width: '200px', theme: 'danger' }}>
 						Clear
 					</DropdownItem>
-					<DropdownItem component={Button} value='void' triggerProps={{ width: '200px', type: 'neutral' }}>
+					<DropdownItem component={Button} value='void' triggerProps={{ width: '200px', theme: 'neutral' }}>
 						Dark
 					</DropdownItem>
-					<!-- <DropdownItem component={Button} on:click={() => $theme = 'clear'} triggerProps={{ width: '200px', type: 'neutral' }}>
+					<!-- <DropdownItem component={Button} on:click={() => $theme = 'clear'} triggerProps={{ width: '200px', theme: 'neutral' }}>
 						Item 4
 					</DropdownItem> -->
 				</Dropdown>

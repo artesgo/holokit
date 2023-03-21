@@ -2,15 +2,15 @@
 	import type { FocusManagerContext } from '$lib';
 	import { getContext } from 'svelte';
 	import { fade } from 'svelte/transition';
-	import type { CheckboxProps } from './checkbox.types';
-	export let id: CheckboxProps['id'] = '';
-	export let checked: CheckboxProps['checked'] = undefined;
+	import type { ICheckboxProps } from './checkbox.types';
+	export let id: ICheckboxProps['id'] = '';
+	export let checked: ICheckboxProps['checked'] = undefined;
 	// TODO: control size
 	// export let size: $$props['size'] = 'm';
 	// tricks, defaulting boolean props to false, so that when you consume,
 	// you just have to provide "reverse" (implied true), instead of "reverse={false}"
-	export let reverse: CheckboxProps['reverse'] = false;
-	export let apart: CheckboxProps['apart'] = false;
+	export let reverse: ICheckboxProps['reverse'] = false;
+	export let apart: ICheckboxProps['apart'] = false;
 
 	let focused = false;
 	function focus() {

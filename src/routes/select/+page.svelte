@@ -79,7 +79,7 @@
 	</Card>
 	<Flex gap={2}>
 		<Card>
-			<Dropdown bind:value component={Button} {triggerProps}>
+			<Dropdown label="Dropdown" bind:value component={Button} {triggerProps}>
 				<DropdownItem value="one" component={Button} {triggerProps}>
           Item 1
         </DropdownItem>
@@ -95,7 +95,7 @@
 			</Dropdown>
 			<div>... Other Content</div>
 
-			<Dropdown bind:value component={Button} {triggerProps} backdrop>
+			<Dropdown label="Alternate Template" bind:value component={Button} {triggerProps} backdrop>
 				<DropdownItem value="one" component={Link} triggerProps={{ underline: true, href: '/radios' }} on:click={popup}>
           Item 1
         </DropdownItem>
@@ -108,7 +108,7 @@
 			<Modal bind:open duration={500}>
 				<span slot="header">Modal Header</span>
 				Modal with Dropdown
-				<Dropdown bind:value component={Button} {triggerProps} backdrop>
+				<Dropdown label="Modal Dropdown" bind:value component={Button} {triggerProps} backdrop>
 					<DropdownItem value="one" component={Button} {triggerProps}>
 						Item 1
 					</DropdownItem>

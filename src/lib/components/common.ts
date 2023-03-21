@@ -2,7 +2,7 @@ export interface ControlSize {
 	size?: 's' | 'm' | 'l';
 }
 
-export interface ControlType {
+export interface ControlTheme {
 	theme?: 'success' | 'warning' | 'info' | 'danger' | 'neutral';
 }
 

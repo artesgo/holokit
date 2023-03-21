@@ -1,8 +1,8 @@
-import type { ControlSize, ControlType, Id } from "../common";
+import type { ControlSize, ControlTheme, Id } from "../common";
 
 export type ButtonType = "button" | "submit";
 
-export interface ButtonProps extends ControlSize, ControlType, Id {
+export interface IButtonProps extends ControlSize, ControlTheme, Id {
   title?: string;
   width?: string | undefined;
   align?: boolean | undefined;

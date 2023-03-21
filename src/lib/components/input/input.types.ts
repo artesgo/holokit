@@ -1,6 +1,6 @@
-import type { ControlPair, ControlSize, ControlType, Id } from '../common';
+import type { ControlPair, ControlSize, ControlTheme, Id } from '../common';
 
-export interface InputProps extends ControlSize, ControlType, ControlPair, Id {
+export interface IInputProps extends ControlSize, ControlTheme, ControlPair, Id {
 	title?: string;
 	name?: string;
 	ariaLabel?: string;

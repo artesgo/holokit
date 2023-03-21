@@ -14,6 +14,7 @@
 		{ bound: '--color-alt: ', prop: 'colorAlt' },
 		{ bound: '--background-color: ', prop: 'backgroundColor' },
 		{ bound: '--background-color-alt: ', prop: 'backgroundColorAlt' },
+		{ bound: '--background-color-modal: ', prop: 'backgroundColorModal' },
 		{ bound: '--font-size-s: ', prop: 'fontSizeS' },
 		{ bound: '--font-size-m: ', prop: 'fontSizeM' },
 		{ bound: '--font-size-l: ', prop: 'fontSizeL' },

@@ -3,11 +3,12 @@
 	import type { Writable } from 'svelte/store';
 	import { fade } from 'svelte/transition';
 
-	import type { RadioProps } from './radio.types';
-	export let id: RadioProps['id'] = '';
-	export let value: RadioProps['value'] = '';
-	export let reverse: RadioProps['reverse'] = false;
-	export let apart: RadioProps['apart'] = false;
+	import type { IRadioProps } from './radio.types';
+	export let id: IRadioProps['id'] = '';
+	export let value: IRadioProps['value'] = '';
+	export let reverse: IRadioProps['reverse'] = false;
+	export let apart: IRadioProps['apart'] = false;
+	// export let theme: RadioProps['theme'] = 'success';
 
 	const { selectedValue, name } = getContext<{ selectedValue: Writable<string | undefined>; name: string }>(
 		'RadioGroup'

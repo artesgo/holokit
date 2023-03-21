@@ -1,14 +1,14 @@
 <script lang="ts">
 	import type { FocusManagerContext } from '$lib';
 	import { getContext } from 'svelte';
-	import type { LinkProps } from "./link.types";
-	export let id: LinkProps['id'] = '';
-	export let type: LinkProps['type'] = 'success';
-	export let size: LinkProps['size'] = 'm';
-	export let href: LinkProps['href'];
-	export let target: LinkProps['target'] = undefined;
-	export let rel: LinkProps['rel'] = undefined;
-	export let underline: LinkProps['underline'] = false;
+	import type { ILinkProps } from "./link.types";
+	export let id: ILinkProps['id'] = '';
+	export let theme: ILinkProps['theme'] = 'success';
+	export let size: ILinkProps['size'] = 'm';
+	export let href: ILinkProps['href'];
+	export let target: ILinkProps['target'] = undefined;
+	export let rel: ILinkProps['rel'] = undefined;
+	export let underline: ILinkProps['underline'] = false;
 
 
 	const focusManager = getContext<FocusManagerContext>('focus');
@@ -34,11 +34,11 @@
 	class="holo-link"
 	class:underline
 	class:focused
-	class:holo-success={type === 'success'}
-	class:holo-warning={type === 'warning'}
-	class:holo-info={type === 'info'}
-	class:holo-danger={type === 'danger'}
-	class:holo-neutral={type === 'neutral'}
+	class:holo-success={theme === 'success'}
+	class:holo-warning={theme === 'warning'}
+	class:holo-info={theme === 'info'}
+	class:holo-danger={theme === 'danger'}
+	class:holo-neutral={theme === 'neutral'}
 	class:holo-padding-s={size === 's'}
 	class:holo-padding-m={size === 'm'}
 	class:holo-padding-l={size === 'l'}

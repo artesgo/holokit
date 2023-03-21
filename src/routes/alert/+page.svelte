@@ -30,19 +30,19 @@
 <Flex gap={1}>
   <Flex row={false} gap={1}>
     <Theme grow theme={$theme} override={{ color: '#fef' }}>
-      <Alert type="neutral">Welcome</Alert>
+      <Alert theme="neutral">Welcome</Alert>
     </Theme>
     <Theme grow theme={$theme} override={{ color: '#fef' }}>
       <Alert>To</Alert>
     </Theme>
     <Theme grow theme={$theme} override={{ color: '#333' }}>
-      <Alert type="info">The</Alert>
+      <Alert theme="info">The</Alert>
     </Theme>
     <Theme grow theme={$theme} override={{ color: '#fef' }}>
-      <Alert type="warning">Holokit</Alert>
+      <Alert theme="warning">Holokit</Alert>
     </Theme>
     <Theme grow theme={$theme} override={{ color: '#fef' }}>
-      <Alert type="danger">Library<div slot="body">Stay as long as you like...</div></Alert>
+      <Alert theme="danger">Library<div slot="body">Stay as long as you like...</div></Alert>
     </Theme>
   </Flex>
   

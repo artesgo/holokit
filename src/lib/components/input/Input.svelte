@@ -1,17 +1,17 @@
 <script lang="ts">
 	import { createEventDispatcher } from 'svelte';
-	import type { InputProps } from './input.types';
+	import type { IInputProps } from './input.types';
 
-	export let id: InputProps['id'] = '';
-	export let name: InputProps['name'] = '';
-	export let value: InputProps['value'] = '';
-	export let size: InputProps['size'] = 'm';
-	export let type: InputProps['type'] = 'success';
-	export let placeholder: InputProps['placeholder'] = '';
-	export let inline: InputProps['inline'] = false;
-	export let apart: InputProps['apart'] = false;
-	export let integrated: InputProps['integrated'] = false;
-	export let readonly: InputProps['readonly'] = false;
+	export let id: IInputProps['id'] = '';
+	export let name: IInputProps['name'] = '';
+	export let value: IInputProps['value'] = '';
+	export let size: IInputProps['size'] = 'm';
+	export let theme: IInputProps['theme'] = 'success';
+	export let placeholder: IInputProps['placeholder'] = '';
+	export let inline: IInputProps['inline'] = false;
+	export let apart: IInputProps['apart'] = false;
+	export let integrated: IInputProps['integrated'] = false;
+	export let readonly: IInputProps['readonly'] = false;
 
 	const dispatch = createEventDispatcher();
 </script>
@@ -24,11 +24,11 @@
 	<input
 		{id} data-testid={id} {name} {readonly}
 		class="holo-input"
-		class:holo-success={type === 'success'}
-		class:holo-warning={type === 'warning'}
-		class:holo-info={type === 'info'}
-		class:holo-danger={type === 'danger'}
-		class:holo-neutral={type === 'neutral'}
+		class:holo-success={theme === 'success'}
+		class:holo-warning={theme === 'warning'}
+		class:holo-info={theme === 'info'}
+		class:holo-danger={theme === 'danger'}
+		class:holo-neutral={theme === 'neutral'}
 		class:holo-padding-s={size === 's'}
 		class:holo-padding-m={size === 'm'}
 		class:holo-padding-l={size === 'l'}

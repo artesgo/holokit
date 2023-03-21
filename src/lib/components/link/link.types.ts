@@ -1,6 +1,6 @@
-import type { ControlSize, ControlType, Id } from "../common";
+import type { ControlSize, ControlTheme, Id } from "../common";
 
-export interface LinkProps extends ControlSize, ControlType, Id {
+export interface ILinkProps extends ControlSize, ControlTheme, Id {
   title?: string;
   href?: string;
   target?: '_blank' | undefined;

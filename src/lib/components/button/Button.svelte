@@ -1,15 +1,15 @@
 <script lang="ts">
 	import type { FocusManagerContext } from '$lib';
 	import { getContext } from 'svelte';
-	import type { ButtonProps } from './button.types';
-	export let id: ButtonProps['id'] = '';
-	export let theme: ButtonProps['theme'] = 'success';
-	export let size: ButtonProps['size'] = 'm';
-	export let width: ButtonProps['width'] = undefined;
-	export let align: ButtonProps['align'] = undefined;
-	export let wrap: ButtonProps['wrap'] = false;
-	export let type: ButtonProps['type'] = "button";
-	export let disabled: ButtonProps['disabled'] = false;
+	import type { IButtonProps } from './button.types';
+	export let id: IButtonProps['id'] = '';
+	export let theme: IButtonProps['theme'] = 'success';
+	export let size: IButtonProps['size'] = 'm';
+	export let width: IButtonProps['width'] = undefined;
+	export let align: IButtonProps['align'] = undefined;
+	export let wrap: IButtonProps['wrap'] = false;
+	export let type: IButtonProps['type'] = "button";
+	export let disabled: IButtonProps['disabled'] = false;
 	
 	const focusManager = getContext<FocusManagerContext>('focus');
 	let element: HTMLElement;

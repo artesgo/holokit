@@ -84,7 +84,7 @@ let alertModal = `<Modal bind:open={alert} on:close={onClose} duration={300}>
 				</Modal>
 
 				<Modal bind:open={alert} on:close={onClose} duration={300}>
-					<Alert type="warning" slot="alert">Modal Header</Alert>
+					<Alert theme="warning" slot="alert">Modal Header</Alert>
 					Modal content With built-in close button
 					<Flex row gap={2} slot="footer">
 						<Button on:click={cancel} theme="info" width={'100%'}>Cancel</Button>

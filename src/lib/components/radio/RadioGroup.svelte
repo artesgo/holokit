@@ -2,11 +2,11 @@
 	import { onDestroy, setContext } from 'svelte';
 	import { writable } from 'svelte/store';
 
-	import type { RadioGroupProps } from './radio.types';
-	export let id: RadioGroupProps['id'] = '';
-	export let name: RadioGroupProps['name'];
-	export let label: RadioGroupProps['label'] = '';
-	export let value: RadioGroupProps['value'] = '';
+	import type { IRadioGroupProps } from './radio.types';
+	export let id: IRadioGroupProps['id'] = '';
+	export let name: IRadioGroupProps['name'];
+	export let label: IRadioGroupProps['label'] = '';
+	export let value: IRadioGroupProps['value'] = '';
 
 	const selectedValue = writable<string | undefined>(value);
 	$: $selectedValue = value;

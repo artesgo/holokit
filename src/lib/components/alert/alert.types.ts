@@ -1,6 +1,6 @@
-import type { ControlType, Id } from "../common";
+import type { ControlTheme, Id } from "../common";
 
-export interface AlertProps extends ControlType, Id {
+export interface IAlertProps extends ControlTheme, Id {
   title?: string;
   body?: string;
   row?: boolean;

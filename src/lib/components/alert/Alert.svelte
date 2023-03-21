@@ -1,31 +1,31 @@
 <script lang="ts">
 	import Eyecon from '../../icons/Eyecon.svelte';
 	import Flex from '../flex/Flex.svelte';
-  import type { AlertProps } from './alert.types';
-  export let title: AlertProps['title'] = 'Title';
-  export let body: AlertProps['body'] = '';
-  export let type: AlertProps['type'] = 'success';
-  export let row: AlertProps['row'] = false;
+  import type { IAlertProps } from './alert.types';
+  export let title: IAlertProps['title'] = 'Title';
+  export let body: IAlertProps['body'] = '';
+  export let theme: IAlertProps['theme'] = 'success';
+  export let row: IAlertProps['row'] = false;
 </script>
 
 <section
   class="holo-alert"
-  class:success={type === 'success'}
-  class:neutral={type === 'neutral'}
-  class:danger={type === 'danger'}
-  class:warning={type === 'warning'}
-  class:info={type === 'info'}
+  class:success={theme === 'success'}
+  class:neutral={theme === 'neutral'}
+  class:danger={theme === 'danger'}
+  class:warning={theme === 'warning'}
+  class:info={theme === 'info'}
 >
   <header>
     <Flex {row} gap={1} alignItems="center">
       <slot name="icon">
-        {#if type === 'success'}
+        {#if theme === 'success'}
           <Eyecon />
-        {:else if type === 'warning'}
+        {:else if theme === 'warning'}
           <Eyecon />
-        {:else if type === 'info'}
+        {:else if theme === 'info'}
           <Eyecon />
-        {:else if type === 'danger'}
+        {:else if theme === 'danger'}
           <Eyecon />
         {:else}
           <Eyecon />

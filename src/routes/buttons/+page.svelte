@@ -24,7 +24,7 @@
 		<Button theme={'neutral'} width={'200px'}>click</Button>
 	</div>
 	<div>
-		<Button theme={'success'} size={'l'}>click</Button>
+		<Button theme={'success'} size={'l'} formaction={'?/alright'} type="submit">click</Button>
 		<Button theme={'warning'} size={'l'}>click</Button>
 		<Button theme={'info'} size={'l'}>click</Button>
 		<Button theme={'danger'} size={'l'}>click</Button>
