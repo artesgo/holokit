@@ -8,5 +8,5 @@ export interface ButtonProps extends ControlSize, ControlType, Id {
   align?: boolean | undefined;
   wrap?: boolean;
   type?: ButtonType;
-  disabled: boolean;
+  disabled?: boolean;
 }
