@@ -1,12 +1,8 @@
-import type { IHeader } from "./header";
+import type { Scope } from "./scope";
 import type { ISpan } from "./span";
 
 export interface ICell {
-  header?: IHeader;
+  scope?: Scope;
   span?: ISpan;
-  hasTemplate?: boolean;
   value: string;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  template?: any;
-  action?: () => unknown;
 }

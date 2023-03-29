@@ -13,13 +13,34 @@
 <table class:borderless class="holo-table">
   <caption class:sr-only={hideCaption}>{caption}</caption>
   <thead>
-    {#each headers as cell}
-      <Cell {cell} />
-    {/each}
+    <Row>
+      {#each headers as header}
+        <Cell {...header.span} scope={'col'}>
+          <slot name="header" {header}>
+            {header.value}
+          </slot>
+        </Cell>
+      {/each}
+    </Row>
   </thead>
   <tbody>
     {#each data as row, index}
-      <Row {row} {index} {alternate} />
+      <Row {index} {alternate}>
+        {#each row as cell, i}
+          <Cell {...cell.span} scope={cell.scope}>
+            <slot
+              name="cell"
+              {cell}
+              {row}
+              index={i}
+              rowIndex={index}
+              header={headers[i]}
+            >
+              {cell.value}
+            </slot>
+          </Cell>
+        {/each}
+      </Row>
     {/each}
   </tbody>
 </table>

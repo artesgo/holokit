@@ -24,11 +24,24 @@
 	function blur() {
 		focused = false;
 	}
+
+	let props = {};
+	$: {
+		if (id) {
+			props = { ...props, id, 'data-testid': id };
+		}
+		if (rel) {
+			props = { ...props, rel }
+		}
+		if (target) {
+			props = { ...props, target }
+		}
+	}
 </script>
 
 <a
-	{id} data-testid={id}
-	{href} {rel} {target}
+	{href}
+	{...props}
 	{...$$restProps}
 	bind:this={element}
 	class="holo-link"

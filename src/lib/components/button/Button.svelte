@@ -16,23 +16,31 @@
 	$: if (element && !!$focusManager.focused && $focusManager.focused === id) {
 		element.focus();
 	}
-	$: style = () => {
-		let styles = '';
+	let style = '';
+	$: {
 		if (width !== undefined) {
-			styles = 'width: ' + width + ';';
+			style = 'width: ' + width + ';';
 		}
 		if (align !== undefined) {
-			styles = styles + 'align-self: ' + align + ';';
+			style = style + 'align-self: ' + align + ';';
 		}
-		return styles;
 	};
+
+	let props = {};
+	$: {
+		if (id) {
+			props = {...props, id, 'data-testid': id }
+		}
+		if (style) {
+			props = {...props, style}
+		}
+	}
 </script>
 
 <button
 	class="holo-btn"
-	style={style()}
 	{type} {disabled}
-	{id} data-testid={id}
+	{...props}
 	class:holo-success={theme === 'success'}
 	class:holo-warning={theme === 'warning'}
 	class:holo-info={theme === 'info'}

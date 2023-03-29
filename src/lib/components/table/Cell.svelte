@@ -1,44 +1,30 @@
 <script lang="ts">
-  import type { ICell } from '.';
-  export let cell: ICell;
-  let scope: string;
-  let colspan: number | undefined;
-  let rowspan: number | undefined;
-  $: if (cell.header) {
-    scope = cell.header.scope;
-  }
-
-  $: if (cell.span) {
-    colspan = cell.span.colspan;
-    rowspan = cell.span.rowspan;
-  }
+	import type { Scope } from './scope';
+	export let scope: Scope | undefined = undefined;
+	let props = {};
+	$: element = scope ? 'th' : 'td';
+	$: {
+		if (scope) {
+			props = { scope }
+		}
+	}
 </script>
 
-<!-- svelte-ignore a11y-misplaced-scope -->
-{#if cell.header}
-  <th class="holo-cell-head" {scope} {colspan} {rowspan}>
-    {#if cell.hasTemplate}
-      <svelte:component this={cell.template} on:click={cell.action}>{ cell.value }</svelte:component>
-    {:else}
-      { cell.value }
-    {/if}
-  </th>
-{:else}
-  <td class="holo-cell">
-    {#if cell.hasTemplate}
-      <svelte:component this={cell.template} on:click={cell.action}>{ cell.value }</svelte:component>
-    {:else}
-      { cell.value }
-    {/if}
-  </td>
-{/if}
+<svelte:element this={element} {...props}
+	class="holo-cell" class:holo-cell-header={element === 'th'}
+	{...$$restProps}>
+  <slot />
+</svelte:element>
 
 <style>
-  th.holo-cell-head, td.holo-cell {
+  .holo-cell {
 		padding-left: var(--padding-h-s);
 		padding-right: var(--padding-h-s);
 		padding-top: var(--padding-v-s);
 		padding-bottom: var(--padding-v-s);
 		font-weight: var(--font-weight-s);
   }
+	.holo-cell.holo-cell-header {
+		font-weight: var(--font-weight-m);
+	}
 </style>

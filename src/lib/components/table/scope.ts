@@ -1,0 +1,1 @@
+export type Scope = 'row' | 'rowgroup' | 'col' | 'colgroup';

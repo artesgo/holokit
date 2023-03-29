@@ -1,36 +1,24 @@
 <script lang="ts">
 	import type { ICell } from '$lib/components/table';
-	import { Table, Card, Checkbox, Title } from '$lib';
+	import { Table, Card, Checkbox, Title, Button, Link } from '$lib';
 	import Prism from '../prism/Prism.svelte';
 
-  import Template from './cell-template.svelte';
 	import { Flex } from '$lib/components/flex';
 
   let caption = 'Tehble';
   let headers: ICell[] = [{
-    header: { scope: 'col' },
-    span: { colspan: 1, rowspan: 1 },
-    hasTemplate: false,
     value: 'Name',
   },{
-    header: { scope: 'col' },
-    span: { colspan: 1, rowspan: 1 },
-    hasTemplate: false,
     value: 'Email',
   },{
     span: { colspan: 2, rowspan: 1 },
-    header: { scope: 'col' },
-    hasTemplate: true,
     value: 'Actions',
-    // TIP: Consume custom template in table
-    template: Template,
-    action: () => console.log('hi')
   }];
   let data: ICell[][] = [
-    [{ value: 'data 1' }, { value: 'data 2' }, { value: 'data 3' }, { value: 'data 4' }],
-    [{ value: 'data 1' }, { value: 'data 2' }, { value: 'data 3' }, { value: 'data 4' }],
-    [{ value: 'data 1' }, { value: 'data 2' }, { value: 'data 3' }, { value: 'data 4' }],
-    [{ value: 'data 1' }, { value: 'data 2' }, { value: 'data 3' }, { value: 'data 4' }],
+    [{ scope: 'row', value: 'data 1' }, { value: 'data 2' }, { value: 'data 3' }, { value: 'data 4' }],
+    [{ scope: 'row', value: 'data 1' }, { value: 'data 2' }, { value: 'data 3' }, { value: 'data 4' }],
+    [{ scope: 'row', value: 'data 1' }, { value: 'data 2' }, { value: 'data 3' }, { value: 'data 4' }],
+    [{ scope: 'row', value: 'data 1' }, { value: 'data 2' }, { value: 'data 3' }, { value: 'data 4' }],
   ];
 
   let borderless = false;
@@ -38,34 +26,49 @@
   let hideCaption = false;
 
   $: description = `${borderless ? 'Borderless ' : 'Normal '}${alternate ? 'striped ' : ''}${hideCaption ? 'caption hidden' : ''}`;
-  $: code = `<Table
-  {headers}
-  {data}
-  {caption}
-  ${borderless ? 'borderless' : ''}
-  ${alternate ? 'alternate' : ''}
-  ${hideCaption ? 'hideCaption' : ''}
-/>`;
+  $: code = `<Table {headers} {data} {caption} {alternate} {borderless} {hideCaption} />
+
+// to override the cell templates
+<Table {headers} {data} {caption} {alternate} {borderless} {hideCaption}>
+  <svelte:fragment slot="header" let:header>
+    {#if header && header.value === 'Actions'}
+      <Button on:click={() => console.log(header)}>
+        {header.value}
+      </Button>
+    {:else}
+      {header.value}
+    {/if}
+  </svelte:fragment>
+
+  <svelte:fragment slot="cell" let:cell let:row let:header let:index let:rowIndex>
+    {#if header && header.value === 'Actions'}
+      <Button on:click={() => console.log(cell)}>
+        {cell.value}
+      </Button>
+    {:else if header && header.value === 'Name'}
+      <Link href='' on:click={() => console.log(rowIndex, row)}>
+        {cell.value}
+      </Link>
+    {:else}
+      {cell.value}
+    {/if}
+  </svelte:fragment>
+</Table>`;
 
 $:tsCode = `let caption = 'Tehble';
-let headers: ICell[] = [{
-  header: { scope: 'col' },
-  span: { colspan: 1, rowspan: 1 },
-  hasTemplate: false,
+let headers: IHeader[] = [{
+  scope: 'col',
   value: 'Name',
 },{
-  header: { scope: 'col' },
-  span: { colspan: 1, rowspan: 1 },
-  hasTemplate: false,
+  scope: 'col',
+  value: 'Name',
+},{
+  scope: 'col',
   value: 'Email',
 },{
   span: { colspan: 2, rowspan: 1 },
-  header: { scope: 'col' },
-  hasTemplate: true,
+  scope: 'col',
   value: 'Actions',
-  // TIP: Consume custom template in table
-  template: Template,
-  action: () => console.log('hi')
 }];
 let data: ICell[][] = [
   [{ value: 'data 1' }, { value: 'data 2' }, { value: 'data 3' }, { value: 'data 4' }],
@@ -86,22 +89,52 @@ let data: ICell[][] = [
     <Card grow>
       <h2>Table Props</h2>
       <Flex>
-        <Checkbox id={'borderless'} reverse bind:checked={borderless}>Borderless</Checkbox>
+        <Checkbox id={'headers'} reverse>headers</Checkbox>
+        <Checkbox id={'data'} reverse>data</Checkbox>
+        <Checkbox id={'caption'} reverse>caption</Checkbox>
         <Checkbox id={'stripes'} reverse bind:checked={alternate}>Striped</Checkbox>
+        <Checkbox id={'borderless'} reverse bind:checked={borderless}>Borderless</Checkbox>
         <Checkbox id={'captioned'} reverse bind:checked={hideCaption}>Hide Caption</Checkbox>
-        <br />
-        <Prism language="html" {code}></Prism>
       </Flex>
     </Card>
 
     <Card grow>
       <Flex justifyContent="start">
         <h2>{description}</h2>
-        <Table {headers} {data} {caption} {alternate} {borderless} {hideCaption}/>
+        <Table {headers} {data} {caption} {alternate} {borderless} {hideCaption}>
+          <svelte:fragment slot="header" let:header>
+            {#if header && header.value === 'Actions'}
+              <Button on:click={() => console.log(header)}>
+                {header.value}
+              </Button>
+            {:else}
+              {header.value}
+            {/if}
+          </svelte:fragment>
+
+          <svelte:fragment slot="cell" let:cell let:row let:header let:index let:rowIndex>
+            {#if header && header.value === 'Actions'}
+              <Button on:click={() => console.log(cell)}>
+                {cell.value}
+              </Button>
+            {:else if header && header.value === 'Name'}
+              <Link href='' on:click={() => console.log(rowIndex, row)}>
+                {cell.value}
+              </Link>
+            {:else}
+              {cell.value}
+            {/if}
+          </svelte:fragment>
+        </Table>
       </Flex>
     </Card>
   </Flex>
   <Card>
+    <Title id="html" l={2}>html</Title>
+    <Prism language="html" {code}></Prism>
+  </Card>
+  <Card>
+    <Title id="html" l={2}>scipt</Title>
     <Prism language="javascript" code={tsCode}></Prism>
   </Card>
 </Flex>
