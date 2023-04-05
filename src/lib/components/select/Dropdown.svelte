@@ -8,7 +8,6 @@
 	// binds to initial, and updates consumer if they bind to this
 	export let show = false;
 	export let component: any;
-	export let triggerProps = {};
 	export let backdrop = false;
 	export let position: 'top' | 'bottom' | 'left' | 'right' = 'bottom';
 	export let value: string;
@@ -91,7 +90,7 @@
 	<svelte:component
 		role="menu"
 		this={component}
-		{...triggerProps}
+		{...$$restProps}
 		on:click={toggle}
 		on:keydown={closeOnESC}
 		on:keydown={onArrow}

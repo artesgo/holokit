@@ -3,7 +3,6 @@
 	import type { Writable } from 'svelte/store';
 
 	export let component: any;
-	export let triggerProps = {};
 	export let value: string;
 
 	let index = 0;
@@ -64,7 +63,7 @@
 		this={component}
 		role="menuitem"
 		bind:this={element}
-		{...triggerProps}
+		{...$$restProps}
 		{id}
 		on:keyup={closeOnESC}
 		on:keyup={onArrow}
