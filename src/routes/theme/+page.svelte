@@ -14,19 +14,13 @@
     [{ value: 'data 1' }, { value: 'data 2' }, { value: 'data 3' }, { value: 'data 4' }],
   ];
   let headers: ICell[] = [{
-    header: { scope: 'col' },
     span: { colspan: 1, rowspan: 1 },
-    hasTemplate: false,
     value: 'Name',
   },{
-    header: { scope: 'col' },
     span: { colspan: 1, rowspan: 1 },
-    hasTemplate: false,
     value: 'Email',
   },{
     span: { colspan: 2, rowspan: 1 },
-    header: { scope: 'col' },
-    hasTemplate: true,
     value: 'Actions',
   }];
   let caption = 'Tehble';
