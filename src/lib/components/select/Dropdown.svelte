@@ -84,9 +84,9 @@
 	setContext('Dropdown', { state, onArrow });
 </script>
 {#if $state.show}
-	<Overlay on:click={clickOutside} />
+	<Overlay bind:backdrop on:click={clickOutside} />
 {/if}
-<section>
+<span>
 	<svelte:component
 		role="menu"
 		this={component}
@@ -107,7 +107,6 @@
 		<ul
 			class="holo-dropdown"
 			transition:fade={{ duration: 100 }}
-			class:backdrop
 			class:top={position === 'top'}
 			class:left={position === 'left'}
 			class:right={position === 'right'}
@@ -116,19 +115,15 @@
 			<slot />
 		</ul>
 	{/if}
-</section>
+</span>
 
 <style>
-	section {
+	span {
 		position: relative;
 	}
 	ul.holo-dropdown {
 		list-style: none;
 		position: absolute;
 		z-index: 900;
-	}
-
-	.backdrop {
-		background-color: var(--background-color-alt);
 	}
 </style>

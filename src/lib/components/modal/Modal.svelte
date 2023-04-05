@@ -11,6 +11,7 @@
 	export let duration = 0;
 	export let easing = cubicInOut;
 	export let start = 2;
+	export let width = '50%';
 
 	let dispatcher = createEventDispatcher();
 	let header: HTMLElement;
@@ -36,6 +37,12 @@
 	$: if (!open) {
 		dispatcher('close');
 	}
+	let style = '';
+	$: {
+		if (width !== undefined) {
+			style = 'width: ' + width + ';';
+		}
+	};
 </script>
 
 <svelte:window on:keydown={escapeHandler} />
@@ -58,7 +65,7 @@
 	>
 		<Overlay on:click={closeModal} />
 		<button on:focus={goToStart}></button>
-		<div class="holo-modal" on:click|stopPropagation>
+		<div class="holo-modal" {style} on:click|stopPropagation>
 			<header class="holo-modal-header" class:alert-header={$$slots.alert} id="holo-modal" bind:this={header} tabindex="-1">
 				{#if $$slots.alert}
 					<slot name="alert"></slot>
@@ -82,6 +89,9 @@
 <style>
 	.holo-modal-overlay {
 		position: fixed;
+		display: flex;
+		justify-content: center;
+		align-items: center;
 		top: 0;
 		left: 0;
 		right: 0;
@@ -92,15 +102,11 @@
 
 	.holo-modal {
 		position: absolute;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%, -50%);
 		background-color: var(--background-color-modal);
 		color: var(--color);
 		border: var(--border);
 		border-radius: var(--border-radius);
 		box-shadow: 0px 0px var(--box-shadow) var(--color);
-		width: 80%;
 		max-width: var(--modal-width);
 		z-index: 1000;
 		padding: var(--padding-h-m);
