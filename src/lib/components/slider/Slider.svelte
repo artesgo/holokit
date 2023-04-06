@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
 	import Flex from '../flex/Flex.svelte';
 	import Input from '../input/Input.svelte';
 	import type { ISliderProps } from './slider.types';
@@ -11,9 +12,29 @@
   export let label: ISliderProps['label'];
   import { tweened } from 'svelte/motion';
   let left = tweened(value, { duration: 100 });
+
   $: style = `left: ${$left}%`;
-  $: left.set(+value); // coerce number
+  
+  // convert min/max to 0-100
+  $: normalize = max - min;
+  $: if (validValue()) {
+    left.set(((value - min) / normalize) * 100 );
+  }
   let focus = false;
+
+  onMount(() => {
+    checkValue();
+  });
+
+  function checkValue() {
+    if (value < min) value = min;
+    if (value > max) value = max;
+  }
+
+  function validValue() {
+    if (value < min || value > max) return false;
+    return true;
+  }
 </script>
 
 <label class="holo-slider-container">

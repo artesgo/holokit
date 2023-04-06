@@ -3,6 +3,7 @@
 </script>
 
 <Flex row gap={1}>
-  <Slider id="vol" label="Volume"></Slider>
-  <Slider id="vol2" label="Volume" input></Slider>
+  Row Flex
+  <Slider id="vol" label="Volume" min={0} max={1000}></Slider>
+  <Slider id="vol2" label="Volume" input min={100} max={1000}></Slider>
 </Flex>
