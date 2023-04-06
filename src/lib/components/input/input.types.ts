@@ -6,7 +6,7 @@ export interface IInputProps extends ControlSize, ControlTheme, ControlPair, Id 
 	ariaLabel?: string;
 	label?: string;
 	placeholder?: string;
-	value?: string;
+	value?: string | number;
 	inline?: boolean;
 	integrated?: boolean;
 	readonly?: boolean;

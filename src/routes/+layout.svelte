@@ -19,20 +19,21 @@
 			<Flex row gap={2}>
 				<Button on:click={() => focusManager.focus('heading')}>Go To Main</Button>
 				<ul>
-					<Link underline={true} href={'/'}>Home</Link>
-					<Link underline={true} href={'/alert'}>Alerts</Link>
-					<Link underline={true} href={'/buttons'}>Buttons</Link>
-					<Link underline={true} href={'/checkbox'}>Checkbox</Link>
-					<Link underline={true} href={'/grid'}>Grid</Link>
-					<Link underline={true} href={'/inputs'}>Input</Link>
-					<Link underline={true} href={'/modals'}>Modal</Link>
-					<Link underline={true} href={'/popover'}>Popover</Link>
-					<Link underline={true} href={'/radios'}>Radios</Link>
-					<Link underline={true} href={'/select'}>Select</Link>
-					<Link underline={true} href={'/table'}>Table</Link>
-					<Link underline={true} href={'/theme'}>Theme</Link>
-					<Link underline={true} href={'/focus'}>Focus Management</Link>
-					<!-- <Link underline={true} href={'/pattern'}>Pattern</Link> -->
+					<Link underline href={'/'}>Home</Link>
+					<Link underline href={'/alert'}>Alerts</Link>
+					<Link underline href={'/buttons'}>Buttons</Link>
+					<Link underline href={'/checkbox'}>Checkbox</Link>
+					<Link underline href={'/grid'}>Grid</Link>
+					<Link underline href={'/inputs'}>Input</Link>
+					<Link underline href={'/modals'}>Modal</Link>
+					<Link underline href={'/popover'}>Popover</Link>
+					<Link underline href={'/radios'}>Radios</Link>
+					<Link underline href={'/select'}>Select</Link>
+					<Link underline href={'/slider'}>Slider</Link>
+					<Link underline href={'/table'}>Table</Link>
+					<Link underline href={'/theme'}>Theme</Link>
+					<Link underline href={'/focus'}>Focus Management</Link>
+					<!-- <Link underline href={'/pattern'}>Pattern</Link> -->
 				</ul>
 	
 				<Dropdown label="Theme" bind:value component={Button} triggerProps={{ width: '200px' }}>

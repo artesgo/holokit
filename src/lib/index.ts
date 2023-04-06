@@ -12,7 +12,8 @@ export { Modal } from './components/modal';
 export { Overlay } from './components/overlay';
 export { Popover } from './components/popover';
 export { Radio, RadioGroup } from './components/radio';
-export { Table, type ICell, type IHeader, type ISpan } from './components/table';
+export { Slider } from './components/slider';
+export { Table, type ICell, type ISpan } from './components/table';
 export { Theme, type ITheme } from './components/theme';
 export { Title } from './components/title';
 
