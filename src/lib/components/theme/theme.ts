@@ -36,4 +36,34 @@ export interface ITheme {
   outlineColor?: string;
   outlineOffset?: string;
   transition?: string;
+
+	success?: string;
+	successLightest?: string;
+	successLighter?: string;
+	successDarker?: string;
+	successDarkest?: string;
+
+	info?: string;
+	infoLightest?: string;
+	infoLighter?: string;
+	infoDarker?: string;
+	infoDarkest?: string;
+
+	danger?: string;
+	dangerLightest?: string;
+	dangerLighter?: string;
+	dangerDarker?: string;
+	dangerDarkest?: string;
+
+	warning?: string;
+	warningLightest?: string;
+	warningLighter?: string;
+	warningDarker?: string;
+	warningDarkest?: string;
+
+	neutral?: string;
+	neutralLightest?: string;
+	neutralLighter?: string;
+	neutralDarker?: string;
+	neutralDarkest?: string;
 }

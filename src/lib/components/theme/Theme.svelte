@@ -46,7 +46,33 @@
 		{ bound: '--control-border-color: ', prop: 'controlBorderColor' },
 		{ bound: '--outline-color: ', prop: 'outlineColor' },
 		{ bound: '--outline-offset: ', prop: 'outlineOffset' },
-		{ bound: '--transition: ', prop: 'transition' }
+		{ bound: '--transition: ', prop: 'transition' },
+		// color themes
+		{ bound: '--success: ', prop: 'success' },
+		{ bound: '--success-lightest: ', prop: 'successLightest' },
+		{ bound: '--success-lighter: ', prop: 'successLighter' },
+		{ bound: '--success-darker: ', prop: 'successDarker' },
+		{ bound: '--success-darkest: ', prop: 'successDarkest' },
+		{ bound: '--info: ', prop: 'info' },
+		{ bound: '--info-lightest: ', prop: 'infoLightest' },
+		{ bound: '--info-lighter: ', prop: 'infoLighter' },
+		{ bound: '--info-darker: ', prop: 'infoDarker' },
+		{ bound: '--info-darkest: ', prop: 'infoDarkest' },
+		{ bound: '--danger: ', prop: 'danger' },
+		{ bound: '--danger-lightest: ', prop: 'dangerLightest' },
+		{ bound: '--danger-lighter: ', prop: 'dangerLighter' },
+		{ bound: '--danger-darker: ', prop: 'dangerDarker' },
+		{ bound: '--danger-darkest: ', prop: 'dangerDarkest' },
+		{ bound: '--warning: ', prop: 'warning' },
+		{ bound: '--warning-lightest: ', prop: 'warningLightest' },
+		{ bound: '--warning-lighter: ', prop: 'warningLighter' },
+		{ bound: '--warning-darker: ', prop: 'warningDarker' },
+		{ bound: '--warning-darkest: ', prop: 'warningDarkest' },
+		{ bound: '--neutral: ', prop: 'neutral' },
+		{ bound: '--neutral-lightest: ', prop: 'neutralLightest' },
+		{ bound: '--neutral-lighter: ', prop: 'neutralLighter' },
+		{ bound: '--neutral-darker: ', prop: 'neutralDarker' },
+		{ bound: '--neutral-darkest: ', prop: 'neutralDarkest' }
 	];
 
 	$: light = theme === 'light';
