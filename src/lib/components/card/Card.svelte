@@ -4,12 +4,14 @@
 	export let flex = false;
 	export let stretch: Stretch = 'none';
 	export let between = false;
+	export let fullWidth = false;
 </script>
 
 <section class="holo-card" class:grow class:flex
 	class:stretch-element={stretch === 'element'}
 	class:stretch-window={stretch === 'window'}
 	class:justify-between={between}
+	class:fullWidth
 	{...$$restProps}
 >
 	<slot />
@@ -30,5 +32,8 @@
 	}
 	.grow {
 		flex-grow: 1;
+	}
+	.fullWidth {
+		width: 100%;
 	}
 </style>

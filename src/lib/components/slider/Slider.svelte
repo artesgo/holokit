@@ -10,6 +10,7 @@
 	export let theme: ISliderProps['theme'] = 'success';
   export let input: ISliderProps['input'] = false;
   export let label: ISliderProps['label'];
+  export let borderless: ISliderProps['borderless'] = false;
   import { tweened } from 'svelte/motion';
   let left = tweened(value, { duration: 100 });
 
@@ -54,14 +55,16 @@
         on:focus
         on:blur={() => focus = false}
         on:blur
+        type="range" {min} {max} bind:value class="holo-slider" {id}>
+        
+      <div class="track"
+        class:borderless
         class:holo-success={theme === 'success'}
         class:holo-warning={theme === 'warning'}
         class:holo-info={theme === 'info'}
         class:holo-danger={theme === 'danger'}
         class:holo-neutral={theme === 'neutral'}
-        type="range" {min} {max} bind:value class="holo-slider" {id}>
-        
-      <div class="track"></div>
+      ></div>
       <div class="tracker-track">
         <div class="tracker" class:focus style={style}></div>
       </div>
@@ -80,19 +83,19 @@
     top: 8px;
     opacity: 0;
   }
-	.holo-success {
+	.track.holo-success {
 		background: var(--success);
   }
-	.holo-warning {
+	.track.holo-warning {
     background: var(--warning);
   }
-	.holo-info {
+	.track.holo-info {
 		background: var(--info);
   }
-	.holo-danger {
+	.track.holo-danger {
 		background: var(--danger);
   }
-	.holo-neutral {
+	.track.holo-neutral {
 		background: var(--neutral);
   }
   .track-container {
@@ -105,8 +108,13 @@
   .track {
     position: relative;
     height: 4px;
+		border: var(--border);
+    border-radius: var(--border-radius);
     top: -2px;
     background: var(--background-color-alt);
+  }
+  .track.borderless {
+    border: none;
   }
   .tracker {
     position: relative;

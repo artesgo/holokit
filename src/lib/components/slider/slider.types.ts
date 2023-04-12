@@ -7,4 +7,5 @@ export interface ISliderProps extends ControlSize, ControlTheme, Id {
   value: number;
   min: number;
   max: number;
+  borderless: boolean;
 }
