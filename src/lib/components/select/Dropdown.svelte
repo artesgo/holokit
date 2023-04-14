@@ -12,6 +12,7 @@
 	export let position: 'top' | 'bottom' | 'left' | 'right' = 'bottom';
 	export let value: string;
 	export let label: string;
+	export let duration = 300;
 
 	const focusManager = getContext<FocusManagerContext>('focus');
 
@@ -84,9 +85,9 @@
 	setContext('Dropdown', { state, onArrow });
 </script>
 {#if $state.show}
-	<Overlay bind:backdrop on:click={clickOutside} />
+	<Overlay bind:backdrop on:click={clickOutside} {duration} />
 {/if}
-<span>
+<div>
 	<svelte:component
 		role="menu"
 		this={component}
@@ -106,7 +107,7 @@
 	{#if $state.show}
 		<ul
 			class="holo-dropdown"
-			transition:fade={{ duration: 100 }}
+			transition:fade={{ duration }}
 			class:top={position === 'top'}
 			class:left={position === 'left'}
 			class:right={position === 'right'}
@@ -115,15 +116,19 @@
 			<slot />
 		</ul>
 	{/if}
-</span>
+</div>
 
 <style>
-	span {
+	div {
 		position: relative;
 	}
+	/* dropdown or dropup depending on which has more space */
 	ul.holo-dropdown {
 		list-style: none;
 		position: absolute;
+		width: 100%;
 		z-index: 900;
+		max-height: 300px;
+		overflow-y: scroll;
 	}
 </style>

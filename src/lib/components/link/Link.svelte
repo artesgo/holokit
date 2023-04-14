@@ -9,6 +9,7 @@
 	export let target: ILinkProps['target'] = undefined;
 	export let rel: ILinkProps['rel'] = undefined;
 	export let underline: ILinkProps['underline'] = false;
+	export let width: ILinkProps['width'] = undefined;
 
 
 	const focusManager = getContext<FocusManagerContext>('focus');
@@ -26,6 +27,12 @@
 	}
 
 	let props = {};
+	let style = '';
+	$: {
+		if (width !== undefined) {
+			style = 'width: ' + width + ';';
+		}
+	};
 	$: {
 		if (id) {
 			props = { ...props, id, 'data-testid': id };
@@ -35,6 +42,9 @@
 		}
 		if (target) {
 			props = { ...props, target }
+		}
+		if (style) {
+			props = { ...props, style }
 		}
 	}
 </script>
@@ -80,6 +90,7 @@
 
 <style lang="scss">
 	.holo-link {
+		display: inline-block;
 		color: var(--color);
 		text-decoration: none;
 		white-space: nowrap;

@@ -1,8 +1,11 @@
 <script>
+	import { fade } from "svelte/transition";
+
 	export let backdrop = false;
+	export let duration = 300;
 </script>
 
-<button tabindex="-1" class="overlay" on:click class:backdrop />
+<button tabindex="-1" class="overlay" on:click class:backdrop transition:fade={{ duration }}/>
 
 <style>
   .overlay {

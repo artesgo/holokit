@@ -30,7 +30,7 @@
 
 	let value = '';
 	let open = false;
-	let triggerProps = { width: '200px' };
+	let triggerProps = { width: '100%', size: 's' };
   let backdrop = false;
 </script>
 
@@ -53,22 +53,30 @@
 	</Card>
 	<Flex gap={2}>
 		<Card>
-			<Dropdown bind:backdrop label="Dropdown" bind:value component={Button} width="200px">
+			<Dropdown bind:backdrop label="Dropdown" bind:value component={Button} width="100%">
 				<DropdownItem value="one" component={Button} {...triggerProps}>Item 1</DropdownItem>
 				<DropdownItem value="two" component={Button} {...triggerProps}>Item 2</DropdownItem>
 				<DropdownItem value="three" component={Button} {...triggerProps}>Item 3</DropdownItem>
 				<DropdownItem value="four" component={Button} {...triggerProps}>Item 4</DropdownItem>
+				<DropdownItem value="five" component={Button} {...triggerProps}>Item 5</DropdownItem>
+				<DropdownItem value="six" component={Button} {...triggerProps}>Item 6</DropdownItem>
+				<DropdownItem value="seVen" component={Button} {...triggerProps}>Item 7</DropdownItem>
+				<DropdownItem value="eight" component={Button} {...triggerProps}>Item 8</DropdownItem>
+				<DropdownItem value="nine" component={Button} {...triggerProps}>Item 9</DropdownItem>
+				<DropdownItem value="ten" component={Button} {...triggerProps}>Item 10</DropdownItem>
+				<DropdownItem value="leven" component={Button} {...triggerProps}>Item 11</DropdownItem>
+				<DropdownItem value="elve" component={Button} {...triggerProps}>Item 12</DropdownItem>
 			</Dropdown>
 			<div>... Other Content</div>
 
 			<Dropdown label="Alternate Template" bind:value component={Button} {...triggerProps} backdrop>
-				<DropdownItem value="one" component={Link} underline="true" href="/select" on:click={popup}>
+				<DropdownItem value="one" component={Link} {...triggerProps} underline="true" href="/select" on:click={popup}>
 					Item 1
 				</DropdownItem>
-				<DropdownItem value="two" component={Link} underline="true" href="/select"
+				<DropdownItem value="two" component={Link} {...triggerProps} underline="true" href="/select"
 					>Item 2</DropdownItem
 				>
-				<DropdownItem value="three" component={Link} underline="true" href="/select"
+				<DropdownItem value="three" component={Link} {...triggerProps} underline="true" href="/select"
 					>Item 3</DropdownItem
 				>
 			</Dropdown>
