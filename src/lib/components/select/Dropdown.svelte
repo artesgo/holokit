@@ -118,7 +118,7 @@
 	{/if}
 </div>
 
-<style>
+<style lang="scss">
 	div {
 		position: relative;
 	}
@@ -130,5 +130,15 @@
 		z-index: 900;
 		max-height: 300px;
 		overflow-y: scroll;
+		scrollbar-color: var(--success);
+		scrollbar-width: thin;
+			
+		::-webkit-scrollbar {
+			width: 8px;
+		}
+		
+		::-webkit-scrollbar-thumb {
+			background: var(--success);
+		}
 	}
 </style>
