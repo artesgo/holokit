@@ -23,6 +23,7 @@
 
 	<input
 		{id} data-testid={id} {name} {readonly}
+    type="password"
 		class="holo-input"
 		class:holo-success={theme === 'success'}
 		class:holo-warning={theme === 'warning'}
@@ -56,3 +57,4 @@
 <style lang="scss">
 	@import './input';
 </style>
+

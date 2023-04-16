@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Input, Card, Flex, Title } from '$lib';
+	import { Input, Card, Flex, Title, Password } from '$lib';
 	import Prism from '../prism/Prism.svelte';
 	let value = 'start typing';
 	let code = `<Input bind:value type="success">Label</Input>
@@ -32,6 +32,7 @@ function change(value: CustomEvent) {
 			<p>
 				bound value: {value}
 			</p>
+			<Password bind:value theme="neutral">Random Password Field</Password>
 		</Card>
 		
 		<Card grow>

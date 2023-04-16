@@ -6,7 +6,7 @@ export { Checkbox } from './components/checkbox';
 export { Dropdown, DropdownItem } from './components/select';
 export { Flex, type JustifyContent, type AlignItems, type AlignContent } from './components/flex';
 export { Grid, GridItem } from './components/grid';
-export { Input } from './components/input';
+export { Input, Password } from './components/input';
 export { Link } from './components/link';
 export { Modal } from './components/modal';
 export { Overlay } from './components/overlay';
