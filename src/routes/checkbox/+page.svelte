@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { Checkbox, Card, Flex, Title } from '$lib';
-	import Prism from '../prism/Prism.svelte';
+  import Highlight from "svelte-highlight";
+  import xml from "svelte-highlight/languages/xml";
 	function bindings() {
 		console.log('fire bindings');
 	}
@@ -23,7 +24,7 @@
 		<Checkbox id={'chk-1'} reverse bind:checked={reverse}>reverse</Checkbox>
 		<Checkbox id={'chk-2'} reverse bind:checked={apart}>apart</Checkbox>
     <br />
-		<Prism language="html" {code} />
+		<Highlight language={xml} {code} />
 	</Card>
 
 	<Card grow>

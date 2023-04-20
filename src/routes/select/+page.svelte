@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { Button, Dropdown, DropdownItem, Link, Card, Flex, Checkbox, Title, Modal } from '$lib';
-	import Prism from '../prism/Prism.svelte';
+  import Highlight from "svelte-highlight";
+  import xml from "svelte-highlight/languages/xml";
 
 	let code = `let triggerProps = { width: '200px' };
 
@@ -97,7 +98,7 @@
 			</Modal>
 		</Card>
 		<Card>
-			<Prism language="html" {code} />
+			<Highlight language={xml} {code} />
 		</Card>
 	</Flex>
 </Flex>

@@ -11,6 +11,7 @@
 	// you just have to provide "reverse" (implied true), instead of "reverse={false}"
 	export let reverse: ICheckboxProps['reverse'] = false;
 	export let apart: ICheckboxProps['apart'] = false;
+	export let disabled: ICheckboxProps['disabled'] = false;
 
 	let focused = false;
 	function focus() {
@@ -78,6 +79,7 @@
 		bind:checked
 		bind:this={element}
 		class="sr-only"
+		{disabled}
 		on:mouseover={focus}
 		on:focus={focus}
 		on:blur={blur}

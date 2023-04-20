@@ -21,7 +21,7 @@
 <pre><code>{@html _code}</code></pre>
 
 <style>
-  /* TODO: monospaced font not applying */
+  /* TODO: remove this for highlight js */
   pre code {
     font-family: 'Courier New', Courier, monospace;
   }

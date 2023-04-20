@@ -2,7 +2,8 @@
 	import { Alert, Card, Flex, Theme, Title } from "$lib";
   import { getContext } from 'svelte';
 	import type { Writable } from 'svelte/store';
-	import Prism from "../prism/Prism.svelte";
+  import Highlight from "svelte-highlight";
+  import xml from "svelte-highlight/languages/xml";
 	let theme = getContext<Writable<'void' | 'light'>>('theme');
   let code = `<Theme grow theme={$theme}>
   <Alert type="neutral">Hello</Alert>
@@ -48,7 +49,7 @@
   
   <Card>
     Depending on your theme, you may need to provide overrides for font color
-    <Prism language="html" {code} />
+    <Highlight language={xml} {code} />
   </Card>
 </Flex>
 

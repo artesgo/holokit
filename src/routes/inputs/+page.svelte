@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { Input, Card, Flex, Title, Password } from '$lib';
-	import Prism from '../prism/Prism.svelte';
+  import Highlight from "svelte-highlight";
+  import xml from "svelte-highlight/languages/xml";
 	let value = 'start typing';
 	let code = `<Input bind:value type="success">Label</Input>
 <Input bind:value type="warning">Label</Input>
@@ -55,6 +56,6 @@ function change(value: CustomEvent) {
 		</Card>
 	</Flex>
 	<Card>
-		<Prism language="html" {code}></Prism>
+		<Highlight language={xml} {code} />
 	</Card>
 </Flex>

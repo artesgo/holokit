@@ -2,6 +2,8 @@
 	import '$lib/myth.scss';
 	import '$lib/common.scss';
 	import './global.scss';
+	
+  import github from "svelte-highlight/styles/github";
 	import { Link, Theme, Flex, createFocusManager, Button, Grid, Dropdown, DropdownItem } from '$lib';
 	import { setContext } from 'svelte';
 	import { theme } from './store';
@@ -12,6 +14,10 @@
 	$: $theme = value;
 </script>
 
+<svelte:head>
+  {@html github}
+</svelte:head>
+
 <Theme stretch="window" theme={$theme}
 	class="mint pattern-dots-sm">
 	<Grid rowTemplate="100px 1fr 100px">
@@ -21,7 +27,6 @@
 				<ul>
 					<Link underline href={'/'}>Home</Link>
 					<Link underline href={'/alert'}>Alerts</Link>
-					<Link underline href={'/buttons'}>Buttons</Link>
 					<Link underline href={'/checkbox'}>Checkbox</Link>
 					<Link underline href={'/grid'}>Grid</Link>
 					<Link underline href={'/inputs'}>Input</Link>

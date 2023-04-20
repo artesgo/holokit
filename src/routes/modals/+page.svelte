@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { Button, Modal, Card, Flex, Checkbox, Alert, Title } from '$lib';
-	import Prism from '../prism/Prism.svelte';
+  import Highlight from "svelte-highlight";
+  import xml from "svelte-highlight/languages/xml";
 	let open = false;
 	let open2 = false;
 	let simple = `<Modal bind:open on:close={onClose}>
@@ -97,11 +98,11 @@ let alertModal = `<Modal bind:open={alert} on:close={onClose} duration={300}>
 
 	<Card>
 		<h2>Modal Sample Usage</h2>
-		<Prism language="html" code={simple} />
+		<Highlight language={xml} code={simple} />
 		<h2>Modal Additional Props</h2>
-		<Prism language="html" code={complex} />
+		<Highlight language={xml} code={complex} />
 		<h2>Modal with Alert</h2>
-		<Prism language="html" code={alertModal} />
+		<Highlight language={xml} code={alertModal} />
 	</Card>
 </Flex>
 

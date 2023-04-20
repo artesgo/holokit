@@ -1,10 +1,9 @@
 <script lang="ts">
 	import { Button, Popover, Card, Flex, RadioGroup, Radio, Title } from '$lib';
-	import Prism from '../prism/Prism.svelte';
 	
-	import { getContext } from 'svelte';
-	import type { Writable } from 'svelte/store';
-	let theme = getContext<Writable<'void' | 'light'>>('theme');
+  import Highlight from "svelte-highlight";
+  import xml from "svelte-highlight/languages/xml";
+	
 	let show = false;
 	let value: 'top' | 'bottom' | 'left' | 'right' = 'bottom';
 	let code = `<Popover bind:show placement={value}>
@@ -40,6 +39,6 @@
 
 	<Card>
 		<h2>Code Sample</h2>
-		<Prism language="html" {code}></Prism>
+		<Highlight language={xml} {code} />
 	</Card>
 </Flex>

@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { Grid, GridItem, Card, Theme, Flex, Checkbox, Title } from '$lib';
-	import Prism from '../prism/Prism.svelte';
+  import Highlight from "svelte-highlight";
+  import xml from "svelte-highlight/languages/xml";
 	import { getContext } from 'svelte';
 	import type { Writable } from 'svelte/store';
 	let theme = getContext<Writable<'void' | 'light'>>('theme');
@@ -86,6 +87,6 @@
 	</Flex>
 
 	<Card>
-		<Prism language="html" {code} />
+		<Highlight language={xml} {code} />
 	</Card>
 </Flex>

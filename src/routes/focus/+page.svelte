@@ -2,7 +2,9 @@
 	import { Button, Card, Flex, Title } from "$lib";
 	import type { FocusManagerContext } from '$lib/stores';
 	import { getContext } from "svelte";
-	import Prism from "../prism/Prism.svelte";
+  import Highlight from "svelte-highlight";
+  import xml from "svelte-highlight/languages/xml";
+  import typescript from "svelte-highlight/languages/typescript";
 
 	const focusManager = getContext<FocusManagerContext>('focus');
   const code = `<script lang="ts">
@@ -49,15 +51,15 @@ $: if (element && !!$focusManager.focused && $focusManager.focused === id) {
 	</Card>
   <Flex gap={2}>
     <Card grow>
-      <Prism language="javascript" {code} />
+      <Highlight language={typescript} {code} />
     </Card>
     <Card grow>
-      <Prism language="html" code={html} />
+      <Highlight language={xml} code={html} />
     </Card>
     <Card grow>
       <!-- TODO: Create vanilla js tab -->
       <Title l={2} id="own">Want to use this for your own components?</Title>
-      <Prism language="javascript" code={own} />
+      <Highlight language={typescript} code={own} />
     </Card>
   </Flex>
 </Flex>

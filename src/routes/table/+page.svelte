@@ -1,7 +1,10 @@
 <script lang="ts">
 	import type { ICell } from '$lib/components/table';
 	import { Table, Card, Checkbox, Title, Button, Link } from '$lib';
-	import Prism from '../prism/Prism.svelte';
+
+  import Highlight from "svelte-highlight";
+  import xml from "svelte-highlight/languages/xml";
+  import typescript from "svelte-highlight/languages/typescript";
 
 	import { Flex } from '$lib/components/flex';
 
@@ -131,10 +134,10 @@ let data: ICell[][] = [
   </Flex>
   <Card>
     <Title id="html" l={2}>html</Title>
-    <Prism language="html" {code}></Prism>
+    <Highlight language={xml} {code}></Highlight>
   </Card>
   <Card>
-    <Title id="html" l={2}>scipt</Title>
-    <Prism language="javascript" code={tsCode}></Prism>
+    <Title id="script" l={2}>script</Title>
+    <Highlight language={typescript} code={tsCode}></Highlight>
   </Card>
 </Flex>

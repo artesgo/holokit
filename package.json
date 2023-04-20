@@ -61,6 +61,8 @@
 	"types": "./dist/index.d.ts",
 	"type": "module",
 	"dependencies": {
-		"sass": "^1.59.3"
+		"highlight.js": "^11.7.0",
+		"sass": "^1.59.3",
+		"svelte-highlight": "^7.2.1"
 	}
 }

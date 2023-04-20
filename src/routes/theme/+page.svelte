@@ -1,6 +1,8 @@
 <script lang="ts">
 	import { Card, Table, Theme, Flex, Checkbox, Title } from "$lib";
-	import Prism from '../prism/Prism.svelte';
+
+  import Highlight from "svelte-highlight";
+  import xml from "svelte-highlight/languages/xml";
 
 	import type { ICell } from '$lib/components/table';
 	import { getContext } from 'svelte';
@@ -96,10 +98,10 @@
           <Card>Bad Props, doesn't break, but also doesn't default back to working variable</Card>
         </Theme>
       </Card>
+      <Card>
+        <h2>Usage</h2>
+        <Highlight language={xml} {code} />
+      </Card>
     </Flex>
   </Flex>
-
-  <Card>
-    <Prism language="html" {code}></Prism>
-  </Card>
 </Flex>
