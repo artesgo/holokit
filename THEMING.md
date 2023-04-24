@@ -51,9 +51,9 @@ Provide your own theme file containing the following css variables.
 
 	// misc
 	--transition: 100ms;
-  
-  // the following are colour tokens to theme various controls in your app
-  --success: #5d81c7;
+
+	// the following are colour tokens to theme various controls in your app
+	--success: #5d81c7;
 	--success-lightest: #9bb8f3;
 	--success-lighter: #7397df;
 	--success-darker: #4a6bad;
