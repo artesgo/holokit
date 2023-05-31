@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Button, Card, Flex, Title, Link, Dropdown, DropdownItem, RadioGroup, Radio, Slider } from "$lib";
+	import { Button, Card, Flex, Title, Link, Dropdown, DropdownItem, RadioGroup, Radio, Slider, Input } from "$lib";
 	import type { FocusManagerContext } from '$lib/stores';
 	import { getContext } from "svelte";
   import Highlight from "svelte-highlight";
@@ -49,6 +49,7 @@ let value = '';
       <Button id="focus-3" on:click={() => focusManager.focus("focus-7")}>Focus 7</Button>
       <Button id="focus-3" on:click={() => focusManager.focus("focus-8")}>Focus 8</Button>
       <Button id="focus-3" on:click={() => focusManager.focus("focus-9")}>Focus 9</Button>
+      <Button id="focus-3" on:click={() => focusManager.focus("focus-10")}>Focus 10</Button>
 
       <Title l={2} id="targets">Focus Targets</Title>
       <Button id="focus-4">4</Button>
@@ -63,6 +64,7 @@ let value = '';
         <Radio id="focus-8" value="no">No</Radio>
       </RadioGroup>
       <Slider id="focus-9" label={'Volume'}></Slider>
+      <Input id="focus-10">Label For Input</Input>
     </Flex>
 	</Card>
   <Flex gap={2}>
