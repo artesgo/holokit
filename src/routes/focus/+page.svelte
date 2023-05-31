@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Button, Card, Flex, Title } from "$lib";
+	import { Button, Card, Flex, Title, Link, Dropdown, DropdownItem, RadioGroup, Radio, Slider } from "$lib";
 	import type { FocusManagerContext } from '$lib/stores';
 	import { getContext } from "svelte";
   import Highlight from "svelte-highlight";
@@ -30,6 +30,8 @@ let element: HTMLElement; // bind:this={element} for element that wants focus
 $: if (element && !!$focusManager.focused && $focusManager.focused === id) {
   element.focus();
 }`;
+
+let value = '';
 </script>
 
 <svelte:head>
@@ -44,9 +46,23 @@ $: if (element && !!$focusManager.focused && $focusManager.focused === id) {
       <Button id="focus-1" on:click={() => focusManager.focus("focus-4")}>Focus 4</Button>
       <Button id="focus-2" on:click={() => focusManager.focus("focus-5")}>Focus 5</Button>
       <Button id="focus-3" on:click={() => focusManager.focus("focus-6")}>Focus 6</Button>
+      <Button id="focus-3" on:click={() => focusManager.focus("focus-7")}>Focus 7</Button>
+      <Button id="focus-3" on:click={() => focusManager.focus("focus-8")}>Focus 8</Button>
+      <Button id="focus-3" on:click={() => focusManager.focus("focus-9")}>Focus 9</Button>
+
+      <Title l={2} id="targets">Focus Targets</Title>
       <Button id="focus-4">4</Button>
-      <Button id="focus-5">5</Button>
-      <Button id="focus-6">6</Button>
+      <Link id="focus-5" href="">5</Link>
+      <Dropdown id="focus-6" label="Dropdown" bind:value component={Button} width="100%">
+				<DropdownItem value="one" component={Button}>Item 1</DropdownItem>
+				<DropdownItem value="two" component={Button}>Item 2</DropdownItem>
+				<DropdownItem value="three" component={Button}>Item 3</DropdownItem>
+			</Dropdown>
+      <RadioGroup name="focus-7">
+        <Radio id="focus-7" value="yes">Yes</Radio>
+        <Radio id="focus-8" value="no">No</Radio>
+      </RadioGroup>
+      <Slider id="focus-9" label={'Volume'}></Slider>
     </Flex>
 	</Card>
   <Flex gap={2}>

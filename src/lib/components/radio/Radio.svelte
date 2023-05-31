@@ -4,11 +4,18 @@
 	import { fade } from 'svelte/transition';
 
 	import type { IRadioProps } from './radio.types';
+	import type { FocusManagerContext } from '$lib/stores';
 	export let id: IRadioProps['id'] = '';
 	export let value: IRadioProps['value'] = '';
 	export let reverse: IRadioProps['reverse'] = false;
 	export let apart: IRadioProps['apart'] = false;
 	// export let theme: RadioProps['theme'] = 'success';
+
+	const focusManager = getContext<FocusManagerContext>('focus');
+	let element: HTMLElement;
+	$: if (element && !!$focusManager.focused && $focusManager.focused === id) {
+		element.focus();
+	}
 
 	const { selectedValue, name } = getContext<{ selectedValue: Writable<string | undefined>; name: string }>(
 		'RadioGroup'
@@ -65,6 +72,7 @@
 		type="radio"
 		class="sr-only"
 		checked={$selectedValue === value}
+		bind:this={element}
 		on:click={() => ($selectedValue = value)}
 		on:mouseover={focus}
 		on:focus={focus}

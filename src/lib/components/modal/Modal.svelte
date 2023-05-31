@@ -3,7 +3,8 @@
 	import Overlay from '../overlay/Overlay.svelte';
 	import { scale } from 'svelte/transition';
 	import { cubicInOut } from 'svelte/easing';
-	import { createEventDispatcher } from 'svelte';
+	import { createEventDispatcher, getContext } from 'svelte';
+	import type { FocusManagerContext } from '$lib/stores';
 
 	export let id = '';
 	export let open = false;
@@ -15,6 +16,10 @@
 
 	let dispatcher = createEventDispatcher();
 	let header: HTMLElement;
+	const focusManager = getContext<FocusManagerContext>('focus');
+	$: if (header && !!$focusManager.focused && $focusManager.focused === id) {
+		header.focus();
+	}
 
 	function closeModal(event: MouseEvent | Event) {
 		if (event.target instanceof HTMLElement && event.target.className === 'holo-modal') {
@@ -42,7 +47,7 @@
 		if (width !== undefined) {
 			style = 'width: ' + width + ';';
 		}
-	};
+	}
 </script>
 
 <svelte:window on:keydown={escapeHandler} />
@@ -50,25 +55,29 @@
 {#if open}
 	<!-- ignore a11y, add keyboard controls for achieving the same -->
 	<!-- svelte-ignore a11y-click-events-have-key-events -->
-
 	<div
-		{id} data-testid={id}
 		class="holo-modal-overlay"
 		role="dialog"
 		aria-labelledby="holo-modal"
 		transition:scale={{
 			duration,
 			easing,
-			start,
+			start
 		}}
 		on:introend={goToStart}
 	>
 		<Overlay on:click={closeModal} />
-		<button on:focus={goToStart}></button>
+		<button on:focus={goToStart} />
 		<div class="holo-modal" {style} on:click|stopPropagation>
-			<header class="holo-modal-header" class:alert-header={$$slots.alert} id="holo-modal" bind:this={header} tabindex="-1">
+			<header
+				class="holo-modal-header"
+				class:alert-header={$$slots.alert}
+				{id} data-testid={id}
+				bind:this={header}
+				tabindex="-1"
+			>
 				{#if $$slots.alert}
-					<slot name="alert"></slot>
+					<slot name="alert" />
 				{:else}
 					<slot name="header">Default header</slot>
 				{/if}
@@ -81,7 +90,7 @@
 					<Button on:click={closeModal}>Close</Button>
 				</slot>
 			</footer>
-			<button class="sr-only" on:focus={goToStart}></button>
+			<button class="sr-only" on:focus={goToStart} />
 		</div>
 	</div>
 {/if}

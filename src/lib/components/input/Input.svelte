@@ -1,6 +1,7 @@
 <script lang="ts">
-	import { createEventDispatcher } from 'svelte';
+	import { createEventDispatcher, getContext } from 'svelte';
 	import type { IInputProps } from './input.types';
+	import type { FocusManagerContext } from '$lib/stores';
 
 	export let id: IInputProps['id'] = '';
 	export let name: IInputProps['name'] = '';
@@ -14,6 +15,11 @@
 	export let readonly: IInputProps['readonly'] = false;
 
 	const dispatch = createEventDispatcher();
+	const focusManager = getContext<FocusManagerContext>('focus');
+	let element: HTMLElement;
+	$: if (element && !!$focusManager.focused && $focusManager.focused === id) {
+		element.focus();
+	}
 </script>
 
 <label class="holo-input-container" class:integrated class:justify-between={apart} class:inline>
@@ -49,6 +55,7 @@
 		on:keypress
 		on:change={() => dispatch('change', value)}
 		bind:value
+		bind:this={element}
 		{placeholder}
 	/>
 </label>

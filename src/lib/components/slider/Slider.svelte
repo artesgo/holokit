@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
+	import { getContext, onMount } from 'svelte';
 	import Flex from '../flex/Flex.svelte';
 	import Input from '../input/Input.svelte';
 	import type { ISliderProps } from './slider.types';
@@ -12,7 +12,13 @@
   export let label: ISliderProps['label'];
   export let borderless: ISliderProps['borderless'] = false;
   import { tweened } from 'svelte/motion';
+	import type { FocusManagerContext } from '$lib/stores';
   let left = tweened(value, { duration: 100 });
+	const focusManager = getContext<FocusManagerContext>('focus');
+	let element: HTMLElement;
+	$: if (element && !!$focusManager.focused && $focusManager.focused === id) {
+		element.focus();
+	}
 
   $: style = `left: ${$left}%`;
   
@@ -55,6 +61,7 @@
         on:focus
         on:blur={() => focus = false}
         on:blur
+        bind:this={element}
         type="range" {min} {max} bind:value class="holo-slider" {id}>
         
       <div class="track"
