@@ -1,5 +1,6 @@
 <script lang="ts">
-	import { Grid, GridItem, Card, Theme, Flex, Checkbox, Title } from '$lib';
+	import { Grid, GridItem, Card, Theme, Flex, Checkbox, Title, isBreakpoint } from '$lib';
+	import type { MediaContext } from '$lib';
   import Highlight from "svelte-highlight";
   import xml from "svelte-highlight/languages/xml";
 	import { getContext } from 'svelte';
@@ -19,6 +20,11 @@
   </GridItem>
   ...
 </Grid>`;
+
+	let fm = getContext<MediaContext>('media');
+	$: gridTemplateCols = isBreakpoint($fm).atLeastTablet() ? '1fr 3fr 1fr' : '1fr';
+	$: gridTemplateRows = isBreakpoint($fm).atLeastTablet() ? '1fr 3fr 1fr' : undefined;
+	$: atLeastTablet = isBreakpoint($fm).atLeastTablet();
 </script>
 
 <svelte:head>
@@ -41,45 +47,45 @@
 			<Checkbox id="chk-7" reverse>rowSpan</Checkbox>
 		</Card>
 		<Card grow>
-			<Grid columnTemplate="1fr 3fr 1fr" rowTemplate="1fr 3fr 1fr" borderless>
-				<GridItem col={1} row={1}>
+			<Grid columnTemplate={gridTemplateCols} rowTemplate={gridTemplateRows} borderless>
+				<GridItem col={ atLeastTablet ? 1 : undefined } row={ atLeastTablet ? 1 : undefined }>
 					<Theme theme={$theme} override={{ backgroundColorAlt: '#F00', color: '#000' }}>
-						<Card grow>Hey</Card>
+						<Card grow>One</Card>
 					</Theme>
 				</GridItem>
-				<GridItem col={2} row={1}>
+				<GridItem col={ atLeastTablet ? 2 : undefined } row={ atLeastTablet ? 1 : undefined }>
 					<Theme theme={$theme} override={{ backgroundColorAlt: '#FF3D00', color: '#000' }}>
-						<Card grow>Hey</Card>
+						<Card grow>Two</Card>
 					</Theme>
 				</GridItem>
-				<GridItem col={3} row={1}>
+				<GridItem col={ atLeastTablet ? 3 : undefined } row={ atLeastTablet ? 1 : undefined }>
 					<Theme theme={$theme} override={{ backgroundColorAlt: '#FF0', color: '#000' }}>
-						<Card grow>Hey</Card>
+						<Card grow>Three</Card>
 					</Theme>
 				</GridItem>
-				<GridItem col={1} row={2}>
+				<GridItem col={ atLeastTablet ? 1 : undefined } row={ atLeastTablet ? 2 : undefined }>
 					<Theme theme={$theme} override={{ backgroundColorAlt: '#CF0', color: '#000' }} stretch="element">
-						<Card grow stretch="element">Hey</Card>
+						<Card grow stretch="element">Four</Card>
 					</Theme>
 				</GridItem>
-				<GridItem col={2} row={2}>
+				<GridItem col={ atLeastTablet ? 2 : undefined } row={ atLeastTablet ? 2 : undefined }>
 					<Theme theme={$theme} override={{ backgroundColorAlt: '#0F0', color: '#000' }} stretch="element">
-						<Card grow stretch="element">Hey</Card>
+						<Card grow stretch="element">Five</Card>
 					</Theme>
 				</GridItem>
-				<GridItem col={3} row={2}>
+				<GridItem col={ atLeastTablet ? 3 : undefined } row={ atLeastTablet ? 2 : undefined }>
 					<Theme theme={$theme} override={{ backgroundColorAlt: '#0FC', color: '#000' }} stretch="element">
-						<Card grow stretch="element">Hey</Card>
+						<Card grow stretch="element">Six</Card>
 					</Theme>
 				</GridItem>
-				<GridItem col={1} row={3}>
+				<GridItem col={ atLeastTablet ? 1 : undefined } row={ atLeastTablet ? 3 : undefined }>
 					<Theme theme={$theme} override={{ backgroundColorAlt: '#0FF', color: '#000' }}>
-						<Card grow>Hey</Card>
+						<Card grow>Seven</Card>
 					</Theme>
 				</GridItem>
-				<GridItem col={2} row={3} colSpan={2}>
+				<GridItem col={ atLeastTablet ? 2 : undefined } row={ atLeastTablet ? 3 : undefined } colSpan={ atLeastTablet ? 2 : undefined }>
 					<Theme theme={$theme} override={{ backgroundColorAlt: '#0CF', color: '#000' }}>
-						<Card grow>Hey</Card>
+						<Card grow>Eight</Card>
 					</Theme>
 				</GridItem>
 			</Grid>

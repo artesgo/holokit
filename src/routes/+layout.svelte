@@ -2,24 +2,38 @@
 	import '$lib/myth.scss';
 	import '$lib/common.scss';
 	import './global.scss';
-	
-  import github from "svelte-highlight/styles/github";
-	import { Link, Theme, Flex, createFocusManager, Button, Grid, Dropdown, DropdownItem } from '$lib';
+
+	import github from 'svelte-highlight/styles/github';
+	import {
+		Link,
+		Theme,
+		Flex,
+		createFocusManager,
+		Button,
+		Grid,
+		Dropdown,
+		DropdownItem,
+		createMediaManager,
+		MediaMonitor
+	} from '$lib';
 	import { setContext } from 'svelte';
 	import { theme } from './store';
-	let focusManager = createFocusManager();
+	const focusManager = createFocusManager();
+	const mediaManager = createMediaManager();
 	setContext('theme', theme);
 	setContext('focus', focusManager);
+	setContext('media', mediaManager);
 	let value: 'void' | 'clear' | 'light' = 'void';
 	$: $theme = value;
 </script>
 
 <svelte:head>
-  {@html github}
+	{@html github}
 </svelte:head>
 
-<Theme stretch="window" theme={$theme}
-	class="mint pattern-dots-sm">
+<MediaMonitor />
+
+<Theme stretch="window" theme={$theme} class="mint pattern-dots-sm">
 	<Grid rowTemplate="100px 1fr 100px">
 		<header>
 			<Flex row gap={2}>
@@ -40,18 +54,30 @@
 					<Link underline href={'/focus'}>Focus Management</Link>
 					<!-- <Link underline href={'/pattern'}>Pattern</Link> -->
 				</ul>
-	
+
 				<Dropdown label="Theme" bind:value component={Button} triggerProps={{ width: '200px' }}>
-					<DropdownItem component={Button} value='light' triggerProps={{ width: '200px', theme: 'info' }}>
+					<DropdownItem
+						component={Button}
+						value="light"
+						triggerProps={{ width: '200px', theme: 'info' }}
+					>
 						Light
 					</DropdownItem>
 					<!-- <DropdownItem component={Button} value='void' triggerProps={{ width: '200px', theme: 'warning' }}>
 						Red
 					</DropdownItem> -->
-					<DropdownItem component={Button} value='clear' triggerProps={{ width: '200px', theme: 'danger' }}>
+					<DropdownItem
+						component={Button}
+						value="clear"
+						triggerProps={{ width: '200px', theme: 'danger' }}
+					>
 						Clear
 					</DropdownItem>
-					<DropdownItem component={Button} value='void' triggerProps={{ width: '200px', theme: 'neutral' }}>
+					<DropdownItem
+						component={Button}
+						value="void"
+						triggerProps={{ width: '200px', theme: 'neutral' }}
+					>
 						Dark
 					</DropdownItem>
 					<!-- <DropdownItem component={Button} on:click={() => $theme = 'clear'} triggerProps={{ width: '200px', theme: 'neutral' }}>
@@ -60,16 +86,16 @@
 				</Dropdown>
 			</Flex>
 		</header>
-		
+
 		<main>
 			<slot />
 		</main>
-		
+
 		<footer />
 	</Grid>
 </Theme>
 
-<style lang='scss'>
+<style lang="scss">
 	main,
 	header,
 	footer {

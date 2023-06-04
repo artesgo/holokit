@@ -1,21 +1,13 @@
-<script>
-	export let col = 1;
-	export let colSpan = 1;
-	export let row = 1;
-	export let rowSpan = 1;
+<script lang="ts">
+	export let col: number | undefined = undefined;
+	export let colSpan: number | undefined = undefined;
+	export let row: number | undefined = undefined;
+	export let rowSpan: number | undefined = undefined;
 	$: style =
-		'grid-column-start: ' +
-		col +
-		';' +
-		'grid-column-end: span ' +
-		colSpan +
-		';' +
-		'grid-row-start: ' +
-		row +
-		';' +
-		'grid-row-end: span ' +
-		rowSpan +
-		';';
+		(col ? 'grid-column-start: ' + col + ';' : '') +
+		(colSpan ? 'grid-column-end: span ' + colSpan + ';' : '') +
+		(row ? 'grid-row-start: ' + row + ';' : '') +
+		(rowSpan ? 'grid-row-end: span ' + rowSpan + ';' : '');
 </script>
 
 <section class="grid-item" {style}><slot /></section>

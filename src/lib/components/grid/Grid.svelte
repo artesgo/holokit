@@ -6,7 +6,7 @@
 	export let unpadded = false;
 	export let stretch: Stretch = 'none';
 	$: style =
-		'grid-template-columns: ' + columnTemplate + ';' + 'grid-template-rows: ' + rowTemplate + ';';
+		'grid-template-columns: ' + columnTemplate + ';' + (rowTemplate ? 'grid-template-rows: ' + rowTemplate + ';' : '');
 </script>
 
 <section class="holo-grid" class:borderless class:unpadded

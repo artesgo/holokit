@@ -16,7 +16,9 @@ export { Slider } from './components/slider';
 export { Table, type ICell, type ISpan } from './components/table';
 export { Theme, type ITheme } from './components/theme';
 export { Title } from './components/title';
+export { MediaMonitor } from './components/media';
 
 export { createFocusManager, type FocusState, type FocusManagerContext } from './stores';
+export { createMediaManager, type MediaState, type MediaContext, isBreakpoint } from './stores';
 // export * from './patterns';
 export * from './icons';
