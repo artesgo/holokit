@@ -33,26 +33,27 @@
 
 <MediaMonitor />
 
-<Theme stretch="window" theme={$theme} class="mint pattern-dots-sm">
+<Theme stretch="window" theme={$theme} >
 	<Grid rowTemplate="100px 1fr 100px">
 		<header>
 			<Flex row gap={2}>
-				<Button on:click={() => focusManager.focus('heading')}>Go To Main</Button>
+				<div>
+					<Button on:click={() => focusManager.focus('heading')}>Go To Main</Button>
+				</div>
 				<ul>
-					<Link underline href={'/'}>Home</Link>
-					<Link underline href={'/alert'}>Alerts</Link>
-					<Link underline href={'/checkbox'}>Checkbox</Link>
-					<Link underline href={'/grid'}>Grid</Link>
-					<Link underline href={'/inputs'}>Input</Link>
-					<Link underline href={'/modals'}>Modal</Link>
-					<Link underline href={'/popover'}>Popover</Link>
-					<Link underline href={'/radios'}>Radios</Link>
-					<Link underline href={'/select'}>Select</Link>
-					<Link underline href={'/slider'}>Slider</Link>
-					<Link underline href={'/table'}>Table</Link>
-					<Link underline href={'/theme'}>Theme</Link>
-					<Link underline href={'/focus'}>Focus Management</Link>
-					<!-- <Link underline href={'/pattern'}>Pattern</Link> -->
+					<Link padded underline href={'/'}>Home</Link>
+					<Link padded underline href={'/alert'}>Alerts</Link>
+					<Link padded underline href={'/checkbox'}>Checkbox</Link>
+					<Link padded underline href={'/grid'}>Grid</Link>
+					<Link padded underline href={'/inputs'}>Input</Link>
+					<Link padded underline href={'/modals'}>Modal</Link>
+					<Link padded underline href={'/popover'}>Popover</Link>
+					<Link padded underline href={'/radios'}>Radios</Link>
+					<Link padded underline href={'/select'}>Select</Link>
+					<Link padded underline href={'/slider'}>Slider</Link>
+					<Link padded underline href={'/table'}>Table</Link>
+					<Link padded underline href={'/theme'}>Theme</Link>
+					<Link padded underline href={'/focus'}>Focus Management</Link>
 				</ul>
 
 				<Dropdown label="Theme" bind:value component={Button} triggerProps={{ width: '200px' }}>
@@ -111,5 +112,10 @@
 	header {
 		padding-top: var(--padding-v-l);
 		padding-bottom: var(--padding-v-l);
+	}
+	@media print {
+		header {
+			display: none;
+		}
 	}
 </style>

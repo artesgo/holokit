@@ -10,7 +10,7 @@
 	export let rel: ILinkProps['rel'] = undefined;
 	export let underline: ILinkProps['underline'] = false;
 	export let width: ILinkProps['width'] = undefined;
-
+	export let padded: ILinkProps['padded'] = false;
 
 	const focusManager = getContext<FocusManagerContext>('focus');
 	let element: HTMLElement;
@@ -57,6 +57,7 @@
 	class="holo-link"
 	class:underline
 	class:focused
+	class:padded
 	class:holo-success={theme === 'success'}
 	class:holo-warning={theme === 'warning'}
 	class:holo-info={theme === 'info'}
@@ -105,5 +106,11 @@
 	.focused {
 		outline: 1px solid var(--outline-color);
 		outline-offset: var(--outline-offset);
+	}
+	.padded {
+		padding-left: var(--padding-h-s);
+		padding-top: var(--padding-v-s);
+		padding-right: var(--padding-h-s);
+		padding-bottom: var(--padding-v-s);
 	}
 </style>

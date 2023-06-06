@@ -7,4 +7,5 @@ export interface ILinkProps extends ControlSize, ControlTheme, Id {
   rel?: 'noopener' | 'noreferrer' | undefined;
   underline?: boolean;
   width?: string | undefined;
+  padded: boolean;
 }

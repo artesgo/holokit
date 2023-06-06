@@ -26,16 +26,11 @@
 		event.preventDefault();
 		event.stopPropagation();
 	}
-	function closeOnESC(event: KeyboardEvent) {
-		if (event.key === 'Escape') {
-			show = false;
-			$state.show = false;
-		}
-	}
 
-	function clickOutside() {
-		show = false;
-		$state.show = false;
+	function onEscape(event: KeyboardEvent) {
+		if (event.key === 'Escape') {
+			closeDropdown();
+		}
 	}
 
 	$: if (!$state.show) {
@@ -44,6 +39,7 @@
 		$state.index = 1;
 		value = $state.value;
 	}
+
 	function preventArrowPropagation(event: KeyboardEvent) {
 		if (event.key.includes('Arrow')) {
 			event.preventDefault();
@@ -52,13 +48,26 @@
 	}
 	function onArrow(event: KeyboardEvent) {
 		if (event.key.includes('Arrow')) {
-			show = true;
-			$state.show = true;
+			openDropdown();
 		}
+		handleNavigationDown(event);
+		handleNavitationUp(event);
+	}
+	function openDropdown() {
+		show = true;
+		$state.show = true;
+	}
+	function closeDropdown() {
+		show = false;
+		$state.show = false;
+	}
+	function handleNavigationDown(event: KeyboardEvent) {
 		if ((event.key === 'ArrowLeft' || event.key === 'ArrowUp') && $state.index > 1) {
 			$state.index--;
 			focusManager.focus('dropdown-' + $state.index);
 		}
+	}
+	function handleNavitationUp(event: KeyboardEvent) {
 		if ((event.key === 'ArrowRight' || event.key === 'ArrowDown') && $state.index < $state.limit) {
 			$state.index++;
 			focusManager.focus('dropdown-' + $state.index);
@@ -66,13 +75,19 @@
 	}
 	function onTab(event: KeyboardEvent) {
 		if (event.key === 'Tab') {
-			if (event.shiftKey) {
-				show = false;
-				$state.show = false;
-			}
-			if (!event.shiftKey) {
-				$state.index++;
-			}
+			handleShiftTab(event);
+			handleTab(event);
+		}
+	}
+	function handleShiftTab(event: KeyboardEvent) {
+		if (event.shiftKey) {
+			show = false;
+			$state.show = false;
+		}
+	}
+	function handleTab(event: KeyboardEvent) {
+		if (!event.shiftKey) {
+			$state.index++;
 		}
 	}
 	const state = writable<{ value: string, show: boolean; index: number; limit: number; dropdownList: number[] }>({
@@ -85,7 +100,7 @@
 	setContext('Dropdown', { state, onArrow });
 </script>
 {#if $state.show}
-	<Overlay bind:backdrop on:click={clickOutside} {duration} />
+	<Overlay bind:backdrop on:click={closeDropdown} {duration} />
 {/if}
 <div>
 	<svelte:component
@@ -93,7 +108,7 @@
 		this={component}
 		{...$$restProps}
 		on:click={toggle}
-		on:keydown={closeOnESC}
+		on:keydown={onEscape}
 		on:keydown={onArrow}
 		on:keydown={onTab}
 		on:keydown={preventArrowPropagation}
