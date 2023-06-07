@@ -8,4 +8,5 @@ export interface ILinkProps extends ControlSize, ControlTheme, Id {
   underline?: boolean;
   width?: string | undefined;
   padded: boolean;
+  block: boolean;
 }

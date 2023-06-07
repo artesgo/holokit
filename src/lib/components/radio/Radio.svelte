@@ -17,7 +17,7 @@
 		element.focus();
 	}
 
-	const { selectedValue, name } = getContext<{ selectedValue: Writable<string | undefined>; name: string }>(
+	const { selectedValue, name } = getContext<{ selectedValue: Writable<string | number | undefined>; name: string }>(
 		'RadioGroup'
 	);
 	let focused = false;	
@@ -69,6 +69,7 @@
 	<input
 		{id} data-testid={id}
 		{name}
+		{value}
 		type="radio"
 		class="sr-only"
 		checked={$selectedValue === value}
