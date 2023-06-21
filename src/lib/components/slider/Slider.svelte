@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { getContext, onMount } from 'svelte';
+	import { createEventDispatcher, getContext, onMount } from 'svelte';
 	import Flex from '../flex/Flex.svelte';
 	import Input from '../input/Input.svelte';
 	import type { ISliderProps } from './slider.types';
@@ -20,7 +20,7 @@
 		element.focus();
 	}
 
-  $: style = `left: ${$left}%`;
+  $: style = 'left: ' + $left + '%';
   
   // convert min/max to 0-100
   $: normalize = max - min;
@@ -42,6 +42,8 @@
     if (value < min || value > max) return false;
     return true;
   }
+
+  let dispatch = createEventDispatcher();
 </script>
 
 <label class="holo-slider-container">
@@ -62,7 +64,7 @@
         on:blur={() => focus = false}
         on:blur
         bind:this={element}
-        type="range" {min} {max} bind:value class="holo-slider" {id}>
+        type="range" {min} {max} bind:value class="holo-slider" {id} on:change={(e) => dispatch('change', value)}>
         
       <div class="track"
         class:borderless
