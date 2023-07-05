@@ -84,6 +84,7 @@
 				<Link padded underline block href={'/modals'}>Modal</Link>
 				<Link padded underline block href={'/popover'}>Popover</Link>
 				<Link padded underline block href={'/radios'}>Radios</Link>
+				<Link padded underline block href={'/gradient'}>Gradient</Link>
 				<Link padded underline block href={'/select'}>Select</Link>
 				<Link padded underline block href={'/slider'}>Slider</Link>
 				<Link padded underline block href={'/table'}>Table</Link>

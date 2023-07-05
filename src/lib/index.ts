@@ -5,6 +5,7 @@ export { Card } from './components/card';
 export { Checkbox } from './components/checkbox';
 export { Dropdown, DropdownItem } from './components/select';
 export { Flex, type JustifyContent, type AlignItems, type AlignContent } from './components/flex';
+export { Gradient, GradientBorder } from './components/gradient';
 export { Grid, GridItem } from './components/grid';
 export { Input, Password } from './components/input';
 export { Link } from './components/link';
