@@ -1,5 +1,5 @@
 <script>
-	import Gradient from "./Gadient.svelte";
+	import Gradient from "./Gradient.svelte";
 
 </script>
 

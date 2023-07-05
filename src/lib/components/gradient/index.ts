@@ -1,2 +1,2 @@
-export { default as Gradient } from './Gadient.svelte';
-export { default as GradientBorder } from './GadientBorder.svelte';
+export { default as Gradient } from './Gradient.svelte';
+export { default as GradientBorder } from './GradientBorder.svelte';
