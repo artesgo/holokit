@@ -1,2 +1,2 @@
-export { default as Gradient } from './Gradient.svelte';
-export { default as GradientBorder } from './GradientBorder.svelte';
+export { default as HoloGradient } from './holo-gradient.svelte';
+export { default as HoloGradientBorder } from './holo-gradient-border.svelte';

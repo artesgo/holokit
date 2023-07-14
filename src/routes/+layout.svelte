@@ -24,8 +24,9 @@
 	setContext('theme', theme);
 	setContext('focus', focusManager);
 	setContext('media', mediaManager);
-	let value: 'void' | 'clear' | 'light' = 'void';
+	let value: 'void' | 'clear' | 'light' | 'slate' = 'void';
 	$: $theme = value;
+	let focused = false;
 </script>
 
 <svelte:head>
@@ -34,48 +35,43 @@
 
 <MediaMonitor />
 
+<div class="fixed" class:focused>
+	<Button on:click={() => focusManager.focus('heading')} on:focus={() => focused = true} on:blur={() => focused = false}>Go To Main</Button>
+</div>
+
 <Theme stretch="window" theme={$theme} class="mint pattern-dots-sm">
-	<header>
-		<Flex row gap={2} justifyContent="between">
-			<div>
-				<Button on:click={() => focusManager.focus('heading')}>Go To Main</Button>
-			</div>
-
-			<Dropdown label="Theme" bind:value component={Button} triggerProps={{ width: '200px' }}>
-				<DropdownItem
-					component={Button}
-					value="light"
-					triggerProps={{ width: '200px', theme: 'info' }}
-				>
-					Light
-				</DropdownItem>
-				<!-- <DropdownItem component={Button} value='void' triggerProps={{ width: '200px', theme: 'warning' }}>
-					Red
-				</DropdownItem> -->
-				<DropdownItem
-					component={Button}
-					value="clear"
-					triggerProps={{ width: '200px', theme: 'danger' }}
-				>
-					Clear
-				</DropdownItem>
-				<DropdownItem
-					component={Button}
-					value="void"
-					triggerProps={{ width: '200px', theme: 'neutral' }}
-				>
-					Dark
-				</DropdownItem>
-				<!-- <DropdownItem component={Button} on:click={() => $theme = 'clear'} triggerProps={{ width: '200px', theme: 'neutral' }}>
-					Item 4
-				</DropdownItem> -->
-			</Dropdown>
-		</Flex>
-	</header>
-
-	<Grid columnTemplate="200px 1fr" stretch="element">
+	<Grid columnTemplate="200px 1fr" stretch="window">
 		<Card>
-			<ul>
+			<nav>
+				<Dropdown label="Theme" bind:value component={Button} triggerProps={{ width: '200px' }}>
+					<DropdownItem
+						component={Button}
+						value="light"
+					>
+						Light
+					</DropdownItem>
+					<!-- <DropdownItem component={Button} value='void' triggerProps={{ width: '200px', theme: 'warning' }}>
+						Red
+					</DropdownItem> -->
+					<DropdownItem
+						component={Button}
+						value="clear"
+					>
+						Clear
+					</DropdownItem>
+					<DropdownItem
+						component={Button}
+						value="void"
+					>
+						Dark
+					</DropdownItem>
+					<DropdownItem
+						component={Button}
+						value="slate"
+					>
+						Slate
+					</DropdownItem>
+				</Dropdown>
 				<Link padded underline block href={'/'}>Home</Link>
 				<Link padded underline block href={'/alert'}>Alerts</Link>
 				<Link padded underline block href={'/checkbox'}>Checkbox</Link>
@@ -90,7 +86,7 @@
 				<Link padded underline block href={'/table'}>Table</Link>
 				<Link padded underline block href={'/theme'}>Theme</Link>
 				<Link padded underline block href={'/focus'}>Focus Management</Link>
-			</ul>
+			</nav>
 		</Card>
 		<main>
 			<slot />
@@ -99,8 +95,7 @@
 </Theme>
 
 <style lang="scss">
-	main,
-	header {
+	main {
 		width: 100%;
 		margin: 0 auto;
 		padding-left: var(--padding-h-l);
@@ -109,14 +104,20 @@
 		background-color: var(--background-color);
 	}
 
-	header {
-		padding-top: var(--padding-v-l);
-		padding-bottom: var(--padding-v-l);
+	main,
+	nav {
+		padding-top: 2rem;
 	}
 
-	@media print {
-		header {
-			display: none;
-		}
+	.fixed {
+		position: fixed;
+		margin: 0 auto;
+		opacity: 0.1;
+		transition: 300ms;
+		left: 50%;
+	}
+
+	.fixed.focused {
+		opacity: 1;
 	}
 </style>

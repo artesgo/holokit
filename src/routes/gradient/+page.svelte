@@ -1,14 +1,14 @@
 <script>
-	import { Gradient, GradientBorder, Flex } from "$lib";
+	import {  Flex } from "$lib";
 </script>
 
 <div class="vars">
   <Flex gap={2}>
-    <GradientBorder>
-        <div>Test</div>
-        <div>Test</div>
-        <div>Test</div>
-        <div>Test</div>
+    <!-- <GradientBorder>
+      <div>Test</div>
+      <div>Test</div>
+      <div>Test</div>
+      <div>Test</div>
     </GradientBorder>
   
     
@@ -17,7 +17,7 @@
       <div>Test</div>
       <div>Test</div>
       <div>Test</div>
-    </Gradient>
+    </Gradient> -->
   </Flex>
 </div>
 

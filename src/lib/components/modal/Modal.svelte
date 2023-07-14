@@ -53,11 +53,10 @@
 <svelte:window on:keydown={escapeHandler} />
 
 {#if open}
-	<!-- ignore a11y, add keyboard controls for achieving the same -->
 	<!-- svelte-ignore a11y-click-events-have-key-events -->
 	<div
 		class="holo-modal-overlay"
-		role="dialog"
+		role="dialog" 
 		aria-labelledby="holo-modal"
 		transition:scale={{
 			duration,
@@ -79,17 +78,20 @@
 				{#if $$slots.alert}
 					<slot name="alert" />
 				{:else}
-					<slot name="header">Default header</slot>
+					<slot name="header">Modal</slot>
 				{/if}
 			</header>
+
 			<section class="holo-modal-body">
 				<slot>Default body</slot>
 			</section>
+
 			<footer class="holo-modal-footer">
 				<slot name="footer">
 					<Button on:click={closeModal}>Close</Button>
 				</slot>
 			</footer>
+
 			<button class="sr-only" on:focus={goToStart} />
 		</div>
 	</div>

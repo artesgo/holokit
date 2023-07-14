@@ -4,7 +4,7 @@
 	import type { Writable } from 'svelte/store';
   import Highlight from "svelte-highlight";
   import xml from "svelte-highlight/languages/xml";
-	let theme = getContext<Writable<'void' | 'light'>>('theme');
+	let theme = getContext<Writable<'void' | 'light' | 'clear' | 'slate'>>('theme');
   let code = `<Theme grow theme={$theme}>
   <Alert type="neutral">Hello</Alert>
 </Theme>

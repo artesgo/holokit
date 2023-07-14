@@ -1,10 +1,10 @@
 <script lang="ts">
-	import type { Stretch } from '../common';
-	export let grow = false;
-	export let flex = false;
-	export let stretch: Stretch = 'none';
-	export let between = false;
-	export let fullWidth = false;
+	import type { ICardProps } from './card.types';
+	export let grow: ICardProps['grow'] = false;
+	export let flex: ICardProps['flex'] = false;
+	export let stretch: ICardProps['stretch'] = 'none';
+	export let between: ICardProps['between'] = false;
+	export let fullWidth: ICardProps['fullWidth'] = false;
 </script>
 
 <section class="holo-card" class:grow class:flex

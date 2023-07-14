@@ -1,6 +1,5 @@
-<script>
-	import Gradient from "./Gradient.svelte";
-
+<script lang="ts">
+	import Gradient from "./holo-gradient.svelte";
 </script>
 
 <Gradient>
