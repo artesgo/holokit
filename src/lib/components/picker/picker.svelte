@@ -79,6 +79,12 @@
 		}
 	}
 
+	function keepTrackingTouch(event: TouchEvent) {
+		if (mousedown) {
+			console.log(event);
+		}
+	}
+
 	function clamp(min: number, max: number, value: number) {
 		return Math.floor(Math.min(Math.max(value, min), max));
 	}
@@ -197,12 +203,19 @@
 
 <Theme theme="clear" override={{ successLightest: hex, color: hex }}>
 	<section class="relative">
-		<Input id="hex" bind:value={hex} readonly on:click={() => (showPicker = !showPicker)}>Note Colour</Input>
+		<Input id="hex" bind:value={hex} readonly on:click={() => (showPicker = !showPicker)}
+			>Note Colour</Input
+		>
 		<div class="absolute inverse-font-color">{hex}</div>
 	</section>
 </Theme>
 
-<svelte:body on:mouseup={mouseUp} on:mousemove={keepTracking} />
+<svelte:body
+	on:mouseup={mouseUp}
+	on:touchend={mouseUp}
+	on:mousemove={keepTracking}
+	on:touchmove|preventDefault|stopPropagation={keepTrackingTouch}
+/>
 
 {#if showPicker}
 	<section transition:slide>
@@ -210,11 +223,13 @@
 		<Flex gap={2} row justifyContent="around">
 			<div class="picker outer relative no-selection">
 				<!-- click around the box to pick -->
+				<!-- svelte-ignore a11y-no-static-element-interactions -->
 				<div
 					id="color-picker"
 					class="picker inner no-selection absolute"
 					on:click={(event) => setColor(event.offsetX, event.offsetY)}
 					on:mousedown={mouseDown}
+					on:touchstart={mouseDown}
 					on:focus
 					on:blur
 					style={gradient}
@@ -237,6 +252,10 @@
 {/if}
 
 <style>
+	#color-picker {
+		touch-action: none;
+	}
+
 	div.picker {
 		width: 255px;
 		height: 255px;

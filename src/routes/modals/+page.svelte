@@ -106,9 +106,14 @@ let alertModal = `<Modal bind:open={alert} on:close={onClose} duration={300}>
 	</Card>
 </Flex>
 
-<style>
+<style lang="scss">
 	.modal-demo {
 		/* Demo variable override method of updating child components */
-		--modal-width: 750px;
+		--modal-width: 50%;
+		--modal-max-width: 750px;
+		
+		@media (max-width: 768px) {
+			--modal-width: 90%;
+		}
 	}
 </style>

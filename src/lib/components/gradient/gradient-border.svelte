@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Gradient from "./holo-gradient.svelte";
+	import Gradient from "./gradient.svelte";
 </script>
 
 <Gradient>
@@ -12,5 +12,6 @@
   .card {
     background: var(--background-color);
     border-radius: var(--border-radius);
+    padding: var(--padding);
   }
 </style>

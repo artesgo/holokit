@@ -12,7 +12,6 @@
 	export let duration = 0;
 	export let easing = cubicInOut;
 	export let start = 2;
-	export let width = '50%';
 
 	let dispatcher = createEventDispatcher();
 	let header: HTMLElement;
@@ -42,12 +41,6 @@
 	$: if (!open) {
 		dispatcher('close');
 	}
-	let style = '';
-	$: {
-		if (width !== undefined) {
-			style = 'width: ' + width + ';';
-		}
-	}
 </script>
 
 <svelte:window on:keydown={escapeHandler} />
@@ -67,7 +60,8 @@
 	>
 		<Overlay on:click={closeModal} />
 		<button on:focus={goToStart} />
-		<div class="holo-modal" {style} on:click|stopPropagation>
+		<!-- svelte-ignore a11y-no-static-element-interactions -->
+		<div class="holo-modal" on:click|stopPropagation>
 			<header
 				class="holo-modal-header"
 				class:alert-header={$$slots.alert}
@@ -118,7 +112,8 @@
 		border: var(--border);
 		border-radius: var(--border-radius);
 		box-shadow: 0px 0px var(--box-shadow) var(--color);
-		max-width: var(--modal-width);
+		width: var(--modal-width);
+		max-width: var(--modal-max-width);
 		z-index: 1000;
 		padding: var(--padding-h-m);
 		font-weight: var(--font-weight-s);

@@ -1,1 +1,1 @@
-export { default as HoloPicker } from './holo-picker.svelte';
+export { default as Picker } from './picker.svelte';
