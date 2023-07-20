@@ -3,7 +3,7 @@
 	import { getContext } from 'svelte';
 	import { fade } from 'svelte/transition';
 	import type { ICheckboxProps } from './checkbox.types';
-	export let id: ICheckboxProps['id'] = '';
+	export let id: ICheckboxProps['id'];
 	export let checked: ICheckboxProps['checked'] = undefined;
 	// TODO: control size
 	// export let size: $$props['size'] = 'm';
@@ -22,7 +22,7 @@
 	}
 	let element: HTMLElement;
 	const focusManager = getContext<FocusManagerContext>('focus');
-	$: if (element && !!$focusManager.focused && $focusManager.focused === id) {
+	$: if (element && focusManager && !!$focusManager.focused && $focusManager.focused === id) {
 		element.focus();
 	}
 </script>
@@ -72,34 +72,34 @@
 				</slot>
 			{/if}
 		</svg>
+		<input
+			{id}
+			type="checkbox"
+			bind:checked
+			bind:this={element}
+			class="sr-only"
+			{disabled}
+			on:mouseover={focus}
+			on:focus={focus}
+			on:blur={blur}
+			on:mouseout={blur}
+			on:blur
+			on:click
+			on:contextmenu
+			on:dblclick
+			on:focus
+			on:mousedown
+			on:mouseenter
+			on:mouseleave
+			on:mouseup
+			on:mousemove
+			on:mouseout
+			on:mouseover
+			on:keydown
+			on:keyup
+			on:keypress
+		/>
 	</label>
-	<input
-		{id}
-		type="checkbox"
-		bind:checked
-		bind:this={element}
-		class="sr-only"
-		{disabled}
-		on:mouseover={focus}
-		on:focus={focus}
-		on:blur={blur}
-		on:mouseout={blur}
-		on:blur
-		on:click
-		on:contextmenu
-		on:dblclick
-		on:focus
-		on:mousedown
-		on:mouseenter
-		on:mouseleave
-		on:mouseup
-		on:mousemove
-		on:mouseout
-		on:mouseover
-		on:keydown
-		on:keyup
-		on:keypress
-	/>
 </section>
 
 <style lang="scss">

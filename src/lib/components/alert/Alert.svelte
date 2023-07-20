@@ -2,19 +2,27 @@
 	import Eyecon from '../../icons/Eyecon.svelte';
 	import Flex from '../flex/Flex.svelte';
   import type { IAlertProps } from './alert.types';
+  export let id: IAlertProps['id'] = '';
   export let title: IAlertProps['title'] = 'Title';
   export let body: IAlertProps['body'] = '';
   export let theme: IAlertProps['theme'] = 'success';
   export let row: IAlertProps['row'] = false;
+
+  // structure that applies the optional id prop, and does not apply '' as id
+  $: props = {
+    ...( id ? { id } : {})
+  }
 </script>
 
 <section
+  {...props}
   class="holo-alert"
   class:success={theme === 'success'}
   class:neutral={theme === 'neutral'}
   class:danger={theme === 'danger'}
   class:warning={theme === 'warning'}
   class:info={theme === 'info'}
+  tabindex="-1"
 >
   <header>
     <Flex {row} gap={1} alignItems="center">

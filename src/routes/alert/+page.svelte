@@ -31,7 +31,7 @@
 <Flex gap={1}>
   <Flex row={false} gap={1}>
     <Theme grow theme={$theme} override={{ color: '#fef' }}>
-      <Alert theme="neutral">Welcome</Alert>
+      <Alert id="alert-1" theme="neutral">Welcome</Alert>
     </Theme>
     <Theme grow theme={$theme} override={{ color: '#fef' }}>
       <Alert>To</Alert>

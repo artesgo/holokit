@@ -13,7 +13,7 @@
 
 	const focusManager = getContext<FocusManagerContext>('focus');
 	let element: HTMLElement;
-	$: if (element && !!$focusManager.focused && $focusManager.focused === id) {
+	$: if (element && focusManager && !!$focusManager.focused && $focusManager.focused === id) {
 		element.focus();
 	}
 

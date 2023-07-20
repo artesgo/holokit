@@ -16,7 +16,7 @@
 	let dispatcher = createEventDispatcher();
 	let header: HTMLElement;
 	const focusManager = getContext<FocusManagerContext>('focus');
-	$: if (header && !!$focusManager.focused && $focusManager.focused === id) {
+	$: if (header && focusManager && !!$focusManager.focused && $focusManager.focused === id) {
 		header.focus();
 	}
 

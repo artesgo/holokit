@@ -15,8 +15,9 @@
 	import type { FocusManagerContext } from '$lib/stores';
 	let left = tweened(value, { duration: 100 });
 	const focusManager = getContext<FocusManagerContext>('focus');
+
 	let element: HTMLElement;
-	$: if (element && !!$focusManager.focused && $focusManager.focused === id) {
+	$: if (element && focusManager && !!$focusManager.focused && $focusManager.focused === id) {
 		element.focus();
 	}
 
@@ -98,7 +99,7 @@
 		z-index: 1;
 		position: relative;
 		top: 8px;
-		/* opacity: 0; */
+		opacity: 0;
     touch-action: none;
 	}
 	.track.holo-success {

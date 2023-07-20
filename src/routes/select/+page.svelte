@@ -54,7 +54,7 @@
 	</Card>
 	<Flex gap={2}>
 		<Card>
-			<Dropdown bind:backdrop label="Dropdown" bind:value component={Button} width="100%">
+			<Dropdown id="not-test" bind:backdrop label="Dropdown" bind:value component={Button} width="100%">
 				<DropdownItem value="one" component={Button} {...triggerProps}>Item 1</DropdownItem>
 				<DropdownItem value="two" component={Button} {...triggerProps}>Item 2</DropdownItem>
 				<DropdownItem value="three" component={Button} {...triggerProps}>Item 3</DropdownItem>
@@ -70,7 +70,7 @@
 			</Dropdown>
 			<div>... Other Content</div>
 
-			<Dropdown label="Alternate Template" bind:value component={Button} {...triggerProps} backdrop>
+			<Dropdown id="also-test" label="Alternate Template" bind:value component={Button} {...triggerProps} backdrop>
 				<DropdownItem value="one" component={Link} {...triggerProps} underline="true" href="/select" on:click={popup}>
 					Item 1
 				</DropdownItem>
@@ -88,7 +88,7 @@
 				<span slot="header">Modal Header</span>
 				Modal with Dropdown
         <div>
-          <Dropdown label="Modal Dropdown" bind:value component={Button} {...triggerProps} backdrop>
+          <Dropdown id="test" label="Modal Dropdown" bind:value component={Button} {...triggerProps} backdrop>
             <DropdownItem value="one" component={Button} {...triggerProps}>Item 1</DropdownItem>
             <DropdownItem value="two" component={Button} {...triggerProps}>Item 2</DropdownItem>
             <DropdownItem value="three" component={Button} {...triggerProps}>Item 3</DropdownItem>
