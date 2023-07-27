@@ -40,6 +40,7 @@
 		<span class="spacer" class:apart />
 		<svg
 			class:focused
+			class:disabled
 			xmlns="http://www.w3.org/2000/svg"
 			width="24"
 			height="24"
@@ -126,10 +127,13 @@
 		border: var(--border);
 		border-width: var(--border-width-m);
 		border-radius: var(--border-radius);
-		background: #dedede;
+		background: var(--background-color);
 		&.focused {
 			outline: 1px solid var(--outline-color);
 			outline-offset: var(--outline-offset);
+		}
+		&.disabled {
+			background: var(--color-alt);
 		}
 	}
 	input {

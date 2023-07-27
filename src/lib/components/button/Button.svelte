@@ -46,6 +46,8 @@
 	class:holo-info={theme === 'info'}
 	class:holo-danger={theme === 'danger'}
 	class:holo-neutral={theme === 'neutral'}
+	class:holo-disabled={disabled}
+
 	class:holo-padding-s={size === 's'}
 	class:holo-padding-m={size === 'm'}
 	class:holo-padding-l={size === 'l'}
@@ -98,6 +100,10 @@
 		&:hover {
 			background: var(--success-darker);
 		}
+		&.holo-disabled {
+			background: var(--success-lightest);
+			color: black;
+		}
 	}
 	.holo-warning {
 		background: var(--warning);
@@ -108,6 +114,10 @@
 		&:hover {
 			background: var(--warning-darker);
 		}
+		&.holo-disabled {
+			background: var(--warning-lightest);
+			color: black;
+		}
 	}
 	.holo-info {
 		background: var(--info);
@@ -117,6 +127,10 @@
 			0 -2px 4px var(--info-lighter);
 		&:hover {
 			background: var(--info-darker);
+		}
+		&.holo-disabled {
+			background: var(--info-lightest);
+			color: black;
 		}
 	}
 	.holo-danger {
@@ -129,6 +143,9 @@
 		&:hover {
 			background: var(--danger-darker);
 		}
+		&.holo-disabled {
+			background: var(--danger-lightest);
+		}
 	}
 	.holo-neutral {
 		background: var(--neutral);
@@ -139,6 +156,9 @@
 			0 2px 4px var(--neutral-darker), 0 -2px 4px var(--neutral-darker);
 		&:hover {
 			background: var(--neutral-darker);
+		}
+		&.holo-disabled {
+			background: var(--neutral-lightest);
 		}
 	}
 	.holo-padding-s {

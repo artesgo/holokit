@@ -24,7 +24,7 @@
 	setContext('theme', theme);
 	setContext('focus', focusManager);
 	setContext('media', mediaManager);
-	let value: 'void' | 'clear' | 'light' | 'slate' = 'void';
+	let value: 'void' | 'clear' | 'light' | 'slate' | 'sapling' = 'void';
 	$: $theme = value;
 	let focused = false;
 </script>
@@ -70,6 +70,12 @@
 						value="slate"
 					>
 						Slate
+					</DropdownItem>
+					<DropdownItem
+						component={Button}
+						value="sapling"
+					>
+						Sapling
 					</DropdownItem>
 				</Dropdown>
 				<Link padded underline block href={'/'}>Home</Link>

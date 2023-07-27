@@ -81,7 +81,7 @@
 
 	function keepTrackingTouch(event: TouchEvent) {
 		if (mousedown) {
-			console.log(event);
+			// console.log(event);
 		}
 	}
 
@@ -214,8 +214,8 @@
 	on:mouseup={mouseUp}
 	on:touchend={mouseUp}
 	on:mousemove={keepTracking}
-	on:touchmove|preventDefault|stopPropagation={keepTrackingTouch}
 />
+<!-- on:touchmove|preventDefault|stopPropagation={keepTrackingTouch} -->
 
 {#if showPicker}
 	<section transition:slide>

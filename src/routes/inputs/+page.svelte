@@ -8,7 +8,6 @@
 <Input bind:value type="info">Label</Input>
 <Input bind:value type="danger">Label</Input>
 <Input bind:value type="neutral">Label</Input>
-buttons sold separately
 `;
 
 function change(value: CustomEvent) {

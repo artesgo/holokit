@@ -118,7 +118,7 @@
 		border: var(--border);
 		border-width: var(--border-width-m);
 		border-radius: var(--border-radius-rounded);
-		background: #dedede;
+		background: var(--background-color);
 		&.focused {
 			outline: 1px solid var(--outline-color);
 			outline-offset: var(--outline-offset);

@@ -8,6 +8,7 @@
   let reverse = false;
   let apart = false;
   let checked = false;
+  let disabled = false;
 	let code = `<Checkbox id='chk-1' bind:checked${reverse ? ' reverse' : ''}>
   Regular Position
 </Checkbox>`;
@@ -23,15 +24,17 @@
     <h2>Props</h2>
 		<Checkbox id={'chk-1'} reverse bind:checked={reverse}>reverse</Checkbox>
 		<Checkbox id={'chk-2'} reverse bind:checked={apart}>apart</Checkbox>
+		<Checkbox id={'chk-3'} reverse bind:checked={disabled}>disabled</Checkbox>
     <br />
 		<Highlight language={xml} {code} />
 	</Card>
 
 	<Card grow>
 		<Checkbox
-			id={'chk-3'}
+			id={'chk-4'}
 			{apart}
 			{reverse}
+			{disabled}
       bind:checked
 			on:click={bindings}
 			on:mouseover={bindings}
