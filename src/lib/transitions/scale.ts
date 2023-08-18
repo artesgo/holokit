@@ -1,7 +1,6 @@
 import { gsap } from 'gsap';
-import type { Vec2Ease } from './ease';
 
-export function gscale(node: HTMLElement, { ease, duration = 1000 }: Vec2Ease) {
+export function gscale(node: HTMLElement, { ease = 'none', duration = 1000 } = {}) {
 	const timeline = gsap.timeline();
 	const _duration = duration / 1000;
 	timeline

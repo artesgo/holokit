@@ -1,7 +1,6 @@
 import { gsap } from 'gsap';
-import type { Vec2Ease } from './ease';
 
-export function gfly(node: HTMLElement, { ease = 'none', duration = 1000, y = 0, x = 0 }: Vec2Ease) {
+export function gfly(node: HTMLElement, { ease = 'none', duration = 1000, y = 0, x = 0 } = {}) {
 	const timeline = gsap.timeline();
   const _duration = duration / 1000;
 	timeline

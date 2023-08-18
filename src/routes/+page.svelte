@@ -21,7 +21,7 @@
 </div>
 
 {#if show}
-	<div transition:gfade={{ ease: 'none', duration: 1000}}>
+	<div transition:gfade>
 		<Button disabled theme={'success'} size={'s'}>Welcome</Button>
 		<Button disabled theme={'warning'} size={'s'}>To</Button>
 		<Button disabled theme={'info'} size={'s'}>The</Button>

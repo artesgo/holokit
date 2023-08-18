@@ -1,7 +1,6 @@
 import { gsap } from "gsap";
-import type { BlurEase } from "./ease";
 
-export function gblur(node: HTMLElement, { blur: _blur = '1rem', ease, duration = 1000 }: BlurEase) {
+export function gblur(node: HTMLElement, { blur: _blur = '1rem', ease = 'none', duration = 1000 } = {}) {
 	const timeline = gsap.timeline();
 	const f = node.style.filter;
 	const _duration = duration / 1000;

@@ -1,7 +1,6 @@
 import { gsap } from 'gsap';
-import type { Ease } from './ease';
 
-export function gfade(node: HTMLElement, { ease, duration = 1000 }: Ease) {
+export function gfade(node: HTMLElement, { ease = 'none', duration = 1000 } = {}) {
 	const timeline = gsap.timeline();
 	const _duration = duration / 1000;
 	timeline
