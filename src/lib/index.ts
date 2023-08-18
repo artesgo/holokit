@@ -24,3 +24,4 @@ export { createFocusManager, type FocusState, type FocusManagerContext } from '.
 export { createMediaManager, type MediaState, type MediaContext, isBreakpoint } from './stores';
 // export * from './patterns';
 export * from './icons';
+export * from './transitions';
