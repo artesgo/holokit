@@ -2,13 +2,13 @@
 	import { createEventDispatcher, onMount } from 'svelte';
 	import { cubicInOut, linear } from 'svelte/easing';
 	import { tweened } from 'svelte/motion';
-	import { slide } from 'svelte/transition';
 
 	import Theme from '../theme/Theme.svelte';
 	import { Input } from '../input';
 	import Flex from '../flex/Flex.svelte';
 	import Slider from '../slider/Slider.svelte';
 	import type { IPickerProps } from './picker.types';
+	import { gfly } from '$lib/transitions';
 
 	let dispatch = createEventDispatcher();
 	export let red: IPickerProps['red'] = 0;
@@ -209,16 +209,12 @@
 		<div class="absolute inverse-font-color">{hex}</div>
 	</section>
 </Theme>
+<button class="sr-only" on:click|stopPropagation={() => (showPicker = !showPicker)}> { showPicker ? 'Hide' : 'Open'} Color Picker </button>
 
-<svelte:body
-	on:mouseup={mouseUp}
-	on:touchend={mouseUp}
-	on:mousemove={keepTracking}
-/>
-<!-- on:touchmove|preventDefault|stopPropagation={keepTrackingTouch} -->
+<svelte:body on:mouseup={mouseUp} on:touchend={mouseUp} on:mousemove={keepTracking} />
 
 {#if showPicker}
-	<section transition:slide>
+	<section transition:gfly={{ y: 99 }}>
 		<!-- svelte-ignore a11y-click-events-have-key-events -->
 		<Flex gap={2} row justifyContent="around">
 			<div class="picker outer relative no-selection">
