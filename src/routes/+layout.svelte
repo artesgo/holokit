@@ -7,7 +7,6 @@
 	import {
 		Link,
 		Theme,
-		Flex,
 		createFocusManager,
 		Button,
 		Grid,

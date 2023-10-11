@@ -108,7 +108,6 @@
 	.holo-modal {
 		position: absolute;
 		background-color: var(--background-color-modal);
-		color: var(--color);
 		border: var(--border);
 		border-radius: var(--border-radius);
 		box-shadow: 0px 0px var(--box-shadow) var(--color);
