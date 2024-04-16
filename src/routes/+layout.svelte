@@ -82,6 +82,7 @@
 				<Link padded underline block href={'/checkbox'}>Checkbox</Link>
 				<Link padded underline block href={'/gradient'}>Gradient</Link>
 				<Link padded underline block href={'/grid'}>Grid</Link>
+				<Link padded underline block href={'/card'}>Card</Link>
 				<Link padded underline block href={'/inputs'}>Input</Link>
 				<Link padded underline block href={'/modals'}>Modal</Link>
 				<Link padded underline block href={'/picker'}>Picker</Link>

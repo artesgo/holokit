@@ -21,10 +21,10 @@
   ...
 </Grid>`;
 
-	let fm = getContext<MediaContext>('media');
-	$: gridTemplateCols = isBreakpoint($fm).atLeastTablet() ? '1fr 3fr 1fr' : '1fr';
-	$: gridTemplateRows = isBreakpoint($fm).atLeastTablet() ? '1fr 3fr 1fr' : undefined;
-	$: atLeastTablet = isBreakpoint($fm).atLeastTablet();
+	let mc = getContext<MediaContext>('media');
+	$: gridTemplateCols = isBreakpoint($mc).atLeastTablet() ? '1fr 3fr 1fr' : '1fr';
+	$: gridTemplateRows = isBreakpoint($mc).atLeastTablet() ? '1fr 3fr 1fr' : undefined;
+	$: atLeastTablet = isBreakpoint($mc).atLeastTablet();
 </script>
 
 <svelte:head>
