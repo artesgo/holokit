@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Button, Popover, Card, Flex, RadioGroup, Radio, Title } from '$lib';
+	import { Button, Popover, Card, Flex, Radio, Title } from '$lib';
 	
   import Highlight from "svelte-highlight";
   import xml from "svelte-highlight/languages/xml";
@@ -22,12 +22,10 @@
 	<Flex row gap={1}>
 		<Card grow>
 			<h2>Radio Props</h2>
-			<RadioGroup name="g" bind:value>
-				<Radio value="top" reverse>top</Radio>
-				<Radio value="bottom" reverse>bottom</Radio>
-				<Radio value="left" reverse>left</Radio>
-				<Radio value="right" reverse>right</Radio>
-			</RadioGroup>
+			<Radio bind:group={value} value="top" reverse>top</Radio>
+			<Radio bind:group={value} value="bottom" reverse>bottom</Radio>
+			<Radio bind:group={value} value="left" reverse>left</Radio>
+			<Radio bind:group={value} value="right" reverse>right</Radio>
 		</Card>
 		<Card grow>
 			<Popover bind:show placement={value}>

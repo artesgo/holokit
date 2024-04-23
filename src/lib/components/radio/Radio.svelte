@@ -1,15 +1,15 @@
 <script lang="ts">
 	import { getContext } from 'svelte';
-	import type { Writable } from 'svelte/store';
 	import { fade } from 'svelte/transition';
 
 	import type { IRadioProps } from './radio.types';
 	import type { FocusManagerContext } from '$lib/stores';
+
 	export let id: IRadioProps['id'] = '';
 	export let value: IRadioProps['value'] = '';
 	export let reverse: IRadioProps['reverse'] = false;
 	export let apart: IRadioProps['apart'] = false;
-	// export let theme: RadioProps['theme'] = 'success';
+	export let group: IRadioProps['group'] = '';
 
 	const focusManager = getContext<FocusManagerContext>('focus');
 	let element: HTMLElement;
@@ -17,9 +17,6 @@
 		element.focus();
 	}
 
-	const { selectedValue, name } = getContext<{ selectedValue: Writable<string | number | undefined>; name: string }>(
-		'RadioGroup'
-	);
 	let focused = false;	
 	function focus() {
 		focused = true;
@@ -40,7 +37,7 @@
 		viewBox="0 0 256 256"
 		fill="none"
 	>
-		{#if $selectedValue === value}
+		{#if group === value}
 			<slot name="icon">
 				<g transition:fade={{ duration: 100 }}>
 					<path
@@ -68,13 +65,11 @@
 	</svg>
 	<input
 		{id} data-testid={id}
-		{name}
 		{value}
+		bind:group
 		type="radio"
 		class="sr-only"
-		checked={$selectedValue === value}
 		bind:this={element}
-		on:click={() => ($selectedValue = value)}
 		on:mouseover={focus}
 		on:focus={focus}
 		on:blur={blur}

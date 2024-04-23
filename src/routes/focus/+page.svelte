@@ -7,7 +7,6 @@
     Link,
     Dropdown,
     DropdownItem,
-    RadioGroup,
     Radio,
     Slider,
     Input
@@ -71,10 +70,10 @@ $: if (element && !!$focusManager.focused && $focusManager.focused === id) {
         <DropdownItem value="two" component={Button}>Item 2</DropdownItem>
         <DropdownItem value="three" component={Button}>Item 3</DropdownItem>
       </Dropdown>
-      <RadioGroup name="focus-7">
-        <Radio id="focus-7" value="yes">Yes</Radio>
-        <Radio id="focus-8" value="no">No</Radio>
-      </RadioGroup>
+
+      <Radio id="focus-7" bind:group={value} value="yes">Yes</Radio>
+      <Radio id="focus-8" bind:group={value} value="no">No</Radio>
+
       <Slider id="focus-9" label={'Volume'} />
       <Input id="focus-10">Label For Input</Input>
     </Flex>
